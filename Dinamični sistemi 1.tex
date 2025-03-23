@@ -20,6 +20,9 @@
 \usepackage{ulem}
 \usepackage{esdiff}
 \usepackage{pgfplots}
+\usepackage{caption}
+\usetikzlibrary{shapes.symbols}
+
 
 
 \newtheorem{definicija}{Definicija}
@@ -40,58 +43,89 @@
 \newcommand{\dd}{\mathrm{d}}
 
 \title{Dinamika realnih funkcij}
-\author{Jest}
+\author{Uroš Kosmač}
 
 \begin{document}
 
 % Create a new 1st level heading
 \section{Uvod}
-Kaj so dinamični sistemi? Najbolj enostavno jih lahko opišemo kot: DS $=$ množica možnih stanj $+$ deterministično evolucijsko pravilo. Oziroma drugače povedano, obravnavamo delec v množici možnih stanj, pravilo, pa nam pove, kaj se z njim zgodi v naslednjem trenutku.\\ 
+Kaj so dinamični sistemi? Najbolj enostavno jih lahko opišemo kot:\\[1mm]
+\begin{tikzpicture}
+    \node[text width=1.1cm,inner sep=0pt]
+    [execute at begin node=\setlength{\baselineskip}{8pt},
+        cloud,
+        draw] (c) at (0,0)
+    {\scriptsize{Dinamični\\sistem}};
+    \node at (2,0) {\huge $=$};
+    \node[text width=1.1cm,inner sep=2pt]
+    [execute at begin node=\setlength{\baselineskip}{8pt},
+        cloud,
+        draw] (c) at (4,0)
+    {\scriptsize{Množica možnih\\ \text{stanj delca}}};
+    \node at (6,0) {\huge $+$};
+    \node[text width=1.5cm,inner sep=2pt]
+    [execute at begin node=\setlength{\baselineskip}{8pt},
+        cloud,
+        draw] (c) at (8,0)
+    {\scriptsize{Deterministično evolucijsko\\stanje}};
+\end{tikzpicture}
+~\\[1mm]
+Drugače povedano, obravnavamo delec v množici možnih stanj, pravilo, pa nam pove, kaj se z njim zgodi v naslednjem trenutku.\\ 
 Deterministično, v našem kontekstu pomeni, da je naslednji korak odvisen le od trenutnega stanja delca.\\ 
 V grobem jih glede na tip koraka, ločimo na \textbf{diskretne} in \textbf{zvezne} sisteme. V splošnem jih lahko obravnavamo na npr. metričnih ali topoloških prostorih, mi pa se bomo omejili na $\R^n$ in $\C$. Obravnavali bomo
 \begin{enumerate}
-\item[i)] Diferenčne enačbe oz. rekurzivna zaporedja $F: S\rightarrow S$, $x_{n+1} = F(x_n)$, pri različnih začetnih pogojih $x_0 \in S$, kjer je $S$ množica stanja v $\R^n$ ali $\C$. Temu rečemo diskretna dinamika funkcije oz. preslikave $F$
+\item[i)] Diferenčne oz.rekurzivna enačbe $x_{n+1} = F(x_n)$, 
+za $F: S\rightarrow S$ in pri različnih začetnih pogojih $x_0 \in S$, kjer je $S$ množica stanja v $\R^n$ ali $\C$. Temu rečemo diskretna dinamika funkcije oz. preslikave $F$
 \item[ii)] Nelinearni sistemi navadnih diferencilnih enačb, $F: S\subseteq \R^n \rightarrow S \subseteq \R^n$, $\dot{x} = F(x)$, $x\in S$. To bo model za zvezne dinamične sisteme v $\R^n$.
 \end{enumerate}
 
 \begin{opomba}
-V obeh primer govorimo o \textbf{autonomnih sistemih} tj. pravilo ni odvisno od časa. Izkaže se, da lahko poljuben sistem prevedemo na avtonomen sistem, zato je dovolj obravnavati le te.
+V obeh primer govorimo o \textbf{autonomnih sistemih} tj. pravilo ni odvisno od časa. Pokažimo, da lahko poljuben sistem prevedemo na avtonomen sistem, zato je dovolj obravnavati le te.
 \begin{align*}
-\dot{x} = F(x,t) \iff &\dot{x} = F(x, t) \iff \dot{\tilde{x}} = \tilde{F}(\tilde{x}) \text{ za } \tilde{x} = (x, t), \tilde{F} = (F, 1) \\ 
+\dot{x} = F(x,t) \iff  &\dot{x} = F(x, t) \iff \dot{\tilde{x}} = \tilde{F}(\tilde{x}) \text{ za } \tilde{x} = (x, t) \text{ in } \tilde{F} = (F, 1) \\ 
 &\dot{t} = 1
 \end{align*}
+
+\begin{align*}
+x_{n+1} = F(x_n,n) \iff  &x_{n+1} = F(x_n, y_n) \iff \tilde{x}_{n+1} = \tilde{F}(x_n) \text{ za } \tilde{x} = (x, y) \\ 
+                         &y_{n+1} = y_n + 1
+\end{align*}
+
 tj. če nimamo dimenzijskih omejitev, so avtonomni sistemi najsplošnejši možni, saj lahko čas premaknemo v množico stanj tj. $\tilde{S} = S \times \R$ oz. $\tilde{S} = S \times \Z$.
 \end{opomba}
 
 \begin{primer}
-Imamo podatke:\\ 
-$T$ ob prihodu: $9C$\\ 
-$T$ po $1$h: $7C$\\ 
-$T$ jezera: $5C$\\ 
-Kdaj se je zgodil umor? Fizikalni zakon: telesna temperatura pada sorazmerno z razliko do temperature jezera. Diskretni model:
+Zgodil se je umor in imamo naslednje podatke:
+\begin{itemize}
+    \item Temperatur $T$ trupla ob prihodu: $T(0) = 9^\circ C$
+    \item Temperatura $T$ po $1$h: $T(1) = 7^\circ C$
+    \item Temperatura jezera $T_j$: $T_j = 5^\circ C$ 
+\end{itemize}
+Kdaj se je zgodil umor? \\
+Fizikalni zakon: telesna temperatura pada sorazmerno z razliko do temperature jezera. \\
+Diskretni model:
 $$
 T_{n+1} = T_n - k(T_n - T_j),
 $$
-kjer so:
+kjer sta:
 \begin{itemize}
 \item $k>0$ konstanta odvisna le od lasnosti trupla
-\item $T_j$ temperatura jezera
 \item $T_n - T_j$ temperaturna razlika
 \end{itemize}
 Vstavimo meritve: čas ob prihodu
 \begin{align*}
-7C = 9C - k(9C - 5C) \\ 
-\Longrightarrow k = \frac{1}{2}.
+7C &= 9C - k(9C - 5C) \\ 
+&\Longrightarrow k = \frac{1}{2}.
 \end{align*}
 Sistem, ki opisuje telesno temperaturo, je podano z 
 $$
 T_{n+1} = T_n - \frac{1}{2}(T_n - T_j) = \frac{1}{2}T_n + \frac{1}{2} T_j.
 $$
-
+\noindent
 V tem primeru lahko poiščemo ekplicitno rešitev:\\ 
 Homogeni del:
 $$
-T_{n+1} = \frac{1}{2} T_n \Longrightarrow T_n = C\Big(\frac{1}{2}\Big).
+T_{n+1} = \frac{1}{2} T_n \Longrightarrow T_n = C\Big(\frac{1}{2}\Big)^n.
 $$
 Partikularna rešitev:
 $$
@@ -101,13 +135,13 @@ Splošna rešitev:
 \begin{align*}
 T_n &= C\Big(\frac{1}{2}\Big)^n + T_j \\ 
 T_0 &= C + T_j \Longrightarrow C = T_0 - T_j\\ 
-T_n = (T_0 - T_j)\cdot\Big(\frac{1}{2}\Big)^n + T_j
+T_n &= (T_0 - T_j)\cdot\Big(\frac{1}{2}\Big)^n + T_j
 \end{align*}
 Odgovor:\\ 
 vemo, da je $T_0 = 37C$ torej imamo
 \begin{align*}
-T_n = (37 - 5) \Big(\frac{1}{2}\Big)^n  + 5 = 9 \\ 
-\Longrightarrow n = 3.
+T_n &= (37 - 5) \Big(\frac{1}{2}\Big)^n  + 5 = 9 \\ 
+&\Longrightarrow n = 3.
 \end{align*}
 Umor se je zgodil $3h$ pred prihodom.\\ 
 Zvezni model:
@@ -115,7 +149,7 @@ model je dan z
 $$
 \dot{T} = - k(T - T_j).
 $$
-Rešimo z metodo ločljivih spremenljiv (doma)
+Rešimo z metodo ločljivih spremenljiv
 $$
 T = D e^{-kt} + T_j
 $$
@@ -127,7 +161,7 @@ $$
 Čas po eni uri: $T(n+1) = 7C$.\\ 
 Rešimo sistem enačb in dobimo $n = 3$. Dobimo enak sklep kot prej, dinamični sistem, ki opisuje temperaturo, pa je
 $$
-\dot{T} = \ln(\frac{1}{2})(T - T_j) = -\ln{2}(T-T_j)
+\dot{T} = \ln\Big(\frac{1}{2}\Big)(T - T_j) = -\ln{2}(T-T_j)
 $$
 \begin{tikzpicture}
     \begin{axis}[
@@ -161,6 +195,7 @@ $$
     \end{axis}
 \end{tikzpicture}
 
+
 \vspace{1cm}
 V tem primeru, je $T \equiv 5C$ neka fiksna točka oz. ravnovesje, "pritegne" ostale rešitve. Tekom predmeta bomo spoznali bolj zapletene primere.
 \end{primer}
@@ -169,24 +204,32 @@ V tem primeru, je $T \equiv 5C$ neka fiksna točka oz. ravnovesje, "pritegne" os
 \section{Osnovni pojmi}
 Za začetek se bomo omejili na funkcije $f: I\subseteq \R \rightarrow I$, kjer je $I$ interval. Obravnavali bomo zaporedje $x_{n+1} = f(x_n)$ pri različnih pogojih $x_0 \in I$. Za začetek uvedemo oznako:
 $$
-f^n = \underbrace{f\circ f \dots \circ f}_{n \text{ kompizutmov} }
+f^n = \underbrace{f\circ f \dots \circ f}_{n \text{ kompozitumov} }
 $$
 \begin{definicija}
 \textbf{Orbita točke $x_0$} pri funkciji $f$ je podana s členi zaporedja:
 $$
 O_f(x_0) = \{x_0, x_1, \dots\} = \{f^n(x_0)\,|\, n\in \N_0\}.
 $$
-Orbita predstavlja dinamični razvoj $x_0$ pod $f$, množici vseh orbit za $x_0 \in I$ pa rečemo \textbf{dinamika funkcije $f$}.
+Orbita predstavlja dinamični razvoj točke $x_0$ pri komponiranju z $f$. 
+Množici vseh orbit za $x_0 \in I$ pa rečemo \textbf{dinamika funkcije $f$}.
 \end{definicija}
 
 \begin{primer}
-$x_{n+1} = x_n^2 + 1 \text{ oz.} f(x) = x^2 + 1$
+$x_{n+1} = x_n^2 + 1 \text{ oz. } f(x) = x^2 + 1$
 \begin{align*}
 O_f(1) &= \{1, 2, 5, 26, \dots\} \\ 
+O_f(0) &= \{0, 1, 2, 5, 26, \dots\}\\
 O_f(-2) &= \{-2, 5, 26, \dots \}
 \end{align*}
 orbite lahko pri funkcijah ene spremenljivke vizualiziramo z \textbf{pajčevinastim diagramom}.
-slika\\ 
+
+\begin{figure}[h]
+\center
+    \includegraphics[width=6cm, height=4.5cm]{Grafi/cobweb1.png}
+\end{figure}
+
+\newpage
 Postopek:
 \begin{itemize}
 \item izbereš $x_0$ na osi $x$,
@@ -196,9 +239,15 @@ Postopek:
 \end{itemize}
 \end{primer}
 
+
 \begin{primer}
 Sherlock: $x_{n+1} = \frac{1}{2} x_n + \frac{5}{2}$ oz. $f(x) = \frac{1}{2} x + \frac{5}{2}$.\\ 
-Slikca\\ 
+
+\begin{figure}[h]
+    \center
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb2.png}
+    \end{figure}
+    
 $O_f(5) = \{5, 5, \dots \}$. Za ostale orbite velja: $x_n \rightarrow 5$.
 \end{primer}
 
@@ -208,53 +257,41 @@ Točka \textbf{$x_0 \in \R$ je periodična s periodo $n\in \N$} za $f$, če zanj
 
 \begin{primer}
 $f(x) = -x^3$. \\ 
-Fiksne točke: $f(x) = x$ $\iff -x^3 = x \iff x = 0$. \\ 
-Točke periode $2$: $f^2(x) = x$ in $f(x) \neq x \iff x^9 = x$ in $-x^3 \neq x$ $\iff$ $x = \pm 1$.
+Fiksne točke: 
+$$f(x) = x \iff -x^3 = x \iff x = 0.$$ 
+Točke periode $2$: $$f^2(x) = x \text{ in } f(x) \neq x \iff x^9 = x \text{ in } -x^3 \neq x\iff x = \pm 1.$$
 
-\begin{tikzpicture}
-    \begin{axis}[
-        axis x line=middle, 
-        axis y line=middle,
-        xlabel={$x$}, ylabel={$y$},
-        xmin=-1.5, xmax=2.5, ymin=0, ymax=4.5,
-        samples=100,
-        domain=-1.5:2.5,
-        grid=major
-    ]
-        % Function y = x^2 + 1
-        \addplot[thick,blue] {x^2 + 1} node[pos=0.9,right] {$y = x^2 + 1$};
-        
-        % Line y = x (extended diagonal)
-        \addplot[thick,black] {x} node[pos=0.9,above] {$y = x$};
 
-        % Cobweb diagram for initial value x0 = 0.5
-        \draw[dotted,red] (0.5,0) -- (0.5,{0.5^2 + 1});
-        \draw[dotted,red] (0.5,{0.5^2 + 1}) -- ({0.5^2 + 1},{0.5^2 + 1});
-        \draw[dotted,red] ({0.5^2 + 1},{0.5^2 + 1}) -- ({0.5^2 + 1}, {((0.5^2 + 1)^2 + 1)});
-        \draw[dotted,red] ({0.5^2 + 1}, {((0.5^2 + 1)^2 + 1)}) -- ({((0.5^2 + 1)^2 + 1)}, {((0.5^2 + 1)^2 + 1)});
-        
-        % Cobweb diagram for initial value x0 = -0.5
-        \draw[dotted,purple] (-0.5,0) -- (-0.5, {(-0.5)^2 + 1});
-        \draw[dotted,purple] (-0.5,{(-0.5)^2 + 1}) -- ({(-0.5)^2 + 1}, {(-0.5)^2 + 1});
-        \draw[dotted,purple] ({(-0.5)^2 + 1}, {(-0.5)^2 + 1}) -- ({(-0.5)^2 + 1}, {(((-0.5)^2 + 1)^2 + 1)});
-        \draw[dotted,purple] ({(-0.5)^2 + 1}, {(((-0.5)^2 + 1)^2 + 1)}) -- ({(((-0.5)^2 + 1)^2 + 1)}, {(((-0.5)^2 + 1)^2 + 1)});
-
-    \end{axis}
-\end{tikzpicture}
-
+\begin{figure}[h!]
+    \center
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb3.png}
+        \caption{pajčevinast diagram iz Primera 3.}
+    \end{figure}    
 \end{primer}
 
 \begin{definicija}
 Orbiti $n$- periodične točke rečemo $n$-cikel.
 \end{definicija}
 
+\newpage
 \begin{definicija}
 Naj bo $x_0 \in I$ fiksna točka za $f:I \rightarrow I$.
 \begin{itemize}
 \item $x_0$ je \textbf{šibko privlačna}, če obstaja njena okolica $U\subseteq I$, da za vsak $y_0 \in U$ velja $y_n = f^n(y_0) \rightarrow x_0$.
-\item $x_0$ je \textbf{šibko odbojna}, če obstaja njena okolica $U\subseteq I$, da za vsak $y_0 \in U\slash\{x_0\}$ obstaja $m\in \N$, da je $f^m(x_0) \not\in U$.
+\item $x_0$ je \textbf{šibko odbojna}, če obstaja njena okolica $U\subseteq I$, da za vsak $y_0 \in U\backslash\{x_0\}$ obstaja $m\in \N$, da $f^m(x_0) \not\in U$.
 \end{itemize}
 Okolici iz prve točke pravimo \textbf{območje privlaka za $x_0$}, največjemu intervalu znotraj $U$, ki vsebuje $x_0$ pa rečemo \textbf{neposredno območje privlaka za $x_0$}.\\ 
+\end{definicija}
+
+\begin{opomba}
+Če je $f \in C^0(I)$ in $f^n(x) \rightarrow x_0$ je $x_0$ nujno fiksna točka:
+$$
+f^n(x) \rightarrow x_0 \Longrightarrow \lim_{n\rightarrow \infty} f^{n+1}(x)= f(x_0) = x_0 = 
+\lim_{n\rightarrow \infty} f^n(x)
+$$
+\end{opomba}
+
+\begin{definicija}
 Če je $f \in C^1(I)$, dodamo pojme:
 \begin{itemize}
 \item $x_0$ je \textbf{privlačna}, če $|f'(x_0)| < 1$.
@@ -264,26 +301,52 @@ Okolici iz prve točke pravimo \textbf{območje privlaka za $x_0$}, največjemu 
 \end{definicija}
 
 \begin{primer}
-Sherlock: $f(x) = \frac{1}{2}x + \frac{5}{2}$.\\ 
-$x_0 = 5$ je šibko privlačna točka za $U = \R$.\\ 
-$f'(5) = \frac{1}{2}$ je tudi privlačna.
+Sherlock: $f(x) = \frac{1}{2}x + \frac{5}{2}$.
+$f'(5) = \frac{1}{2}$ je privlačna in šibko privlačna.
 \end{primer}
 
+\newpage
 \begin{primer}
-Slikce 3\\ 
+Dane imamo tri funkcije $f_1(x) = x + x^3$, $f_2(x) = x - x^3$ in 
+$f_3(x) = x + x^2$ 
+    \begin{figure}[h]
+        \centering
+        % First figure
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Grafi/cobweb41.png}
+            \caption{\\$U = \R$\\$x=0$ šibko odbojna}
+            \label{fig:cobweb31}
+        \end{subfigure}
+        % Second figure
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Grafi/cobweb42.png}
+            \caption{\\$U = [-1,1]$\\$x=0$ šibko privlačna}
+            \label{fig:cobweb32}
+        \end{subfigure}
+        % Third figure
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Grafi/cobweb43.png}
+            \caption{\\$x=0$ ni šibko odbojna\\ ne privlačna}
+            \label{fig:cobweb33}
+        \end{subfigure}
+    \end{figure}
 V vseh treh primerih pa je $|f'(0)| = 1$ tj. gre za nevtralne točke.
 \end{primer}
 
 \begin{izrek}
-Naj bo $f\in C^1(I)$ in $x_0 \in I$ fiksna. Potem velja:
+Naj bo $f\in C^1(I)$ in $x_0 \in I$ fiksna točka. Potem velja:
 \begin{enumerate}
 \item[i)] Če je $|f'(x_0)| < 1$, je $x_0$ šibko privlačna.
 \item[ii)] Če je $|f'(x_0)| > 1$, je $x_0$ šibko odbojna. 
-\item[iii)] Če je $|f'(x_0)| = 1$, je $x_0$ nevtralna, pogledamo višje odvode za več informaci.
+\item[iii)] Če je $|f'(x_0)| = 1$, je $x_0$ nevtralna, pogledamo višje odvode za več informacij.
 \end{enumerate}
 \end{izrek}
 
 \begin{proof}[Dokaz:]
+\hfil
 \begin{enumerate}
 \item[i):] Recimo, da je $|f'(x_0)| < \lambda < 1$. Potem obstaja $\delta > 0$, da je $|f'(x_0)| < \lambda$ za vsak $x\in (x_0 - \delta, x_0 + \delta)$ zaradi zveznosti odvoda. Uporabimo Lagrangeov izrek
 $$
@@ -314,29 +377,37 @@ Ker je $\lambda \in (0, 1)$, gre $\lambda^n \rightarrow 0$ za $n\rightarrow \inf
 Fiksna točka $x_0 \in I$ je \textbf{stabilna} za $f:I \rightarrow I$, če za vsako njeno okolico $U \subset I$ obstaja manjša okolica $U' \subset U$, da za vsak $x\in U'$ velja $O_f(x) \subset U$.
 \end{definicija}
 
-\begin{primer}
-Take so vse privlačne fiksne točke. Pa tudi take, katerih bližnje orbite ne konvergirajo nujno k $x_0$, a se tudi ne oddaljujejo od nje npr.\\
-slikca\\ 
-Ta funkcija ima fiksno točko v $\frac{1}{2}$ in $2$-cikle v vseh ostalih točkah. Ta točka ni privlačna, saj je $f'(\frac{1}{2}) = -1$, je nevtralna in ni šibko privlačna, je pa stabilna. Za poljubno $U$ izberemo simetrični interval okoli $x_0$ z lastnostjo $U' = (x_0 - \delta, x_0 + \delta) \subset U$. Za $x \in U'$ velja $O_f(x) \subset U' \subset U$.
-\end{primer}
-
 \begin{opomba}
-\hfill
-\begin{itemize}
-\item V nekaterih virih se stabilne točke, ki so tudi šibko privlačne imenuje \textbf{asimptotično stabilna}. tj. imamo pogoj $|f^n(x)| \rightarrow x_0$.
-\item Niso nujmno vse šibko privlačne točke tudi stabilne.
-\item Če je $f$ zvezna in gre $|f^n(x)| \rightarrow x_0$, je $x_0$ nujno fiksna točka. Res, velja tudi $f^{n+1}(x) \rightarrow f(x_0)$ in zaradi enoličnosti limite 
-$$
-x_0 = f(x_0) = \lim_{n\rightarrow \infty} f^{n}(x) = \lim_{n\rightarrow \infty} f^{n + 1}(x)
-$$
-\end{itemize}
+Iz dokaza izreka sledi, da privlačnost porodi enakomerno konvergenco 
+$f^n(x) \rightarrow x_0$ za vse $x\in (x_0 - \delta, x + \delta)$.
+Sledi, da so vse privlačne fiksne točke stabilne. 
+Pa tudi take, katerih bližnje orbite ne konvergirajo nujno k $x_0$ tj. obstajajo 
+nevtralne točke, ki niso šibko privlačne, a so vseeno stabilne npr. 
+$f(x) = 1 - x$. Imamo $f^2(x) = x$ in $f(\frac{1}{2}) = \frac{1}{2}$ in 
+$f'(\frac{1}{2}) = -1$. Torej je $\frac{1}{2}$ nevtralna fiksna točka, ostale 
+točke so $2$-periodične. $x = \frac{1}{2}$ je stabilna.
+\begin{figure}[h!]
+    \center
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb5.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{figure}    
 \end{opomba}
 
 \begin{definicija}
-Sedaj lahko to klasifikacijo razširimo na $n$-periodične točke, če nanje pogledamo kot na fiksne točke funkcije $f^n$. Pripadajoči $n$-cikel je:
+Fiksne točke, ki so stabilne in šibko privlačne pravimo \textbf{asimptotsko stabilne}.
+\end{definicija}
+
+\begin{opomba}
+Ni vsaka šibko privlačna točka (asimptotsko) stabilna. Orbita lahko "uide"
+iz okolice in se nato vrne. So pa use privlačne točke tudi asimptotsko stabilne.
+\end{opomba}
+
+Sedaj lahko to klasifikacijo razširimo na $n$-periodične točke, če nanje pogledamo kot na fiksne točke funkcije $f^n$.
+\begin{definicija}
+Periodična točka $x_0 \in I$ oz. pripadajoči $n$-cikel je:
 \begin{itemize}
-\item Šibko privlačen\slash odbojen, če je vsak njegov element tak za vsak $f^n$.
-\item Privlačno\slash odbojen\slash nevtralen, če je vsak njegov element tak za $f^n$. 
+\item Šibko privlačna\slash odbojna, če je šibko privlačna\slash odbojna kot fiksna točka funkcije $f^n$.
+\item Privlačna\slash odbojna\slash nevtralna, če je privlačna\slash odbojna\slash nevtralna kot fiksna točka funkcije $f^n$. 
 \end{itemize}
 \end{definicija}
 Da bosta ti definiciji dobri, v prvi točki potrebujemo zveznost, v drugi pa zvezno odvedljivost funkcije $f$. To združi nasledji izrek.
@@ -345,43 +416,127 @@ Da bosta ti definiciji dobri, v prvi točki potrebujemo zveznost, v drugi pa zve
 \end{izrek}
 
 \begin{proof}[Dokaz:]
-Naj bo $\{x_1, \dots, x_n\}$ $n$-cikel za $f$. Recimo, da je $x_n$ šibko privlačna za $f^n$. Torej obstaja njena okolica $U_n \subset I$, da za $x\in U_n$ velja $f^{nk}(x) \rightarrow x_n$ za $k\rightarrow \infty$. Radi bi videli, da analogne okolice obstajajo za točke $x_1, \dots, x_{n-1}$. Sedaj definiramo $U_{n-j}$ za $1 \leq j \leq n-1$, kot povezano komponento praslike $f^{-j}(U)$, ki vsenuje $x_{n-j}$. Vemo, da za vsak $x\in U_{n-j}$ po konstrukciji velja:
+Naj bo $\{x_1, \dots, x_n\}$ $n$-cikel za $f$. Recimo, da je $x_n$ šibko privlačna 
+za $f^n$. Torej obstaja njena okolica $U_n \subset I$, da za 
+$x\in U_n$ velja $f^{nk}(x) \rightarrow x_n$ za $k\rightarrow \infty$. 
+Radi bi videli, da analogne okolice obstajajo za točke 
+$x_1, \dots, x_{n-1}$. Sedaj definiramo $U_{n-j}$ za $1 \leq j \leq n-1$, 
+kot povezano komponento praslike $f^{-j}(U_n)$, ki vsenuje $x_{n-j}$. Vemo,
+da za vsak $x\in U_{n-j}$ po konstrukciji velja:
 $$
 f^{nk + j}(x) \xrightarrow{k\rightarrow \infty} x_n.
 $$
 Sedaj na to zvezo dodamo zvezno funkcijo $f^{n-j}$
 \begin{align*}
-f{n-j}(f^{nk + j}(x)) \rightarrow f^{n-j}(x_n) \\ 
+f^{n-j}(f^{nk + j}(x)) \rightarrow f^{n-j}(x_n) \\ 
 f^{n(k+1)}(x) \xrightarrow{k\rightarrow \infty} x_{n-j} 
 \end{align*}
 vse točke so šibko privlačne, kar smo želeli dokazati. Dokaz za šibko odbojnost izpustimo.\\[3mm]
 Poglejmo si še privlačnosti\slash odbojnost \slash nevtralnost
 \begin{align*}
-|(f^n)'(x_n)| =& |(f \circ f \circ \dots \circ f)'(x_n)| = \\ 
-=& |f'(f^{n-1}(x_n)) \cdot f'(f^{n-2}(x_n)) \cdot \dots f'(x_n)| = \\ 
-=& |f'(x_{n-1})| \cdot |f'(x_{n-2}| \cdot \dots |f'(x_1)| \cdot |f'(x_0)| = |(f^n)'|(x_j)|.
+|(f^n)'(x_n)| &= |(f \circ f \circ \dots \circ f)'(x_n)| = \\ 
+&= |f'(f^{n-1}(x_n)) \cdot f'(f^{n-2}(x_n)) \cdot \dots f'(x_n)| = \\ 
+&= |f'(x_{n-1})| \cdot |f'(x_{n-2})| \cdot \dots |f'(x_1)| \cdot |f'(x_0)| = |(f^n)'(x_j)|.
 \end{align*}
 za vsak $x_j$ dobimo isti rezultat.
 \end{proof}
 
 \begin{opomba}
-Brez zveznosti $f$ del, ki govori o šibki privlačnosti\slash odbojnosti ne drži.
-slikcača.
+Brez zveznosti $f$ izrek ne drži nujno, npr.
+\center
+\begin{tikzpicture}[scale=1]
+
+    % First line (maps to 1, then to 0)
+    % Left interval (shorter but aligned)
+    \draw[thick] (-3.5,1.5) -- (-2.5,1.5);
+    \draw[red, thick] (-3.5,1.5) -- (-2.5,1.5);
+    
+    % epsilon points and zero point
+    \filldraw[red] (-3.5,1.5) circle (2pt) node[below=4pt] {$-\varepsilon$};
+    \filldraw[red] (-2.5,1.5) circle (2pt) node[below=4pt] {$\varepsilon$};
+    \filldraw[red] (-3,1.5) circle (2pt) node[below=4pt] {$0$};
+    
+    % Short arrow to 1 with more space
+    \draw[->, thick] (-2.3,1.5) -- (-1.7,1.5);
+    \node[above] at (-2,1.5) {$f$};
+    
+    % Longer interval at 1 with more space from the arrow
+    \draw[thick] (-1.5,1.5) -- (-0.5,1.5);
+    \filldraw[red] (-1,1.5) circle (2pt) node[below=4pt] {$1$};
+    
+    % Short arrow to 0 with more space
+    \draw[->, thick] (-0.4,1.5) -- (0.2,1.5);
+    \node[above] at (-0.1,1.5) {$f$};
+    
+    % Longer interval at 0 with more space from the arrow
+    \draw[thick] (0.4,1.5) -- (1.4,1.5);
+    \filldraw[red] (0.9,1.5) circle (2pt) node[below=4pt] {$0$};
+    
+    % Comment
+    \node[right] at (1.6,1.5) {$\Rightarrow f^2$ šibko privlačna za $x=0$.};
+    
+    % Second line (maps to 2, then to 3)
+    % Left interval (shorter but aligned)
+    \draw[thick] (-3.5,0.5) -- (-2.5,0.5);
+    \draw[red, thick] (-3.5,0.5) -- (-2.5,0.5);
+    
+    % epsilon points and zero point
+    \filldraw[red] (-3.5,0.5) circle (2pt) node[below=4pt] {$-\varepsilon$};
+    \filldraw[red] (-2.5,0.5) circle (2pt) node[below=4pt] {$\varepsilon$};
+    \filldraw[red] (-3,0.5) circle (2pt) node[below=4pt] {$0$};
+    
+    % Short arrow to 2 with more space
+    \draw[->, thick] (-2.3,0.5) -- (-1.7,0.5);
+    \node[above] at (-2,0.5) {$f$};
+    
+    % Longer interval at 2 with more space from the arrow
+    \draw[thick] (-1.5,0.5) -- (-0.5,0.5);
+    \filldraw[red] (-1,0.5) circle (2pt) node[below=4pt] {$2$};
+    
+    % Short arrow to 3 with more space
+    \draw[->, thick] (-0.4,0.5) -- (0.2,0.5);
+    \node[above] at (-0.1,0.5) {$f$};
+    
+    % Longer interval at 3 with more space from the arrow
+    \draw[thick] (0.4,0.5) -- (1.4,0.5);
+    \filldraw[red] (0.9,0.5) circle (2pt) node[below=4pt] {$3$};
+    
+    % Comment
+    \node[right] at (1.6,0.5) {$\Rightarrow f^2$ šibko odbojna za $x=n$.};
+    
+\end{tikzpicture}
 \end{opomba}
+
+\newpage
 
 \begin{primer}
 Dano imamo $f(x) = x^2 - 1$. Opazimo $f(0) = -1$ in $f(-1) = 0$ tj. imamo $2$-cikel. Poglejmo, katarega tipa je:
 $$
 (f^2)'(0) = f'(f(0)) \cdot f'(0) = f'(-1)\cdot f'(0) = 0.
 $$
-Torej gre za privlačen $2$-cikel. Oglejmo si danimo okoli te točke.\\
-Slika te mika\\ 
-Vidimo, da bližnje točke nimajo orbit, ki bi bile "skoraj periodične". Torej privlačnost cikla ne pomeni, da privlači orbite. Pomeni, le, da je privlačen za $f^2$. Res imamo\\
-Slik slak \\ 
-$-1$ in $0$ sta privlačni točki $f^2$.
+Torej gre za privlačen $2$-cikel. Fiksni točki sta $x = \frac{1 \pm \sqrt{5}}{2}$
+$\Longrightarrow$ $f'\Big(\frac{1 \pm \sqrt{5}}{2}\Big) = 1 \pm \sqrt{5}$, torej 
+sta obe odbojni.
+\begin{figure}[h!]
+    \center
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb6.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+\end{figure}    
+\noindent
+Vidimo, da $2$-cikel "privlači" bližnje orbite. To velja tudiv primeru 
+šibke privlačnosti. Naj bosta $U_1$ in $U_2$ okolici točke $x_1$ in $x_2$,
+ki pripadata $2$-ciklu. Vzamemo $\tilde{U}_1 = U_1\cap f^{-1}(U_2)$ in 
+$\tilde{U}_2 = U_1\cap f^{-1}(U_1)$. Potem velja:
+\begin{align*}
+x\in \tilde{U}_1 \Longrightarrow f^{2n}(x) \rightarrow x_1 \,\,(\text{ker } x\in U_1)\,\, \text{ in }\,\, f^{2n+1}(x) \rightarrow x_2 \,\,(\text{ker } f(x)\in U_2)\\
+x\in \tilde{U}_2 \Longrightarrow f^{2n}(x) \rightarrow x_2 \,\,(\text{ker } x\in U_2)\,\, \text{ in }\,\, f^{2n+1}(x) \rightarrow x_1 \,\,(\text{ker } f(x)\in U_1)
+\end{align*}
+
 
 \begin{opomba}
-Zanimiva je tudi točka $x = 1$, za katere velja $f(x) = 0$ tj. po prvi iteraciji postane ciklična. Takim točkam pravimo \textbf{predperiodična} (preperiodic \slash eventually periodic).
+Zanimiva je tudi točka $x = 1$, ki ima orbito $O_f(1) = \{1, 0, -1, 0, -1, \dots\}$ 
+tj. po prvi iteraciji postane ciklična. Takim točkam pravimo \textbf{predperiodična} 
+(preperiodic \slash eventually periodic) točka.
 \end{opomba}
 \end{primer}
 
@@ -389,7 +544,7 @@ Zanimiva je tudi točka $x = 1$, za katere velja $f(x) = 0$ tj. po prvi iteracij
 $\exists k\in \N$: $f^{n+k}(x) = f^k(x)$ za  najmanjši tak $n\in \N$.
 \end{definicija}
 
-\subsection{Kaos}
+\section{Kaos}
 Do sedaj smo spoznali le dinamične sisteme z razmeroma predvidljivim dogajanjem. Konkretno, razen v kakšni posebni točki, so imele orbite bližnjih točk "enak dinamičen razvoj". Sedaj bomo spoznali sisteme, ki so nasprotje tega in jim pravimo kaotični. 
 
 \begin{definicija}
@@ -486,7 +641,7 @@ Perioda teh točk je $n$ ali manjša.
 \end{enumerate}
 \end{primer}
 
-\subsection{Konjugacije in semi-konjugacije}
+\section{Konjugacije in semi-konjugacije}
 
 \begin{definicija}
 Pravimo, da sta $f: I \rightarrow I$ in $g: J \rightarrow J$ \textbf{konjugirani}, če obstaja homeomorfizem $h:I \rightarrow J$, da $\forall x\in I$: $h \circ f(x) = g\circ h(x) $
@@ -665,7 +820,7 @@ $$
 Ker je $q_{-2}$ zvezna, po prejšnjem izreku je tudi kaotična.
 \end{primer}
 
-\subsection{Bifurkacije}
+\section{Bifurkacije}
 
 Za motivacijo si oglejmo enoparametrično družino šotorskih preslikav za $c\in [0, 2]$:
 $$

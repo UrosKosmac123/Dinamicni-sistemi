@@ -2,8 +2,8 @@ PWD /Users/uroskosmac/Desktop/Faks/Dinamicni-sistemi
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/uroskosmac/Desktop/Faks/Dinamicni-sistemi/Dinamični sistemi 1.tex
-OUTPUT Dinamični sistemi 1.log
+INPUT /Users/uroskosmac/Desktop/Faks/Dinamicni-sistemi/Dinamični sistemi 2.tex
+OUTPUT Dinamični sistemi 2.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/size10.clo
@@ -324,10 +324,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./Dinamični sistemi 1.aux
-INPUT ./Dinamični sistemi 1.aux
-INPUT Dinamični sistemi 1.aux
-OUTPUT Dinamični sistemi 1.aux
+INPUT ./Dinamični sistemi 2.aux
+INPUT ./Dinamični sistemi 2.aux
+INPUT Dinamični sistemi 2.aux
+OUTPUT Dinamični sistemi 2.aux
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -336,36 +336,35 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT ./Dinamični sistemi 1.out
-INPUT ./Dinamični sistemi 1.out
-INPUT Dinamični sistemi 1.out
-INPUT Dinamični sistemi 1.out
-OUTPUT Dinamični sistemi 1.pdf
-INPUT ./Dinamični sistemi 1.out
-INPUT ./Dinamični sistemi 1.out
-OUTPUT Dinamični sistemi 1.out
+INPUT ./Dinamični sistemi 2.out
+INPUT ./Dinamični sistemi 2.out
+INPUT Dinamični sistemi 2.out
+INPUT Dinamični sistemi 2.out
+OUTPUT Dinamični sistemi 2.pdf
+INPUT ./Dinamični sistemi 2.out
+INPUT ./Dinamični sistemi 2.out
+OUTPUT Dinamični sistemi 2.out
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr17.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
@@ -374,124 +373,44 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
-INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy6.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
-INPUT ./Grafi/cobweb1.png
-INPUT ./Grafi/cobweb1.png
-INPUT ./Grafi/cobweb1.png
-INPUT ./Grafi/cobweb1.png
-INPUT ./Grafi/cobweb1.png
-INPUT ./Grafi/cobweb2.png
-INPUT ./Grafi/cobweb2.png
-INPUT ./Grafi/cobweb2.png
-INPUT ./Grafi/cobweb2.png
-INPUT ./Grafi/cobweb2.png
-INPUT ./Grafi/cobweb3.png
-INPUT ./Grafi/cobweb3.png
-INPUT ./Grafi/cobweb3.png
-INPUT ./Grafi/cobweb3.png
-INPUT ./Grafi/cobweb3.png
-INPUT ./Grafi/cobweb41.png
-INPUT ./Grafi/cobweb41.png
-INPUT ./Grafi/cobweb41.png
-INPUT ./Grafi/cobweb41.png
-INPUT ./Grafi/cobweb41.png
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr9.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmmi9.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmsy9.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT ./Grafi/cobweb42.png
-INPUT ./Grafi/cobweb42.png
-INPUT ./Grafi/cobweb42.png
-INPUT ./Grafi/cobweb42.png
-INPUT ./Grafi/cobweb42.png
-INPUT ./Grafi/cobweb43.png
-INPUT ./Grafi/cobweb43.png
-INPUT ./Grafi/cobweb43.png
-INPUT ./Grafi/cobweb43.png
-INPUT ./Grafi/cobweb43.png
-INPUT ./Grafi/cobweb5.png
-INPUT ./Grafi/cobweb5.png
-INPUT ./Grafi/cobweb5.png
-INPUT ./Grafi/cobweb5.png
-INPUT ./Grafi/cobweb5.png
-INPUT ./Grafi/cobweb6.png
-INPUT ./Grafi/cobweb6.png
-INPUT ./Grafi/cobweb6.png
-INPUT ./Grafi/cobweb6.png
-INPUT ./Grafi/cobweb6.png
-INPUT Dinamični sistemi 1.aux
-INPUT ./Dinamični sistemi 1.out
-INPUT ./Dinamični sistemi 1.out
+INPUT Dinamični sistemi 2.aux
+INPUT ./Dinamični sistemi 2.out
+INPUT ./Dinamični sistemi 2.out
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

@@ -1,0 +1,201 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{mathtools}
+\usepackage{adjustbox}
+\usepackage{setspace}
+\usepackage{bigints}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{esdiff}
+\usepackage{pgfplots}
+\usepackage{caption}
+\usetikzlibrary{shapes.symbols}
+
+\newtheorem{definicija}{Definicija}
+\newtheorem{trditev}{Trditev}
+\newtheorem{lema}{Lema}
+\newtheorem{posledica}{Posledica}
+\newtheorem{opomba}{Opomba}
+\newtheorem{primer}{Primer}
+\newtheorem{izrek}{Izrek}
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Ho}{\mathcal{O}}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\title{Dinamika kompleksnih funkcij}
+\author{Uroš Kosmač}
+
+\begin{document}
+
+\section{Kompleksna dinamika}
+
+Kompleksno ravnino lahko kompaktificiramo z eno točko, kar nam da \textbf{Riemannovo sfero} $\hat{\C} = \C \cup \{\infty\}$.\\
+Slika Riemann \\ 
+Holomorfne razširitve $f$ na $\hat{C}$ (če obstaja) v okolici $z = \infty$ obravnavamo s pomočjo konjugacije s preslikavo $z\mapsto \frac{1}{z}$. Pravimo, da je $f(z)$ holomorfna v $z = \infty$, tedaj, ko je $f(\frac{1}{z})$ holomorfna v okolici $z = 0$.
+
+\begin{primer}
+\begin{enumerate}
+\item[i)] $f(z) = \frac{1}{z - 1}$ $\Longrightarrow$ 
+$$
+f(\frac{1}{z}) = \frac{1}{\frac{1}{z} -1} = \frac{z}{1 - z} = z + z^2 + z^3 + \dots
+$$
+$z = 0$ je ničla prve stopnje za $f(\frac{1}{z})$, zato je $z = \infty$ ničla prve stopnje za $f$.\\ 
+$f(1) = \infty$ $\Longrightarrow$
+$$
+\frac{1}{f(z)} = z - 1
+$$
+tj. $z = 1$ je ničla prve stopnje za $\frac{1}{f(z)}$, zato je tudi pol prve stopnje za $f$.
+\item[ii)] $f(z) = z^2 + 1$
+$$
+f(\infty) = \infty \Longrightarrow \frac{1}{f(\frac{1}{z})} = \frac{1}{\frac{1}{z^2} + 1} = \frac{z^2}{1 + z^2} = z^2 + z^4 + \dots
+$$
+$z = \infty$ je pol 2 stopnje.
+\item[iii)] $f(z) = e^z = e^x(\cos{y} + i\sin{y})$. Razširitev ni možna, saj za $x \rightarrow -\infty$ velja $|f(z)| \rightarrow 0$, ter za $x\rightarrow \infty$ velja $|f(z)| \rightarrow \infty$.
+\end{enumerate}
+\end{primer}
+
+\begin{izrek}
+Funkcija $f: \hat{\C} \rightarrow \hat{\C}$ je holomorfna natanko tedaj, ko je razširitev racionalne funkcije ali $f \equiv \infty$.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+$(\Longleftarrow)$: sledi iz primerov, dodaj.\\ 
+$(\Longrightarrow)$: 
+\begin{enumerate}
+\item[i)] če $f\in \Ho(\C)$ nima polov in $f(\infty) \neq \infty$ je po Liouvillovem izreku konstantna.
+\item[ii)] če ima $f$ na $\C$ neskončno mnogo polov, potem zaradi diskretnosti, obstaja zaporedje le teh, ki gre proti $\infty$.\\ 
+wop wop\\ 
+Posledično bo tudi $f(\infty) = \infty$ zaradi zveznosti in $f \equiv \infty$ zaradi principa identičnosti.
+\item[iii)] Če ima $f$ le končno mnogo polov, ima po podobnem argumentu, kot pri $ii)$ tudi kočno ničel. Potem vzamemo $R$, iracionalno funkcijo z istimi ničlami in poli. Po $i)$ je $\frac{f}{R}$ konstantna.
+\end{enumerate}
+Povzetek: takoj, ko ima $f$ neskočno ničel ali polov oz. kako bistveno singularnost, je nemoreš obravnavati $\hat{C}$ oz. ni holomorfna.
+\end{proof}
+
+\subsection{Fatoujeva in Juliajeva množica}
+
+$f(z) = z^2$ oz. v polarnih koordinatah $re^{i\phi} \mapsto r^2 e^{i2\phi}$.
+\begin{enumerate}
+\item[$|z| > 1:$] $\lim_{n\rightarrow \infty} |f^n(z)| = \lim_{n\rightarrow \infty} r^{2n} = \infty$
+\item[$|z| < 1:$] $\lim_{n\rightarrow \infty} |f^n(z)| = \lim_{n\rightarrow \infty} r^{2n} = 0$
+\item[$|z| = 1:$] $f$ "deluje kot" doubling map $D$ in je kaotična. Poleg tega pa ima vsaka točka v okolici tudi točki, ki gresta proti $0$ oz. $\infty$
+\end{enumerate}
+
+Sklep: kompleksna ravnina oz. Riemannova sfera razpade na dve disjunktni množici. \textbf{Fatoujeva}, kjer je obnašanje $f^n$ "predvidljivo" in \textbf{Juliajevo}, kjer je obnašanje $f^n$ kaotično 
+\begin{align*}
+\mathcal{F}_f &= \hat{\C} \slash \partial \D \\ 
+\mathcal{J}_f &= \partial \D.
+\end{align*}
+Za formalno definicijo teh dve množic rabimo koncept normalnih družin.
+
+\begin{definicija}
+Zaporedje $(f_n)_{n\in\N} \subset \Ho(D)$ za $D \subseteq \C$, konvergira k $f \in \Ho(D)$ \textbf{enakomerno po kompaktih} na $D$, če $\forall \epsilon > 0$ in $\forall K^{komp.} \subset D$ $\exists n_0\in \N$: $\forall n \geq n_0$ in $z\in K$, velja $|f_n(z) - f(z)| < \epsilon$.
+\end{definicija}
+
+\begin{primer}
+$f_n(z) = z^n$ na $\D$.\\ 
+Limita po točkah je enaka $f(z) = 0$. Izberemo poljuben kompakt $K\subset \D$ Zanj obstaja $r = r(K) \in [0, 1)$, da je $K \subseteq \D(0, r)$ Ker je $r < 1$, lahko naredimo oceno $\forall z\in K$:
+$$
+|f_n(z) - f(z)| = |z^n| \leq r^n \xrightarrow{n\rightarrow \infty} 0.
+$$
+tj. $\forall \epsilon > 0$ obstaja $n_0 \in \N$, da je za $n \geq n_0$: $|f_n(z) - f(z)| < \epsilon$. Seveda pa enakomerna konvergenca na celem $\D$ v tem primeru ne obstaja.
+\end{primer}
+
+\begin{izrek}
+Naj bo $(f_n)_{n\in\N} \subset \Ho(D)$, $D\subseteq \C$, zaporedje ki konvergira $f_n \rightarrow f$ enakomerno po kompaktih. Potem je tudi $f \in \Ho(D)$ holomorfna.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+TBA.
+\end{proof}
+
+\begin{definicija}
+Družina $\F \subset \Ho(D)$, $D \subseteq \hat{C}$ je \textbf{normalna na $D$}, če za vsako zaporedje $(f_n)_{n\in \N} \subset \F$ obstaja podzaporedje, ki konvergira enakomerno po kompaktih k neki $f\in \Ho(D)$ ali k $f\equiv \infty$.
+\end{definicija}
+
+\begin{opomba}
+\begin{itemize}
+\item Normalne družine so analog kompaktnih množic v $\Ho(D) \cup \{f \equiv \infty\}$. 
+\item Normalnost se študira tudi v drugih razredih funkcij, v katerih pa se običajno ne dodaja $f\equiv \infty$.
+\item Zadostnim oz. ekvivaletnim pogojem se reče Arzela - Ascolijevi izreki. Npr. za družino $\F \subset C([a, b])$ velja, da je normalna, če je:
+\begin{enumerate}
+\item[i)] enakomerno omejena tj. $\exists M > 0: |f(x)| \leq M$ $\forall x\in [a, b]$ in $\forall f\in \F$.
+\item[ii)] je enakomerno enakozvezna tj. $\forall \epsilon > 0$. $\exists \delta > 0: |x - y| < \delta \Longrightarrow |f(x) - f(y)| < \epsilon$ $\forall x, y\in [a, b]$ in $\forall f\in \F$.
+\item[iii)] Pri holomorfnih funkcijah $ii)$ sledi iz $i)$ zaradi Cauchyjeve integracijske formule. Zaradi kompaktnosti $\hat{\C}$ je dovolj celo lokalna omejenost. Zato se Arzela-Ascolijev izrek navadn prenese na Montelova izreka:
+\begin{izrek}[Prvi Montelov izrek]
+$\F \subset \Ho(D)$, $D\subseteq \hat{C}$ je normalna, če je lokalno enakomerno omejena tj. $\forall z\in D$. $\exists z\in U \subset D $ in $M > 0$, da je $|f(w)| \leq M$ $\forall w\in U$ in $\forall f\in \F$.
+\end{izrek}
+\end{enumerate}
+\end{itemize}
+\end{opomba}
+
+\begin{definicija}
+Naj bo $f \in \Ho(D)$, $D\subseteq \hat{\C}$. Njena \textbf{Fatoujeva množica} $\F_f$ je definirana kot množica točk $z\in D$, za katere obstaja okolica $U\subset D$, da je družica $\{f^n \,|\, n\in \N\}$ normalna na $U$. Njena \textbf{Juliajeva množica} pa je definirana kot komplement $\mathcal{J}_f = D\slash \F_f$.
+\end{definicija}
+
+\begin{primer}
+$f(z) = z^2 \Longrightarrow f^n(z) = z^{2^n}$. \\ 
+Za $|z| < 1$ konvergira enakomerno po kompaktih na $\D$ $\Longrightarrow$ $\D \subset \F_f$.\\ 
+Za $|z| > 1$ konvergira enakomerno po kompaktih na $\hat{C}\slash\D$ $\Longrightarrow$ $\D \subset \F_f$ k $\infty$.
+Dokaz: za $K \subset \hat{C} \slash \overline{\D}$ obstaja $r > 1$, da je $\D(0, r) \cap K = \emptyset$, oz. $|z| \geq r$ za $z\in K$. \\ 
+Posledično:
+$$
+|f^n(z)| = |z^{2^n}| \geq r^{2^n} \rightarrow \infty.
+$$ 
+tj. $\forall M > 0$. $\exists n_0 \in \N$, da je $|f^n(z)| > M$ za $n \geq n_0$ in $z\in K$. Alternativno bi lahko oravnavali $\frac{1}{f^n(z)} \rightarrow 0$ enakomerno po kompaktnih. \\ 
+Za $|z| = 1$ normalnost nimamo v nobeni okolici, saj so blizu točke, ki gredo k $\infty$ in take, ki gredo k $0$, zato tudi, če bi obstajala limita, ne bi bila zvezna.\\ 
+Sklep: ponovno smo ugotovili, da sta $\F_f = \hat{C}\slash \partial \D$ in $\mathcal{J}_f = \partial \D$.
+\end{primer}
+
+\begin{opomba}
+\hfill
+\begin{itemize}
+\item Po konstrukciji je $\F_f$ odprta, $\mathcal{J}_f$ pa zaprta, lahko pa sta obe prazni. Primera za to sta:
+\begin{itemize}
+\item $f(z) = z + 1$ $\Longrightarrow$ $f^n(z) = z + n \longrightarrow \infty$ enakomerno na kompaktih na $\hat{\C}$. Torej je $\mathcal{J}_f = \emptyset$.
+\item Lattesova funkcija $f(z) = \frac{(z^2 + 1)^2}{4z(z^2 - 1)}$ ima $\mathcal{J}_f = \hat{C}$ in $\F_f = \emptyset$.
+\end{itemize}
+\item Za polinome se definiciji $\mathcal{J}_f$ in $\F_f$ poenostavita, kar bomo spoznali kasneje.
+\end{itemize}
+\end{opomba}
+
+\begin{izrek}
+Množici $\mathcal{J}_f$ in $\F_f$ sta naprej in nazaj invariantni tj. $f(\mathcal{J}_f) = f^{-1}(\mathcal{J}_f) = \mathcal{J}_f$ in $f(\mathcal{F}_f) = f^{-1}(\mathcal{F}_f) = \mathcal{F}_f$.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+Dovolj je dokazati zvezo le za $\F_f$. Naj bo $z\in U$, kjer je $U \subset D$, na kateri so iterati normalni. Potem sta tudi množici $f^{-1}(U)$ in $f(U)$ odprti, seveda pa je družina $\{f^n \,|\, n\in \N\}$ normalna tudi na njih. Od tod sledi:
+$$
+f^{-1}(\F_f) \subseteq \F_f \text{ in } f(\F_f) \subseteq \F_f.
+$$
+Na prvo relacijo dodamo $f$ in dobimo:
+$$
+\F \subseteq f(\F_f) \text{ oz. } \F = f(\F).
+$$
+Posledično pa je tudi $\F_f \subseteq f^{-1}(\F_f)$ oz. $\F_f = f^{-1}(\F_f)$.
+\end{proof}
+
+Povezanim komponentam $\F_f$ pravimo Fatoujeve komponente in se slikajo ena v drugo.\\ 
+Nek primerček.
+
+\end{document}
