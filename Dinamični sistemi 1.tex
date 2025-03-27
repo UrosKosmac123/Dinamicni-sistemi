@@ -21,7 +21,9 @@
 \usepackage{esdiff}
 \usepackage{pgfplots}
 \usepackage{caption}
-\usetikzlibrary{shapes.symbols}
+\usetikzlibrary{shapes.symbols, positioning}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning}
 
 
 
@@ -225,8 +227,9 @@ O_f(-2) &= \{-2, 5, 26, \dots \}
 orbite lahko pri funkcijah ene spremenljivke vizualiziramo z \textbf{pajčevinastim diagramom}.
 
 \begin{figure}[h]
-\center
+\begin{centering}
     \includegraphics[width=6cm, height=4.5cm]{Grafi/cobweb1.png}
+\end{centering}
 \end{figure}
 
 \newpage
@@ -244,9 +247,10 @@ Postopek:
 Sherlock: $x_{n+1} = \frac{1}{2} x_n + \frac{5}{2}$ oz. $f(x) = \frac{1}{2} x + \frac{5}{2}$.\\ 
 
 \begin{figure}[h]
-    \center
-        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb2.png}
-    \end{figure}
+    \begin{centering}
+   \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb2.png}
+    \end{centering}
+\end{figure}
     
 $O_f(5) = \{5, 5, \dots \}$. Za ostale orbite velja: $x_n \rightarrow 5$.
 \end{primer}
@@ -263,9 +267,10 @@ Točke periode $2$: $$f^2(x) = x \text{ in } f(x) \neq x \iff x^9 = x \text{ in 
 
 
 \begin{figure}[h!]
-    \center
+    \begin{centering}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb3.png}
         \caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
     \end{figure}    
 \end{primer}
 
@@ -387,9 +392,10 @@ $f(x) = 1 - x$. Imamo $f^2(x) = x$ in $f(\frac{1}{2}) = \frac{1}{2}$ in
 $f'(\frac{1}{2}) = -1$. Torej je $\frac{1}{2}$ nevtralna fiksna točka, ostale 
 točke so $2$-periodične. $x = \frac{1}{2}$ je stabilna.
 \begin{figure}[h!]
-    \center
+    \begin{centering}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb5.png}
         %\caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
     \end{figure}    
 \end{opomba}
 
@@ -443,7 +449,7 @@ za vsak $x_j$ dobimo isti rezultat.
 
 \begin{opomba}
 Brez zveznosti $f$ izrek ne drži nujno, npr.
-\center
+\begin{centering}
 \begin{tikzpicture}[scale=1]
 
     % First line (maps to 1, then to 0)
@@ -505,6 +511,7 @@ Brez zveznosti $f$ izrek ne drži nujno, npr.
     \node[right] at (1.6,0.5) {$\Rightarrow f^2$ šibko odbojna za $x=n$.};
     
 \end{tikzpicture}
+\end{centering}
 \end{opomba}
 
 \newpage
@@ -518,9 +525,11 @@ Torej gre za privlačen $2$-cikel. Fiksni točki sta $x = \frac{1 \pm \sqrt{5}}{
 $\Longrightarrow$ $f'\Big(\frac{1 \pm \sqrt{5}}{2}\Big) = 1 \pm \sqrt{5}$, torej 
 sta obe odbojni.
 \begin{figure}[h!]
-    \center
-        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb6.png}
-        %\caption{pajčevinast diagram iz Primera 3.}
+    \begin{centering}
+        
+    \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb6.png}
+    %\caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
 \end{figure}    
 \noindent
 Vidimo, da $2$-cikel "privlači" bližnje orbite. To velja tudiv primeru 
@@ -547,7 +556,7 @@ $\exists k\in \N$: $f^{n+k}(x) = f^k(x)$ za  najmanjši tak $n\in \N$.
 \section{Kaos}
 Do sedaj smo spoznali le dinamične sisteme z razmeroma predvidljivim dogajanjem. Konkretno, razen v kakšni posebni točki, so imele orbite bližnjih točk "enak dinamičen razvoj". Sedaj bomo spoznali sisteme, ki so nasprotje tega in jim pravimo kaotični. 
 
-\begin{definicija}
+\begin{definicija}[Devaney]
 Dinamični sistem podan z $f:I \rightarrow I$ je \textbf{kaotičen}, če zanj veljajo
 \item[(c1)] Množica periodičnih točk je gosta v $I$.
 \item[(c2)] Tranzitivnost: za poljubna odprta intervala $U_1, U_2 \subset I$, obstajata $x_0\in U_1$ in $n\in \N$, da je $f^n(x_0) \in U_2$.
@@ -557,87 +566,121 @@ Dinamični sistem podan z $f:I \rightarrow I$ je \textbf{kaotičen}, če zanj ve
 \begin{opomba}
 \hfill 
 \begin{itemize}
-\item Točka $(c3)$ je zanimiva pri izbiri majhnih okolic $U$, saj pomeni, da lahko poljubno blizu najdeš točko s čisto drugačno dinamiko. Temu se reče učinek metulja (butterly effect) oz. da je zaporedje oz. orbita občutljivo na začetne podatke.
-\item Izkaže se, da je $(c2)$ ekvivalentna obstoju goste orbite, če je $f$ zvezna.
+\item Točka $(c3)$ je zanimiva pri izbiri majhnih okolic $U$, saj pomeni, da lahko poljubno blizu najdeš točko s čisto drugačno dinamiko. Temu se reče učinek metulja (butterly effect) tj. zaporedje oz. orbita je občutljiva na začetne podatke.
+\item Izkaže se, da je $(c2)$ ekvivalentna obstoju goste orbite, če je $f$ zvezna. Če ni zvezna je pogoj zadosten.
 \item Za kompakt $I \subset I$ se izkaže, da $(c1)$ in $(c2)$ implicirata $(c3)$.
 \item Če je $f$ zvezna iz $(c1)$ in $(c2)$ vedno sledi $(c3)$.
 \end{itemize}
 \end{opomba}
+\noindent
 Opis kaosa: kaotični sistem je tak, v katerem s približnim začetkom niti približno nemoreš napovedati konca.
 
 \begin{primer}
 Podvojitvena preslikava (doubling map).
-\begin{align}
+\begin{align*}
 D:[0, 1) \rightarrow [0, 1) \\ 
 D(x) = 2x - \lfloor{2x}\rfloor
-\end{align}
-Grafek funkcija (cobweb v $\frac{2}{3}$)\\ 
-Veljajo: \\ 
+\end{align*}
+\begin{figure}[h!]
+    \begin{centering}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb7.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
+\end{figure}   
+\noindent
+Velja: \\ 
 $D(0) = 0$ je fiksna točka \\ 
 $D(\frac{1}{2}) = 0$ predperiodična \\ 
-$D(\frac{2}{3}) = \frac{1}{3}$ \\ 
-$D(\frac{1}{3}) = \frac{2}{3}$
-(vijugst oklepaj za zadna dva) $2$-cikel. \\ 
+$D(\frac{1}{3}) = \frac{2}{3}$, $D(\frac{2}{3}) = \frac{1}{3}$ 2-cikel.\\
 Za dokaz kaotičnosti uporabimo dvojiški decimalni zapis.
 \begin{align*}
-x\in [0, 1): x = 0.x_1 x_2 \dots_{(2)}, \quad x_j\in \{0, 1\} = \sum_{j=1}^\infty \frac{x_j}{2^j}.
+x\in [0, 1): x = 0.x_1 x_2 \dots_{(2)} = \sum_{j=1}^\infty \frac{x_j}{2^j}, \quad x_j\in \{0, 1\}
 \end{align*}
 Če prepovemo neskočen niz enic, je zapis enoličen. Kaj naredi naša preslikava?
 \begin{align*}
-D(x) = 2x - \lfloor 2x \rfloor = x_1.x_2 x_3 \dots_{(2=} - {x_1}_{(2)} = 0.x_2 x_3 \dots_{(2)}.
+D(x) = 2x - \lfloor 2x \rfloor = x_1.x_2 x_3 \dots_{(2)} - {x_1}_{(2)} = 0.x_2 x_3 \dots_{(2)}.
 \end{align*}
 Temu rečemo tudi operator zamika (shift map), ki "pozabi" prvo decimalko. 
 \begin{enumerate}
-\item[(c1)] Pokažimo, da ima poljubno blizu točke $x\in [0, 1)$ tudi periodično točko $\tilde{x}$.
+\item[(c1)] Pokažimo, da imamo poljubno blizu točke $x\in [0, 1)$ tudi periodično točko $\tilde{x}$.
 \begin{align*}
-x = 0.x_1 x_2 \dots x_N x_{N+1} \dots_{(2)} \quad X >> 1 \\ 
-x = 0.x_1 x_2 \dots x_N x_{N} x_1 x_2 \dots x_n\dots_{(2)} = 0. x_1 x_2 \dots x_{N_{(2)}}-
+x &= 0.x_1 x_2 \dots x_N x_{N+1} \dots_{(2)} \quad N >> 1 \\ 
+\tilde{x} &= 0.\overline{x_1 x_2 \dots x_N}_{(2)}\\
+\Longrightarrow& |x - \tilde{x}| = 0.0\dots 0x_{N+1}\dots_{(2)} < \frac{1}{2^N}
 \end{align*}
 Očitno je $\tilde{x}$ periodičen, saj je $f^N(\tilde{x}) = \tilde{x}$. Po drugo strani pa je $|x - \tilde{x}| < \frac{1}{2^N}$ tj. poljubno majhna.
-\item[ii)] Pokažimo, da obstaja gosta orbita. Naj bo $x\in [0, 1]$ število z razvojem
+\item[c2)] Pokažimo, da obstaja gosta orbita. Naj bo $x\in [0, 1]$ število z razvojem
 $$
 x = 0.01\, 00\, 01\, 10\, 11\, 000\, 001\, 010\, \dots
 $$
-tj. število vsebuje vse končne zapise v dvojiškem sistemu. Posledično je njegova orbita gosta. Res, za poljuben $\tilde{x} \in [0, 1]$, 
+tj. število vsebuje vse končne zapise v dvojiškem sistemu. Trdimo, da je 
+za vsak $x\in [0, 1]$ blizu nek $D^m(\tilde{x})$. 
 $$
-\tilde{x} = 0. \underbrace{\tilde{x_1} \tilde{x_2}\dots \tilde{x_N}} \tilde{x_{N+1}}
+x = 0.x_1 x_2\dots x_N x_{N+1}\dots, \quad \text{ za } N>>1.
 $$
-obstaja $m\in \N: f^n(x) = \tilde{x_1} \tilde{x_2}\dots \tilde{x_N} \dots$ tj. $|f^n(x) - \tilde{x}| < \frac{1}{2^N}$.
-\item[iii)] Želimo videti, da poljubno blizu $x\in [0, 1]$ obstaja $\tilde{x} \in [0, 1]$, da je za nek $m\in \N$: $|f^m(x) - f^m(\tilde{x}) \geq \frac{1}{2}$. Za
+Obstaja tak $m\in \N: f^m(x) = 0.x_1 x_2 \dots x_N y_{N+1}$ tj. $|f^m(\tilde{x}) - x| < \frac{1}{2^N}$.
+\item[c3)] Želimo videti, da poljubno blizu $x\in [0, 1]$ obstaja $\tilde{x} \in [0, 1]$, da je za nek $m\in \N$: $|f^m(x) - f^m(\tilde{x}) \geq \frac{1}{2}$. 
+Vzamemo
 $$
 x = 0.x_1 x_2 \dots x_N x_{N+1} \dots_{(2)}
 $$
-vzamemo 
+in
 $$
-\tilde{x} = 0.\tilde{x_1} \tilde{x_2}\dots {x_N} \tilde{x_{N+1}} \dots_{(2)}
+\tilde{x} = 0.\tilde{x}_1 \tilde{x}_2\dots \tilde{x}_N \tilde{x}_{N+1} \dots_{(2)}
 $$
-tj. velja $X_{N+1} + \tilde{x_{N+1}} = 1$
+Naj velja $\tilde{x}_{N+1} \neq x_{N+1}$
 Potem je 
 $$
-|f^N(x) - f^N(\tilde{x}) = \frac{1}{2}.
+|f^N(x) - f^N(\tilde{x})| = |0.x_{N+1}x_{N+2}\dots  - 0.\tilde{x}_{N+1} \tilde{x}_{N+2}\dots| \geq \frac{1}{2}.
 $$
 Dobimo števili, ki sta $\frac{1}{2^N}$ blizu in po $n$-iteracijah $\frac{1}{2}$ narazen.
 \end{enumerate}
 \end{primer}
+\newpage
+\begin{primer}
+Šotorasta preslikava(Tent map)
+$$
+T(x)= \begin{cases}2 x ; & x \in\left[0, \frac{1}{2}\right] \\ 2-2 x ; & x \in\left(\frac{1}{2}, 1\right]\end{cases} =2\min\{x, 1 - x\} 
+$$
+\begin{figure}[h!]
+    \begin{centering}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb8.png}
+    %\caption{paj čevinast diagram iz Primera 3.}
+    \end{centering}
+\end{figure}   
 
-\begin{primer}[Šotorasta preslikava(tent map)]
+Drugi iterat: 
+$$T^2(x) = \min\{T(x), 1 - T(x)\}$$
+
+\begin{figure}[h!]
+    \begin{centering}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb9.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
+\end{figure} 
+\newpage
+Podobno dobimo $T^3$ in višje iterate 
+
+\begin{figure}[h!]
+    \begin{centering}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb10.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{centering}
+\end{figure} 
+
+
+Definiramo intervale 
 $$
-T(x) = 2\min\{x, 1 - x\} = ...
+I_{j, n} \coloneqq \Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big], \quad j = \{1, 2, \dots, 2^n\}.
 $$
-slika T \\ 
-Drugi iterat: $T^2(x) = \min\{T(x), 1 - T(x)\}$
-slika fon($T^2$) \\ 
-Podobno dobimo za $T^3$ in višje iterate \\
-slika še za $T^3$.
+
 \begin{enumerate}
-\item[c1)] Je očitno izpolnjen, sa ima periodično točko na vsakem intervalu oblike 
-$$
-I_{j, n} = \Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big], \quad j = \{1, 2, \dots, 2^n\}.
-$$
+\item[c1)] Je izpolnjen, saj ima periodično točko na vsakem intervalu oblike $I_{k, j}$.
 Perioda teh točk je $n$ ali manjša.
-\item[ii)] Sledi. ker je $f^n(I_{j,n}) = [0, 1]$, tj.
-če izbereš $I_{j, n} \subset U_1$, bo $f^0(I_{j, n}) \cap U_2 \neq \emptyset$ za poljubni odprti $U_1, U_2 \subset [0, 1]$.
-\item[c3)] Samo ideja: fon
+\item[ii)] Sledi, ker je $f^n(I_{j,n}) = [0, 1]$, tj.
+za $U_1$ obstaja $I_{j, n} \subset U_1$, bo $T(I_{j, n}) \cap U_2 \neq \emptyset$ za poljubni odprti $U_1, U_2 \subset [0, 1]$.
+\item[c3)] Samo ideja: za vsak $x\in [0, 1]$, poiščemo $j, k$ in $\tilde{x} \in I_{j, n}$, 
+da bo $T^k(x) - T^k(\tilde{x})| \geq \frac{1}{2}$.
 \end{enumerate}
 \end{primer}
 
@@ -646,12 +689,24 @@ Perioda teh točk je $n$ ali manjša.
 \begin{definicija}
 Pravimo, da sta $f: I \rightarrow I$ in $g: J \rightarrow J$ \textbf{konjugirani}, če obstaja homeomorfizem $h:I \rightarrow J$, da $\forall x\in I$: $h \circ f(x) = g\circ h(x) $
 \end{definicija}
-Slikca komutirajočega diagrama \\ 
-double slikca fon\\ 
+Imamo komutirajoči diagram za dano definicijo
+\begin{centering}
+\begin{tikzcd}
+	I && I \\
+	\\
+	J && J
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["h"', from=1-1, to=3-1]
+	\arrow["h"', from=1-3, to=3-3]
+	\arrow["g", from=3-1, to=3-3]
+\end{tikzcd}
+\end{centering}
 
-Ker pa je $h$ tudi obrljiva in $h^{-1}$ zvezna, se zvezno traslira tudi celotna dinamika tj.
+Iz definicije sledi, da je $h(O_f(x)) = O_g(h(x))$ za vsak $x\in I$. Z drugimi 
+besedami orbite $f$ se slikajo v orbite $h$ za $g$. To vodimo iz naslednjega razmisleka: 
+ker je $h$ obrljiva in $h^{-1}$ zvezna, se zvezno traslira celotna dinamika tj.
 \begin{align*}
-f &= h^{-1} \circ g \circ h\\ 
+f &= h^{-1} \circ g \circ h \Longrightarrow\\ 
 f^n &= (h^{-1} \circ g \circ h) \circ (h^{-1} \circ g \circ h) \circ \dots \circ (h^{-1} \circ g \circ h) = \\ 
 &= h^{-1} \circ g^n \circ h
 \end{align*}
@@ -667,54 +722,147 @@ Preverimo pogoj iz definicije
 h\circ f(x) &= h(x^2 - 2x + 2) = x^2 -2x + 2 - 1 = x^2 - 2x - 1 = \\ 
 &=(x-1)^2 = g(x-1) = g\circ h(x)  
 \end{align*}
-Slikce pikce obeh (fon).\\ 
+
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Grafi/cobweb11.png}
+            \caption{$g(x) = x^2$}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Grafi/cobweb12.png}
+            \caption{$f(x) = x^2 - 2x + 2$}
+        \end{subfigure}
+        %\caption{Two images displayed side by side}
+    \end{figure}
+    
+\end{center}
 \end{primer}
 
 \begin{opomba}
+    \hfill
 \begin{itemize}
 \item V splošnem velja, da je vsaka kvadratna funkcija $f(x) = Ax^2+ Bx + C$, $A \neq 0$ konjugirana $p_c(x) = x^2 + c$, $c\in \R$.
 \item Vidimo, da se je v primeru ohranil tudi karakter fiksnih točk. To ne preseneča oz. še več, če sta $h$ in $h^{-1}$ tudi odvedljivi, velja:
 \begin{align*}
-f'(x) &= (h^{-1} \circ g \circ h)(x) = (h^{-1})'\cdot (g\circ h(x)) \cdot g'(h(x)) \cdot h'(x) = \\ 
-&= \frac{1}{h'(h^{-1}\circ \underbrace{g\circ h}_{\text{ker je $h$ fiksna točka za }g})(x)} \circ g'(h(x))\cdot h'(x) = g'(h(x))
+f'(x) &= (h^{-1} \circ g \circ h)(x) = (h^{-1}) (g(h(x))) \cdot g'(h(x)) \cdot h'(x) = \\ 
+&= \frac{1}{h'(h^{-1} (g(h(x))))} \cdot g'(h(x))\cdot h'(x) = g'(h(x)),
 \end{align*}
-torej se tip odvedljive. točke ohrani
+kjer smo uporabili dejstvo, da je $g(h(x)) = h(x)$ za fiksno točko $x$.
+Torej se tip fiksne točke ograni. Podobno velja za periodične točke.
 \end{itemize}
 \end{opomba}
 
 \begin{definicija}
 Pravimo, da je $g: J \rightarrow J$ \textbf{semi-konjugirana} funkciji $f: I \rightarrow I$, če obstaja zvezna surjektivna preslikava $h:I \rightarrow J$, za katero velja:
 \begin{enumerate}
-\item[i)] $\forall x\in I$: $h\circ f(x) = g \circ h(x)$
+\item[i)] $\forall x\in I$: $h\circ f(x) = g\circ h(x)$
 \item[ii)] $\exists m\in \N.\, \forall x\in J$ ima $h^{-1}(x)$ največ $m$ elementov.
 \end{enumerate}
 \end{definicija}
 
+
+\begin{center}
+    \begin{tikzpicture}[node distance=3cm, auto]
+        % Nodes
+        \node (S1) [right=4mm]{\Large $\mathcal{S}$};
+        \node (I1) [right of=S1] {};
+        \node (Z1) [below=15mm of S1] {};
+        \node (S2) [right=50mm of S1] {\Large $\mathcal{S}$};
+        \node (I2) [right of=S2] {};
+        \node (Z2) [below=15mm of S2] {};
+        
+        \draw[thick][<->] (0,-2) -- (1.4,-2);
+        \draw[thick][<->] (5.7,-2) -- (7.1,-2);  
+        
+        \draw[thick][->] (2.5,1) -- (4.5,1);
+        \fill (3.5,1.7) node[below] {\Large$f$};
+
+        \draw[thick][->] (2.5,-2) -- (4.5,-2);
+        \fill (3.5,-1.3) node[below] {\Large$g$};
+
+        \fill[orange] (0.7,-2) circle (1.8pt);
+        \fill (0.7,-2.2) node[below] {$h(x)$};
+
+        \fill[orange] (6.1,-2) circle (1.8pt);
+        \fill (6.7,-2.2) node[below] {$g(h(x)) = h(f(x))$};
+
+        \fill (7,1.7) node[below] {\Large $I$};
+        \fill (1.5,1.7) node[below] {\Large $I$};
+
+        \fill (7,-1.3) node[below] {\Large $J$};
+        \fill (1.5,-1.3) node[below] {\Large $J$};
+
+        % Arrows
+        \draw[->] (S1) -- node[left] {\Large $h$} (Z1);
+        %\draw[->] (I1) -- node[above] {\Large $F$} (I2);
+        \draw[->] (S2) -- node[left] {\Large $h$} (Z2);
+        %\draw[->] (Z1) -- node[below] {\Large $g$} (Z2);
+    
+    \draw[thick] plot [smooth, tension=1] coordinates 
+        {(-0.4,1.7) (0.4,2.2) (1.2,2) (0.4,1.2) (1.2,1) (0.4,0.4) (-0.4,0.6)};
+        
+    \draw[thick] plot [smooth, tension=1] coordinates 
+        {(5,1.7) (5.8,2.2) (6.6,2) (5.8,1.2) (6.6,1) (5.8,0.4) (5,0.6)};
+    
+    % Orange Points
+    \foreach \x in {(0.7,2.23), (0.7,1.53), (0.7,1.117), (0.7,0.5)}
+        \fill[orange] \x circle (1.8pt);
+    
+    \foreach \x in {(6.1,2.23), (6.1,1.53), (6.1,1.117), (6.1,0.5)}
+        \fill[orange] \x circle (1.8pt);
+        
+    \end{tikzpicture}
+    \end{center}
+
 \begin{opomba}
-Definicija semi-konjugacije lahko varira glede na literaturo.
+\hfill
+\begin{itemize}
+    \item Definicija semi-konjugacije lahko varira glede na literaturo.
+    \item Znova velja 
+    $$
+    h(O_f(x)) = O_g(h(x))
+    $$
+    vendar pa ta relacija ni več bijektivna.
+\end{itemize}
 \end{opomba}
 
-Slikaaaa(fon):\\
-Znova velja 
-$$
-h(O_f(x)) = O_g(h(x))
-$$
-vendar pa ta relacija ni več bijektivna.
-
 \begin{primer}
-\begin{align*}
-h:[-1, 1] \rightarrow [0, 1] \\ 
-h(x) = x^2
-\end{align*}
-(slika) 2 to 1 preslikava. 
-\begin{align*}
-h:[-1, 1] \rightarrow [-1, 1] \\ 
-h(x) = \sqrt{1 - x^2}
-\end{align*}
+Dane imamo naslednje preslikave 
+\begin{figure}[h]
+    \centering
+    % First figure
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb131.png}
+        \caption{\\$h:[-1, 1] \rightarrow [0, 1] $\\\quad $x \mapsto x^2$}
+        \label{fig:cobweb31}
+    \end{subfigure}
+    % Second figure
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb132.png}
+        \caption{\\$f:[-1, 1] \rightarrow [-1, 1]$ \\ $x\mapsto \sqrt{1 - x^2}$}
+        \label{fig:cobweb32}
+    \end{subfigure}
+    % Third figure
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb133.png}
+        \caption{\\$g:[0,1] \rightarrow [0, 1]$\\ $x\mapsto 1 - x$}
+        \label{fig:cobweb33}
+    \end{subfigure}
+\end{figure}
+
+
 $$
-g\circ f(x) = h(\sqrt{1 - x^2}) = (\sqrt{1 - x^2})^2 = 1 - x^2 = g(x^2) = g\circ h(x).
+h\circ f(x) = g(\sqrt{1 - x^2}) = (\sqrt{1 - x^2})^2 = 1 - x^2 = g(x^2) = g\circ h(x).
 $$
-Sebi-konjugacija ne ohranja dinamike popolno. V našem primeru je sklopila predperiodične in periodične točke.
+Sebi-konjugacija ne ohranja dinamike popolno. V našem primeru je priklopila predperiodične točke, periodičnim.
 \end{primer}
 
 \begin{trditev}
@@ -722,18 +870,22 @@ Naj bo $g$ semi-konjugirana $f$ preko $h:I \rightarrow J$. Če je $x_0 \in I$ pe
 \end{trditev}
 
 \begin{proof}[Dokaz:]
-Naj bo $f^n(x_0) = x_0$ in $n\in \N$ najmanjši tak. Potem velja
+Naj bo $f^n(x_0) = x_0$ in $n\in \N$ najmanjše tako število. Potem velja
 \begin{align*}
-g^n(h(x_0)) &= g\circ \dots \circ g \circ h(x_0) = \\ 
-&= g\circ \dots \circ g \circ h \circ f(x_0) = \\ 
-&= \dots = h \circ f^n(x_0) = h(x_0) 
+g^n(h(x_0)) &= g^{n-1}\circ (g\circ h)(x_0) = g^{n-1}\circ (h\circ f)(x_0) = 
+\dots = h\circ f^n(x_0) = h(x_0).
 \end{align*}
-tj. $g$ je periodična, nemoremo pa zagotoviti minimalnosti $n$.
 \end{proof}
 
-\begin{primer}
-sej veš kje
-\end{primer}
+\begin{opomba}
+\hfill
+\begin{itemize}
+\item Problem je, da nemoremo zagotoviti minimalnosti $n$ za $g$. Recimo, da ima 
+$f$ $2$-cikel $\{0, 1\}$, $g$ pa fiksno točko $0$. Če vzamemo $h(0) = h(1) = 0$, bo 
+veljalo $h\circ f(0) = 0 = g\circ h(0)$, a ne bosta isti periodi.
+\item V splošnem velja, da je perioda delitelj števila $n$.
+\end{itemize}
+\end{opomba}
 
 \begin{izrek}
 Naj bo $g$ semi-konjugirana $f$ s $h: I \rightarrow J$ in naj bosta $I, J \subset \R$ kompaktna intervala in naj bo $f$ kaotičen. Potem je $g$ kaotična, če je izpolnjen eden od treh pogojev:
@@ -745,16 +897,55 @@ Naj bo $g$ semi-konjugirana $f$ s $h: I \rightarrow J$ in naj bosta $I, J \subse
 \end{izrek}
 
 \begin{proof}[Dokaz:]
+    ~\\
+    \begin{enumerate}
+        \item[c1)] Sledi iz trditve. Če vzamemo poljubno $U \subset J$ odprto, je tudi $h^{-1}(U) \subset I$ odprta in vsebuje periodično točko $x_0$. Torej je $h(x_0)$ periodična in v $U$. \\
+    \begin{center}
+        \begin{tikzpicture}
+            % Wavy function f
+            \draw[thick, blue] plot [smooth, tension=1] coordinates 
+            {(0,3) (0.5,3.5) (1,3) (1.5,2.5) (2,3) (2.5,3.5) (3,3) (3.5,2.5) (4,3)};
+            
+            % Dashed red line following f
+            \draw[red, dashed] plot [smooth, tension=1] coordinates 
+            {(0,3) (0.5,3.5) (1,3) (1.5,2.5) (2,3) (2.5,3.5) (3,3) (3.5,2.5) (4,3)};
+            
+            % Label for f
+            \node[left] at (0,3) {\Large $f$};
+            
+            % Straight function g
+            \draw[thick, blue] (0,0) -- (4,0);
+            \draw[red, dashed] (0,0) -- (4,0);
+            
+            % Label for g
+            \node[left] at (0,0) {\Large $g$};
+            
+            % Arrow from f to g
+            \draw[thick, ->] (2,2.5) -- (2,0.5) node[midway, right] {\Large $h$};
+              
+        \end{tikzpicture}
+     \end{center}
+\item[c2)] Če je $O_f(x)$ gosta, je taka tudi $O_g(h(x))$.
+\item[c3)] 
 \begin{enumerate}
-\item[c1)] Sledi iz trditve. Če vzamemo poljubno $U \subset J$ odprto, je tudi $h^{-1}(U) \subset I$ odprta in vsebuje periodično točko $x_0$. Torej je $h(x_0)$ periodična in v $U$. \\
-Slika da te mika \\ 
-\item[c2)] Na enak način dobimo tudi gosto orbito.
-\item[c3)] Poglejmo si preslikavo $d: I\times I \rightarrow \R$, podano s predpisom $d(x, y) = |h(x) - h(y)|$. Gre za zvezno preslikavo iz kompakta v $\R$. Poglejmo njeno zožitev na množico
+    \item[i)] $h$ je injektivna: 
+poglejmo si preslikavo $d: I\times I \rightarrow \R$, podano s predpisom $d(x, y) = |h(x) - h(y)|$. 
+Gre za zvezno preslikavo iz kompakta v $\R$. Poglejmo si množico
 $$
-\Delta_\beta = \{(x, y)\in I\times I \,|\, |x-y| \geq \beta\}
+\Delta_\beta = \{(x, y)\in I\times I \,|\, |x-y| \geq \beta\}.
 $$
-super slika \\ 
-Obstaja $\beta' > 0$, da iz pogoja $|f^n(x) - f^n(y)| > \beta$ sledi $|g^n(h(x)) - g^n(h(y))| > \beta'$. To je občutljivostna konstanta za $g$.
+Ker je $\Delta_\beta$ zaprta in podmnožica $I\times I$ je omejena, torej je kompaktna.
+Zato je $I\times I - \Delta_\beta$ kompaktna. Ker je $d$ zvezna, slika $d(I\times I - \Delta_\beta)$
+kompaktna. Obstaja $\beta' > 0$: če $|x - y|> \beta$, potem $|h(x) - h(y)| > \beta'$.
+Potem iz pogoja $|f^n(x) - f^n(y)| > \beta$ sledi $|g^n(h(x)) - g^n(h(y))| > \beta'$. To je občutljivostna konstanta za $g$.
+\item[ii)] $g$ je zvezna: ker je $g$ zvezna pogoj $c3)$ sledi iz $(c1)$ in $(c2)$.
+\item[iii)] $f$ je zvezna (ideja): zaradi konjugacije obstaja osprta $U \subset J$, ki ima 
+do $m$ praslik. Zaradi kompaktnosti, zveznosti $h$ in lokalne obrljivosti, obstaja 
+$\delta > 0$, da iz diam$(U) < \delta$ sledi, da imajo praslike diam$(g^n(U)) < \delta$
+za vse $n\in \N_0$. Zaradi zveznosti se praslike $g^n(U)$ slikajo v $g^{nm}(U)$. 
+Torej obstaja praslika $V$ od $U$, da je diam$(f^n(V))< \beta$ za vse $n\in \N_0$, 
+kar je protislovje. 
+\end{enumerate}
 \end{enumerate}
 \end{proof}
 
@@ -766,54 +957,95 @@ Zakaj je pomembna kompaktnost intervalov $I$ in $J$? Poglejmo si preslikavi
 \end{align*}
 Očitno je, da je $f$ izpolnjuje $(c3)$, saj sta za velik $n$ števili $2^n x$ in $2^n y$ daleč narazen, če $x\neq y$. Po drugi strani, je tudi očitno, da $g$ ne izpolnjuje $(c3)$, saj je razlika 
 $$
-|g^n(x) - g^n(y)| = |x-y|
+|g^n(x) - g^n(y)| = |x + n\ln(2) - (y + n\ln(2))| = |x-y|
 $$
 konstantna za vse $n\in \N$. Sta pa vseno $f$ in $g$ konjugirani preko $h(x) = \ln(x)$.
 $$
-h\circ g\circ h^{-1} ...
+g(x) = h\circ f\circ h^{-1}(x) = \ln(2e^x) = \ln(e^x) + \ln(2) = x + \ln(2).
 $$.
 \end{opomba}
 
 \begin{primer}
+Poglejmo si sedaj primere semi-konjugacije na Podvojitveni in šotorasti preslikavi. 
 \begin{align*}
 &D(x) = 2x - \lfloor 2x \rfloor \\ 
 &T(x) = 2\min\{x, 1-x\}
 \end{align*}
-slika obeh + se kompozitum.
-$T(D(x)) = 2\min\{D(x), 1 - D(x)\} = T(T(x))$.
+Imamo 
+$$T(D(x)) = 2\min\{D(x), 1 - D(x)\} = T(T(x))$$.
+To pomeni, da je $T$ semi-konjugirana $D$ za $h = T$. Posledično kaotičnost 
+$T$ sledi.
 \end{primer}
 
 \begin{primer}
 Imamo preslikavo
 \begin{align*}
 &h: [0, 1) \rightarrow S^1 \subset \R^2 \\ 
-&h(x) = (\cos(2\pi x, \sin(2\pi x))
+&h(x) = (\cos{2\pi x}, \sin{2\pi x})
 \end{align*}
-slikica intervala v kroznico.\\ 
 Zanima nas, kaj se zgodi z doubling map, če uporabimo to konjugacijo oz. trdimo, da bo konjugirana preslikava 
-\begin{align*}
-&h: S^1 \subset \R^2 \rightarrow S^1 \subset \R^2 \\ 
-(\cos(t), \sin(t)) \mapsto (\cos(2t), \sin(2t))
-\end{align*}
-tj. preslikava ki podvoji argument. V kompleksni notacijo bi jo zapisali z $e^{it} \mapsto e^{2it}$ ali $z \mapsto z^2$. \\ 
-Spet hude slike s fona\\ 
+\begin{center}
+    \begin{tikzpicture}
+    
+        % Interval representation
+        \draw[thick] (0,2) -- (4,2);
+        \filldraw (0,2) circle (1.5pt) node[below] {0};
+        \filldraw (4,2) circle (1.5pt) node[below] {1};
+        \filldraw (2,2) circle (1.5pt) node[below] {$\frac{1}{2}$};
+    
+        \draw[->,red,thick] (0,2) -- (2,2);
+        \draw[->,orange,thick] (2,2) -- (4,2);
+    
+        % Mapping downwards
+        \draw[->] (2,0.5) -- (2,-1) node[midway,right] {$D$};
+    
+        % Mapped interval
+        %\draw[thick] (0,0) -- (4,0);
+        %\filldraw (0,0) circle (1.5pt);
+        %\filldraw (4,0) circle (1.5pt);
+    
+        \draw[->,red,thick] (0,-2) -- (2,-2);
+        \draw[->,orange,thick] (2,-2) -- (4,-2);
+    
+        % Arrow indicating a function
+        \draw[->] (5.5,1.8) -- (7.5,1.8) node[midway,above] {$h$};
+        \draw[->] (5.5,-2) -- (7.5,-2) node[midway,above] {$h$};
+    
+
+        % Circles
+        \draw[thick] (10,2) circle (1pt);
+        \draw[->,red,thick] (10+1,2) arc (0:180:1);
+        \draw[->,orange,thick] (10-1,2) arc (180:360:1);
+    
+        \draw[->] (10,0.5) -- (10,-0.5) node[midway,right] {$f$};
+    
+        \draw[thick] (10,-2) circle (1pt);
+        \draw[->,red,thick] (10+1,-2) arc (0:180:1);
+        \draw[->,orange,thick] (10-1,-2) arc (180:360:1);
+    
+    \end{tikzpicture}
+\end{center}
+
+Sklep: $D$ je konjugirana $f: S^1 \rightarrow S^1$, $f(\cos{t}, \sin{t}) = (\cos{2t}, \sin{2t})$
+za $t\in [0, 2\pi]$ tj. preslikavi ki podvoji argument. V kompleksni notacijo bi j
+o zapisali z $e^{it} \mapsto e^{2it}$ ali $z \mapsto z^2$. Posledično je tudi $f$
+kaotična.
 \end{primer}
 
 \begin{primer}
-Pokažimo, da je $q_{-2}(x) = x^2 - 2$ kaotična. Gledamo interval, ki ga nese vase\\ 
-coobweb za balo\\ 
-Poiščemo semi-konjugacijo med njo in $f$ iz prejšnjega primera. Preslikava, ki jo porodi je 
+Pokažimo, da je $q_{-2}(x) = x^2 - 2$ kaotična. To bo sledilo iz dejstva, da je 
+semi-konjugirana preslikavi podvojitev argumenta, preko semi-konjugacije $h$ 
 \begin{align*}
 h: S^1 \rightarrow [-2, 2] \\ 
-(\cos{t}, \sin{t}) \rightarrow 2\cos{t} \text{ oz. }\\ 
-e^{it} \mapsto 2\Re(e^{it}) 
+(x, y) \mapsto 2x 
 \end{align*}
-spet mini slike :(\\ 
-Ta preslikava ima v vsaki točki $y\in [-2, 2]$ največ $2$ prasliki, je zvezna in surjektivna. Preverimo, da drži:
+Ta preslikava ima v vsaki točki $y\in [-2, 2]$ največ $2$ prasliki, je zvezna in 
+surjektivna. Preverimo, da komutirata $g$ in $q_{-2}$:
 \begin{align*}
-h\circ f(\cos{t}, \sin{t}) = q_{-2} \circ h(\cos{t}, \sin{t}).
+h\circ g(\cos{2t}, \sin{2t}) &= 2\cos{2t} = 2\cos^2{t} - 2\sin^2{t} = 4\cos^2{t} - 2\\
+q_{-2}\circ h(\cos{t}, \sin{t}) &= q_{-2}(2\cos{t}) = 4\cos^2{t} - 2 = 4\cos^2{t} - 2
 \end{align*}
-Sklep: $q_{-2}$ je semi-konjugirana tudi $D$. Direktna preslikava bi bila 
+Sklep: $q_{-2}$ je semi-konjugirana $D$. Direktna preslikava bi bila 
 $$
 h(x) = 2\cos(2\pi x).
 $$
@@ -824,40 +1056,99 @@ Ker je $q_{-2}$ zvezna, po prejšnjem izreku je tudi kaotična.
 
 Za motivacijo si oglejmo enoparametrično družino šotorskih preslikav za $c\in [0, 2]$:
 $$
-T_c(x) = c\cdot \min\{x, 1-x\} = \frac{c}{2} T(x).
+T_c(x) = \frac{c}{2}\cdot \min\{x, 1-x\} = \frac{c}{2} T(x).
 $$
 Vse te preslikave interval $[0, 1]$ slikajo vase, dinamike pa se za različne vrednosti malce razlikujejo
+\newpage
 \begin{itemize}
-\item če je $c < 1$: \\
-wooo slika( kdo bi si mislu)\\ 
+\item če je $c < 1$: 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb141.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure} 
+
 $x_0$ je edina periodična točka, gre pa za privlačno fiksno točko, saj je $T_c'(0) = c < 1$.
-\item če je $c = 1$: \\ 
-quess whos back \\ 
-imamo dve fiksni točki, obe sta odbojni, saj je odvod v njih $-c$.
+\item če je $c = 1$: 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb142.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+\newpage
+\item če je $c\in (1, 2]$: 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb143.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+
+pojavi se dodatna fiksna točka 
+$$
+c - cx = x \iff x = \frac{c}{1 + c}.
+$$
+Ta točka je odbojna , saj je na $(\frac{1}{2}, 1]$ odvod $T_c'(x) = -c < -1$. 
+Opazimo, da je $x = 0$ postala odbojna točka, saj $T_c'(0) = c > 1$.
 \end{itemize}
-Opazka: pri vrednosti $c=1$ se je veliko fiksnih točk
-"pojavilo", nato pa so izginile, dobili pa smo tudi eno novo fiksno točko pri $x = \frac{1}{2}$, ki se je nato zvezno premaknila v $x = \frac{c}{1 + c}$. Pri tem prihodu smo iz ene privlačne fiksne točke dobili dve odbojni.\\ 
-Poglejmo si kaj se dogaja z $2$-cikli 
+\noindent
+Opazka: ob prehodu čez $c=1$ je prišlo do kvalitativne spremembe dinamike, saj 
+smo iz ene dobili dve fiksni točki.
+
+\noindent
+Poglejmo si kaj se dogaja z $2$-cikli oz. $T_c^2$:
 $$
 T_c^2(x) = c\cdot \min\{ T_c(x), 1 - T_c(x)\}
 $$
-\begin{itemize}
-\item $c < 1$: sej veššš... 
-\item $c = 1$: sej vešš spet
-\end{itemize}
-
+Za $c < 1$ nimamo presečišč z $y = x$ zato se omejimo na $c \geq 1$. Za $c=1$
+so vsa presečišča fiksne točke. Ob prehodu čez $c = 1$ pa iz točke $x = \frac{1}{2}$
+dobimo dve $2$-periodični točki.
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=4.6cm]{Grafi/cobweb15.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+\noindent
+\newpage
+Za $T_c^3$ postane obnašanje še bolj zanimivo 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb16.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+Izkaže se, da pri $c = \frac{1 + \sqrt{5}}{2}$ sekamo $T^3$ natanko $5$-krat 
+($3$-cikel $+$ $2$ fiksni točki). Pri večjih je presečišč $8$ (dva $3$-cikla) 
+pri manjših pa $2$. Kasneje bomo dokazali, da se ob $3$-ciklu pojavijo še vse 
+ostale periode.
 Točkam, pri katerih se zgodi "kvalitativna sprememba" dinamike, pravimo bifurkacije.
+\newline
+Formalno:
 
-Mi bomo bifurkacije opazovali na družini zveznih funkcij $f_c: I \rightarrow I \subset I$, ki bodo gladko odvisne od parametra $c\in J \subset \R$. To pomeni, da za funkcijo $F(x, c) \coloneqq f_c(x)$ obstajajo parcialni odvodi $\frac{\partial^k}{\partial c^k} F(x, c)$ in so zvezni, za $k\in \N_0$. Na primeru $T_c(x) = \frac{c}{2} T(x)$ je taka, čeprav ni odvedljiva po $x$ v $x = \frac{1}{2}$.
+Obravnavamo družino zveznih funkcij $f_c: I \rightarrow I \subset \R$, 
+za parametr $c\in J \subset \R$. Ta družina je $C^k$-odvisna od $c$, če 
+$k$-ti parcialni odvodi $F(x, c) \coloneqq f_c(x)$ obstajajo
+$\frac{\partial^k}{\partial c^k} F(x, c)$ in so zvezni, za $k\in \N_0$. 
+Na primer $T_c(x) = \frac{c}{2} T(x)$ je taka, čeprav ni odvedljiva po $x$ v 
+$x = \frac{1}{2}$ in velja
 \begin{align*}
-\frac{\partial}{\partial c} T_c(x) = \frac{1}{2} T(x) \\ 
-\frac{\partial^k}{\partial c^k} T_c(x) = 0, \,\, k \geq 2.
+&\frac{\partial}{\partial c} T_c(x) = \frac{1}{2} T(x) \\ 
+&\frac{\partial^k}{\partial c^k} T_c(x) = 0, \,\, k \geq 2.
 \end{align*}
+
+\begin{definicija}
+Vrednosti $c\in J$ pravimo \textbf{bifurkacija} družine $f_c$, če se dinamika 
+ob prehodu čez njo kvalitativno spremeni.
+\end{definicija}
+
 Pri motivaciji smo opazili različne tipe bifurkacij:
 \begin{itemize}
-\item Fiksna točka se je pojavila in izginila (npr. $x = \frac{1}{4}$ pri $c=1$.
-\item Fiksna točka $x=0$ je zamenjala karakter iz privlačne v nevtralno in nato v odbojno pri $c = 1$.
-\item Iz fiksne točke $x = \frac{1}{2}$, ki se pojavi pri $c = 1$, smo dobili fiksno točko drugega tipa in $2$-cikel za $c>1$.
+\item Fiksna točka se je pojavila in izginila (npr. $x = \frac{1}{4}$ pri $c=1$).
+\item Fiksna točka se je pojavila in nato podvojila (za $c = \frac{1 + \sqrt{5}}{2}$ in poljubni fiksni točki)
+\item Iz fiksne točke $x = \frac{1}{2}$, ki se pojavi pri $c = 1$, smo dobili fiksno točko drugega tipa in $2$-cikel.
 \end{itemize}
 Ključna opazka je, da so se spremembe zgodile, ko je odvod v fiksni točki $1$ ali pa ne obstaja.
 
@@ -881,13 +1172,52 @@ Torej lahko na majhni okolici $c_0 \in J$ izrazimo $x = p(c)$, ter velja $F(p(c)
 Izrek podaja le potreben, ne pa tudi zadosten pogoj.
 \end{opomba}
 
+\begin{posledica}
+Privlačne in odbojne fiksne točke se pri majhnih motnjah ohranijo. Enako velja 
+za točke, kjer je odvod $-1$. Pri nevtralnih točkah z odvodom $+1$ pa lahko pride 
+do sprememb.
+\end{posledica}
+
 \begin{primer}[Tangentna bifurkacija]
-Bifurkacija, v katerih iz nevtralne točke, ki zadošča $f_{c_0}'(x_0) = 1$, dobimo dve fiksni točki, ki jih prej ni bilo. Ena je privlačna, druga odbojna, zato se tudi imenuje saddle-node bifurcation. \\
-klasika\\ 
-
-
-
+Bifurkacija, v katerih iz nevtralne točke, ki zadošča $f_{c_0}'(x_0) = 1$, 
+dobimo dve fiksni točki, ki jih prej ni bilo. Ena je privlačna, druga odbojna, 
+zato se tudi imenuje saddle-node bifurcation. 
+Opazujemo družino $g_c(x) = x^2 + c$. Dobimo 
+\begin{itemize}
+    \item za $c > \frac{1}{4}$ ni fiksnih točk 
+    \item za $c = \frac{1}{4}$ se pojavi nevtralna točka 
+    \item za $c < \frac{1}{4}$ se razcepi v privlačno in odbojno točko.
+\end{itemize}
 \end{primer}
+
+\begin{primer}[Potrojitev fiksnih točk]
+Imamo družino $f_c(x) = c\arctan{x}$ za $c\in [0, \infty]$.
+\end{primer}
+
+\begin{figure}[h]
+    \centering
+    % First figure
+    \begin{subfigure}[c]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb171.png}
+        \caption{\\$c<1$ privlačna}
+        \label{fig:cobweb31}
+    \end{subfigure}
+    % Second figure
+    \begin{subfigure}[c]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb172.png}
+        \caption{\\$c=1$ nevtralna in\\šibko privlačna}
+        \label{fig:cobweb32}
+    \end{subfigure}
+    % Third figure
+    \begin{subfigure}[c]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Grafi/cobweb173.png}
+        \caption{\\$c>1$ odbojna in\\dve privlačni}
+        \label{fig:cobweb33}
+    \end{subfigure}
+\end{figure}
 
 
 
