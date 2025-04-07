@@ -21,7 +21,7 @@
 \usepackage{esdiff}
 \usepackage{pgfplots}
 \usepackage{caption}
-\usetikzlibrary{shapes.symbols, positioning}
+\usetikzlibrary{shapes.symbols, positioning, patterns}
 \usepackage{tikz-cd}
 \usetikzlibrary{positioning}
 
@@ -1153,7 +1153,13 @@ Pri motivaciji smo opazili različne tipe bifurkacij:
 Ključna opazka je, da so se spremembe zgodile, ko je odvod v fiksni točki $1$ ali pa ne obstaja.
 
 \begin{izrek}
-Naj bo $f_c: I \rightarrow I$ družina zvezno odvedljivih funkcij, ki so gladko odvisne od parametra $c\in J$. Denimo, da za $x_0 \in I$ velja $f_{c_0}(x_0) = x_0$ in $f_{c_0}'(x_0) \neq 1$. Potem obstajata okolica $I' \subset I$ in $J' \subset J$, ter preslikava $p: J' \rightarrow I'$, da je $f_c(p(c)) = p(c)$, za katero je $p(c)$ edina fiksna točka na $I'$ pri $c\in J'$. 
+    \label{izrek:implicitna_preslikava}
+Naj bo $f_c: I \rightarrow I$ družina zvezno odvedljivih funkcij, ki 
+so gladko odvisne od parametra $c\in J$. Denimo, da za $x_0 \in I$ 
+velja $f_{c_0}(x_0) = x_0$ in $f_{c_0}'(x_0) \neq 1$. Potem obstajata 
+okolica $I' \subset I$ in $J' \subset J$, ter preslikava 
+$p: J' \rightarrow I'$, da je $f_c(p(c)) = p(c)$, za katero je $p(c)$
+ edina fiksna točka na $I'$ pri $c\in J'$. 
 \end{izrek}
 
 \begin{proof}[Dokaz:]
@@ -1192,7 +1198,6 @@ Opazujemo družino $g_c(x) = x^2 + c$. Dobimo
 
 \begin{primer}[Potrojitev fiksnih točk]
 Imamo družino $f_c(x) = c\arctan{x}$ za $c\in [0, \infty]$.
-\end{primer}
 
 \begin{figure}[h]
     \centering
@@ -1218,8 +1223,874 @@ Imamo družino $f_c(x) = c\arctan{x}$ za $c\in [0, \infty]$.
         \label{fig:cobweb33}
     \end{subfigure}
 \end{figure}
+\end{primer}
+
+\begin{primer}[Podvojitev periode]
+    Naj bo $f_{c_0}(x_0) = x_0$ in $f_{c_0}'(x_0) = -1$. Potem se po 
+    izreku \ref{izrek:implicitna_preslikava} fiksna točka pri majhnih motnjah 
+    ohrani, vendar pa velja:
+    $$
+    (f_{c_0}^2)'(x_0) = f'_{c_0}(f_{c_0}(x_0)) \cdot f'_{c_0}(x_0)= (f'_{c_0}(x_0))^2 = 1 .
+    $$
+    Torej se v tej točki lahko pojavi nov $2$-cikel.
+
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Axes for first plot
+            \draw[->] (-1,0) -- (2,0);
+            \draw[->] (0,-1) -- (0,2);
+            
+            % Function curve f_c (first plot)
+            \draw[domain=0.7:1.7,smooth,variable=\x,blue,thick] plot ({\x},{1 + 2*(\x-1.1)^2});
+            \draw[domain=0.3:1.4,smooth,variable=\x,green,thick] plot ({\x},{\x*\x - 2*\x + 2});
+            
+            % Line y = x
+            \draw[orange, thick] (-0.5,-0.5) -- (2.5,2.5);
+            %\node[orange] at (2.5,2.3) {y = x};
+            
+            % Fixed point
+            \filldraw (1,1) circle (1pt);
+            \node at (1,-0.2) {$x_0$};
+            
+            % Derivative label
+            \node[blue] at (2.4,0.8) {$f_c^2(x_0) = -1$};
+            %\node[orange] at (1.4,1.2) {FIKSNA TOČKA};
+            
+            % Second plot
+            \begin{scope}[xshift=5cm]
+                % Axes
+                \draw[->] (-1,0) -- (2,0);
+                \draw[->] (0,-1) -- (0,2);
+        
+                % Function f_c
+                \draw[domain=-0.2:1.2,smooth,variable=\x,blue,thick] plot ({\x},{1.2*sin(2*(\x-1) r) + 1});
+                
+                % Line y = x
+                \draw[orange, thick] (-0.5,-0.5) -- (2.5,2.5);
+                %\node[orange] at (2.5,2.3) {y = x};
+        
+                % Fixed point
+                \filldraw (0.9,0.9) circle (1pt);
+                %\node[orange] at (1.2,1.2) {FIKSNA};
+                
+                % Second cycle points
+                \filldraw (0.4,1.4) circle (1pt);
+                \filldraw (1.4,0.4) circle (1pt);
+                
+                \draw[->, green!70!black, thick] (1.4,0.4) to[out=30,in=-150] (0.4,1.4);
+                \draw[->, green!70!black, thick] (0.4,1.4) to[out=-150,in=+30] (1.4,0.4);
+                
+                % Labels
+                \node[blue] at (2.5,1.2) {$(f_c^2)'(x_0) = 1$};
+                %\node[green!60!black] at (1.5,-0.3) {DOBIMO 2-CIKEL};
+            \end{scope}
+        \end{tikzpicture}
+        \end{center}
+        
+        V literaturi se taki bifurkaciji pogosto reče period-doubling. 
+        Navadno pa se zahteva tudi, da se karakter fiksne točke pri prehodu prenese na 
+        cikel, pri točki pa se spremeni npr. iz privlačne točke dobiš 
+        privlačen $2$-cikel in odbojno fiksno točko.
+\end{primer}
+
+\section{Simbolična dinamika}
+
+Oglejmo si šotorsko preslikavo za vrednost $c = 3$
+$$
+T_3(x) = 3\cdot \min\{x, 1-x\} = \frac{3}{2} T(x).
+$$
+Opazimo, da se v $[0, 1]$ preslikata zgolj intervala $[0, \frac{1}{3}]$
+in $[\frac{2}{3}, 1]$.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb18.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+
+Za drugi interat velja:
+$$
+T^2_3(x) = 3\min\{T_3(x), 1 - T_3(x)\}.
+$$
+Po dveh iteracijah v $[0, 1]$ ostanejo le točke intervalov $[0, \frac{1}{9}]$
+in $[\frac{2}{3}, \frac{7}{9}]$ ter $[\frac{8}{9}, 1]$
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=8cm, height=5.5cm]{Grafi/cobweb19.png}
+        %\caption{pajčevinast diagram iz Primera 3.}
+    \end{center}
+\end{figure}
+
+Če nadaljujemo induktivno, ugotovimo, da po $n$ iteracijah ostanejo 
+natanko točke množic:
+$$
+C_n = \frac{1}{3} C_{n-1} \cup \Big(1 - \frac{1}{3} C_{n-1}\Big)\,\, \text{ za } \,\, C_0 = [0, 1].
+$$
+Torej v $[0, 1]$ za vse iteracije ostanejo natanko točke $C = \bigcap_{n=1}^\infty C_n$.
+To je t.i. \textbf{Cantorjeva množica}. 
+\noindent
+Radi bi raziskali dinamiko preslikave $T_3: C \rightarrow [0, 1]$. 
+Pomagamo si s t.i. simbolično dinamiko. Naj bo 
+$$
+S = \{ \overline{s} = (s_1, s_2, \dots) \,|\, s_j \in \{0, 1\}\} = 2^\N.
+$$
+Na ta prostor uvedemo metriko 
+$$
+d(\overline{s}, \overline{t}) = \sum_{j=1}^\infty \frac{|s_j - t_j|}{2^j}.
+$$
+Torej sta zaporedji $\frac{1}{2^{j+1}}$ - blizu, če se ujemata do $j$-te 
+komponente. Vsakemu elementu $x\in C$ lahko na bijektiven način priredimo 
+zaporedje $\overline{s}$, in sicer:
+
+\[
+\begin{tikzpicture}[>=stealth, node distance=2cm]
+\node (A) at (0,0) {$x \in \left[0, \tfrac{1}{3}\right] \Rightarrow S_1 = 0$};
+\node (B1) at (5,1.5) {$x \in \left[0, \tfrac{1}{9}\right] \Rightarrow S_2 = 0$};
+\node (B2) at (5,-0.5) {$x \in \left[\tfrac{2}{9}, \tfrac{3}{9}\right] \Rightarrow S_2 = 1$};
+
+\node (C) at (0,-2.5) {$x \in \left[\tfrac{2}{3}, 1\right] \Rightarrow S_1 = 1$};
+\node (D1) at (5,-1.5) {$x \in \left[\tfrac{6}{9}, \tfrac{7}{9}\right] \Rightarrow S_2 = 1$};
+\node (D2) at (5,-3.5) {$x \in \left[\tfrac{8}{9}, 1\right] \Rightarrow S_2 = 0$};
+
+% Arrows
+\draw[->] (A) -- (B1);
+\draw[->] (A) -- (B2);
+
+\draw[->] (C) -- (D1);
+\draw[->] (C) -- (D2);
+\end{tikzpicture}
+\]
+
+tj. za $s_n$ izberemo $0$ ali $1$ glede na to, ali smo šli levo ali desno. 
+Nekoliko težje je dokazati, da je taka $h: C \rightarrow S$ homeomorfizem.
+Premislimo, kako delujeta $T_3$ in $f = h\circ T_3 \circ h^{-1}$
+\begin{align*}
+&x\in \Big[0, \frac{1}{3}\Big] \Longrightarrow T_3(x) = 3x \,\,\text{ oz. }\,\,  (0, s_2, s_3, \dots) \mapsto (s_2, s_3, \dots) \\
+&x\in \Big[\frac{2}{3}, 1\Big] \Longrightarrow T_3(x) = 3(1-x) \,\,\text{ oz. }\,\,  (1, s_2, s_3, \dots) \xmapsto{1-x} (0, \tilde{s}_2, \tilde{s}_3, \dots) \mapsto (\tilde{s}_2, \tilde{s}_3, \dots)
+\end{align*}
+in $\tilde{s}_j \neq s_j$. \\
+Sklep: $T_3$ je konjugirana preslikavi 
+$$
+f(\bar{s})=\left\{\begin{array}{l}
+    \left(s_2, s_3, \ldots\right) ; s_1=0 \\
+    \left(\tilde{s}_2, \tilde{s}_3, \ldots\right) ; s_1=1.
+\end{array}\right.
+$$
+Podobno kot pri podvojitveni preslikavi, lahko pokažemo, da je $f$ kaotična, torej 
+je taka tudi $T_3: C \rightarrow [0, 1]$.
+
+\begin{opomba}
+V tem konkretnem primeru bi dokaz kaotičnosti lahko dokazali tudi s 
+trojiškim zapisom, saj velja:
+$$
+C = \{0. x_1 x_2 \dots_{(3)} \,|\, x_j \neq 1\}.
+$$
+Vendar pa smo se odločili za malce bolj robustno metodo, ki bi funkcijo 
+dala tudi za ostale $T_c$, za $c>2$, saj vse slikajo v $[0, 1]$ natanko 
+množico, ki je homeomorfna Cantorjevi. Metoda dobro deluje, 
+tudi kadar imamo več kot dve izbiri na vsakem koraku. Takrat izberemo 
+$$
+S = \{ \overline{s} = (s_1, s_2, \dots) \,|\, s_j \in \{0, 1, \dots, N-1\}\} = (N-1)^\N \, \text{ in }
+\, d(\overline{s}, \overline{t}) = \sum_{j=1}^\infty \frac{|s_j - t_j|}{N^j}.
+$$
+Prednost te metode je, da loči med $(1, 0, 0, \dots)$ in $(0, N-1, N-1, \dots)$
+zato se nam ni treba ubadati z neskončnimi nizi. Tovrstemu pristopu 
+$n$ konjugiranju preslikav z operatorji zamika pravimo \textbf{simbolična dinamika}.
+\end{opomba}
+
+\section{Izrek Šarkovskega}
+
+V tem razdelku bomo dokazali izrek, katerega rezultat je eden najbolj 
+presenetljivih v realni dinamiki.
+\begin{izrek}
+Naj bo $I \subset \R$ kompakten interval in $f: I \rightarrow I$ zvezna. 
+Če obstaja $3$-cikel, obstajajo tudi $n$-cikli za vse $n\in \N$.
+\end{izrek}
+\begin{proof}[Dokaz:]
+Dokaz temelji na dveh lastnostih kompaktnih intervalov $I$, $J$ $\subset \R$:
+\begin{enumerate}
+    \item[i)] če je $I \subseteq f(J)$, potem obstaja interval $J_0 \subset J$, 
+    da je $f(J_0) = I$.
+    \item[ii)] če je $J \subseteq f(J)$, obstaja fiksna točka v $J$.
+\end{enumerate}
+
+Naj bodo $a < b < c$ točke v $3$-ciklu. BŠS lahko zapišemo $f(a) = b$,
+$f(b) = c$ in $f(c) = a$. Naj bo $J_0 = [b, c]$. Naredimo tri korake:
+\begin{itemize}
+    \item zaradi zveznosti očitno velja: $J_0 \subseteq f(J_0)$, torej po 
+    i) obstaja manjši interval $J_1 \subseteq J_0$, da je $f(J_1) = J_0$.
+    \item Ker je $J_1 \subseteq J_0$, je $f(J_1) = J_0 \supseteq J_1$. 
+    Torej lahko nadaljujemo induktivno.
+    \item Dobimo: $[b, c] \supseteq J_1 \supseteq \dots \supseteq J_n$ in 
+    $f(J_n) = J_{n-1}$.
+\end{itemize}
+Iz izpeljanega zaporedja inkluzij sledi: 
+$$
+f^n(J_n) = f^{n-1}(J_{n-1}) = \dots = f(J_1) = J_0 \supseteq J_1 \dots \supseteq J_n.
+$$
+Torej po ii) obstaja točka $x\in J_n$, ki zadošča $f^n(x) = x$, vendar pa 
+nam ta metoda ne zagotovi minimalnosti $n\in \N$, možno je $f^k(x) = x$, 
+za $k < n$. Popravimo na sledeč način:\\
+vsi $J_n$ so v polovici $[b, c]$. Na koraku $n-1$ skočimo v $[a, b]$.
+Naj bo $n\in \N\backslash \{1\}$ in naj bodo $J_0 \supseteq J_1 \supseteq \dots J_{n-2}$
+kot zgoraj in naredimo naslednje korake
+\begin{itemize}
+    \item upoštevamo, da velja 
+    $$
+    f^{n-1}(J_{n-2}) = f(f^{n-2}(J_{n-2})) = f(J_0) \supseteq [a, c] \supseteq [a, b].
+    $$
+    Sedaj za razliko od prej definiramo $J_{n-1}$, kot množico z lastnostjo 
+    $J_{n-1} \subseteq J_{n-2}$ in po i) $f^{n-1}(J_{n-1}) = [a, b]$.
+    \item Na to relacijo dodamo $f$, kar nam da 
+    $$
+    f^n(J_{n-1}) = f([a, b]) \supseteq [b, c]
+    $$
+    kar pomeni, da obstaja $J_n \subseteq J_{n-1}$, da je $f^n(J_n) = [b, c]$.
+    \item Posredno, to pomeni, da je $J_n \subseteq f^n(J_n)$ in, da obstaja $x\in J_n$, 
+    da je $f^n(x) = x$.     
+\end{itemize}
+Minimalnost števila $n$: ker je $f^k(x) \in [b, c]$ za $k\in \{1, 2, \dots, n-2\}$, $x\in J_n$
+in $f^{n-1}(x) \in [a, b)$. Res $f^{n-1}(x) \neq b$, saj bi v nasprotnem 
+primeru veljalo $f^{n-1}(x) = a = f(x) \not\in [b, c]$. 
+
+Sklep: perioda ni $n-1$, ker je $x\in [b, c]$ in $f^{n-1}(x)\in [a, b)$. 
+Ni pa tudi manjša, ker za $k < n-1$ perioda nebi smela zapustiti $[b, c]$.
+\end{proof}
+
+\begin{primer}
+Za šotorsko preslikavo $T_c(x)$ smo povedali, da se $3$-cikel pojavi 
+pri $c \geq \frac{1 + \sqrt{5}}{2}$. Torej imamo od tam dalje, tudi periode 
+vseh ostalih dolžin. To je konsistentno tudi za $c > 2$. kjer $n$ - cikle 
+tvorimo s simbolično dinamiko. 
+\end{primer}
+
+\begin{primer}
+Nujnost zvezvnosti: 
+\begin{align*}
+f(x) = 1 - \frac{1}{x} \,\Longrightarrow\, &f^2(x) = 1 - \frac{1}{1 - \frac{1}{x}} = \frac{1}{1-x} \\
+&f^3(x) = 1 - \frac{1}{\frac{1}{1-x}} = 1 - (1-x) = x.
+\end{align*}
+Vidimo, da so vse točke $3$-cikli. Izjema sta točki $x = 0$ in $x = 1$, 
+saj $f(0)$ in $f^2(1)$ nista definirani.
+\end{primer}
+
+Šikorski je leta $1965$, da velja še več: 
+\begin{itemize}
+    \item $\forall p\in \N$. $\exists m, n\in \N_0$: $p = 2^m(2n+1)$.
+    \item $p_1 \triangleright p_2$ $\iff$ $m_1 < m_2$ ali $m_1 = m_2$ in $0 < n_1 < n_2$
+    $$
+    2^0 \cdot 3 \triangleright 2^0 \cdot 5 \triangleright 2^0 \cdot 7 \triangleright \dots 2\cdot 3 \triangleright 2\cdot 5 \triangleright \dots \triangleright 2^m \cdot (2n+1).
+    $$
+    \item Nato na konec te vrste dodamo števila z $n=0$ v padajočem 
+    vrstesnem redu:
+    $$
+    2^m (2n+1) \triangleright 2^k \triangleright 2^{k-1} \triangleright \dots \triangleright 2 \triangleright 1.
+    $$
+\end{itemize}
+
+\begin{izrek}[Šikorski]
+Naj bo $I \subset \R$ kompakten interval in $f: I \rightarrow I$ zvezna.
+Če obstaja $p$-cikel za $p\in \N$, obstajajo tudi vsi $2$-cikli 
+za $p\triangleright q$.
+\end{izrek}
+
+\begin{primer}
+Če ima $f$ cikel dolžine $14 = 2\cdot 7$, ima zagotovo tudi fiksno 
+točko in vse cikle sodih dolžin razen morda $6$-cikla in $10$-cikla.
+\end{primer}
+
+\begin{opomba}
+\hfill
+\begin{itemize}
+    \item Velja celo več tj. Šarkovskijev komplement, ki pove, da za 
+    vsak $n \triangleright m$ obstaja funckija , ki ima $n$-cikel, a 
+    nima $m$-cikla.
+    \item Še ena zanimiva posledica: če ima $f$ zgolj končno število 
+    periodičnih točk, morajo biti vse periode oblike $2^m$.
+\end{itemize}
+\end{opomba}
+
+\section{Realna dinamika v višjih dimenzijah}
+
+Pojme, ki smo jih obravnavali doslej, si lahko ogledamo tudi za 
+realne preslikave $f: \R^n \rightarrow \R^n$ za $n \geq 2$.
+
+\begin{primer}
+    ~\\[-4mm]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+        % --- First square (original) ---
+        \draw (0,0) rectangle (2,2);
+        \draw[pattern=north east lines, pattern color=red] (0,0) rectangle (1,2);
+        \draw[pattern=north west lines, pattern color=green!60!black] (1,0) rectangle (2,2);
+        
+        % Labels
+        \draw[<->] (-0.3,0) -- (-0.3,2) node[midway,left] {$1$};
+        \draw[<->] (0,-0.5) -- (2,-0.5) node[midway,below] {$1$};
+        
+        % --- Arrow to second figure ---
+        \draw[->, thick] (2.2,1) -- (3,1);
+        
+        % --- Second rectangle (stretched) ---
+        \begin{scope}[shift={(3.6,0)}]
+        \draw (0,0) rectangle (4,1);
+        \draw[pattern=north east lines, pattern color=red] (0,0) rectangle (2,1);
+        \draw[pattern=north west lines, pattern color=green!60!black] (2,0) rectangle (4,1);
+        
+        % Arrows showing shift
+        \draw[->, red, thick] (0.3,0.5) -- (1.7,0.5);
+        \draw[->, green!60!black, thick] (2.3,0.5) -- (3.7,0.5);
+        
+        % Labels
+        \draw[<->] (0,-0.5) -- (4,-0.5) node[midway,below] {$2$};
+        \draw[<->] (-0.3,0) -- (-0.3,1) node[midway,left] {$\frac{1}{2}$};
+        \end{scope}
+        
+        % --- Arrow to third figure ---
+        \draw[->, thick] (7.8,1) -- (8.5,1);
+        
+        % --- Third square (folded) ---
+        \begin{scope}[shift={(9.2,0)}]
+        \draw (0,0) rectangle (2,2);
+        \draw[pattern=north west lines, pattern color=green!60!black] (0,1) rectangle (2,2);
+        \draw[pattern=north east lines, pattern color=red] (0,0) rectangle (2,1);
+        
+        % Arrows indicating fold
+        \draw[->, red, thick] (0.5,0.5) -- (1.5,0.5);
+        \draw[->, green!60!black, thick] (1.5,1.5) -- (0.5,1.5);
+        
+        % Labels
+        \draw[<->] (0,-0.5) -- (2,-0.5) node[midway,below] {$1$};
+        \draw[<->] (-0.3,0) -- (-0.3,2) node[midway,left] {$1$};
+        \end{scope}
+        \end{tikzpicture}
+    \end{center}
+\begin{align*}
+&F: [0, 1) \times [0, 1) \rightarrow [0, 1) \times [0, 1) \\ 
+&F(x, y) = \left(2x - \lfloor 2x \rfloor, \frac{1}{2}y - \frac{1}{2}\lfloor 2x \rfloor\right),
+\end{align*}
+kjer smo stranici $x = 1$ in $y=1$ izpustili zaradi dvojiškega zapisa.
+
+Dvojiški zapis brez niza enic:
+\begin{align*}
+x = x_1 x_2 \dots_{(2)} \quad&\quad\quad\quad 0.x_2 x_3 \dots_{(2)} \\[-2mm]
+&\longmapsto \quad\quad\quad\quad\quad\quad\quad \text{ tj. } \dots x_3x_2x_1 | y_1 y_2 y_3 \dots \,\,\longrightarrow\,\, x_3 x_2| x_1 y_1 y_2\dots \\[-2mm]
+y = y_1 y_2 \dots_{(2)} \quad&\quad\quad\quad 0.x_1 y_1 \dots_{(2)}
+\end{align*}
+
+\noindent
+$3$-periodična točka:\\[1mm]
+npr. $(x, y) = (0. \overline{001}_{(2)}, 0. \overline{100}_{(2)}) = \dots 100100|100100 \dots$.\\
+V desetiškem zapisu je to 
+\begin{align*}
+0.\overline{001}_{(2)} &= \frac{1}{8} + \frac{1}{64} + \dots = \frac{1}{2^3} \frac{1}{1 - \frac{1}{8}} = \frac{1}{7} \\
+0.\overline{100}_{(2)} &= \frac{1}{2} + \frac{1}{16} + \dots = \frac{1}{2} \frac{1}{1 - \frac{1}{8}} = \frac{4}{7}.
+\end{align*}
+
+Preverimo: $F^3\Big(\frac{1}{7}, \frac{4}{7}\Big) = F^2\Big(\frac{2}{7}, \frac{2}{7}\Big) = F^3\Big(\frac{4}{7}, \frac{1}{7}\Big) = \Big(\frac{1}{7}, \frac{4}{7}\Big)$.
+
+\begin{opomba}
+    V splošnem taka tčka ne implicira obstoja vseh periodičnih točk, saj 
+    izrek Šikorskega drži le za $n=1$, vendar v tem primeru obstajajo cikli 
+    poljubne dolžine.
+\end{opomba}
+   
+Kaj lahko povemo o privlačnosti oz. odbojnosti fiksne točke $(0, 0)$?
+$$
+F(x, y) = (2x - \lfloor 2x \rfloor, \frac{1}{2}y - \frac{1}{2}\lfloor 2x \rfloor) = (2x, \frac{1}{2} y) \,\text{ za }\, x < \frac{1}{2}.
+$$
+Za $y=0$: $x \rightarrow 2x \rightarrow 4x \rightarrow \dots$ za majhne $x$.\\
+Za $x=0$: $y \rightarrow \frac{1}{2} y \rightarrow \frac{1}{4} y \rightarrow \dots$ za majhne $y$.\\[1mm]
+Točka $(0, 0)$ ni stabilna , ni šibko odbojna in ni sibko privlačna, saj ima eno 
+privlačno smer vzdolž $y$ osi in odbojno smer vzdolž $x$ osi. Taki 
+točki se reče sedlo.\\
+\noindent
+Lokalno lahko $F$ zapišemo kot 
+$$ F(x, y)=\left(\begin{array}{ll}
+    2 & 0 \\
+    0 & \frac{1}{2}
+    \end{array}\right)\binom{x}{y}$$
+\end{primer}
+
+\begin{primer}
+Oglejmo si še tri linearne primere s konstantnimi koeficienti:
+\begin{itemize}
+    \item $$ F(x, y)= \frac{1}{12}\left(\begin{array}{ll}
+    5 & 3 \\
+    3 & 5
+    \end{array}\right)\binom{x}{y}$$
+Zanima nas zaporedje 
+$$
+\binom{x_{n+1}}{y_{n+1}} = \text{\Large A} \binom{x_n}{y_n} = \dots = \text{\Large A}^{n+1} \binom{x_0}{y_0} .
+$$
+Potenco izračunamo z diagonalizacijo matrike $A$ oz. Jordanovim razcepom
+$$
+A^n = (PDP^{-1})^n = PD^n P^{-1} = P \left(\begin{array}{ll}
+    \lambda_1^n & 0 \\
+    0 & \lambda_2^n
+    \end{array}\right) P^{-1} .
+$$
+V koordinatnem zapisu imamo 
+$$
+\binom{\tilde{x}}{\tilde{y}} = P^{-1} \binom{x}{y} 
+$$
+in 
+$$
+\binom{x_n}{y_n} = PD^n P^{-1} \binom{x_0}{y_0} \iff \binom{\tilde{x}_n}{\tilde{y}_n} = D^n \binom{x_0}{y_0}
+$$
+Konkretno je 
+$$
+A = \left(\begin{array}{ll}
+    5 & 3 \\
+    3 & 5
+    \end{array}\right) = \left(\begin{array}{ll}
+    1 & 1 \\
+    1 & \!\!\!-1
+    \end{array}\right) \left(\begin{array}{ll}
+    8^{n+1} & 0 \\
+    0 & 2^{n+1}
+    \end{array}\right)
+    \left(\begin{array}{ll}
+        1 & 1 \\
+        1 & \!\!\!-1
+    \end{array}\right)
+$$
+rap both parts in a node and shift them to center:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3,>=stealth]
+
+% Centering group
+\begin{scope}[xshift=1cm] % Shift everything left by half the total width
+
+% --- Left: Eigenbasis ---
+\node at (-2,2.5) {V ``lastnih koordinatah'':};
+
+\draw[->, thick] (-2,0) -- (2,0) node[below right] {$v_1$};
+\draw[->, thick] (0,-2) -- (0,2) node[above left] {$v_2$};
+
+\foreach \x in {-1.5,-1,-0.5}
+  \draw[<-, red, thick] (\x,0) -- ({\x+0.3},0);
+
+\foreach \x in {0.5, 1, 1.5}
+  \draw[->, red, thick] (\x,0) -- ({\x+0.3},0);
+
+\foreach \y in {-1.5,-1,-0.5}
+  \draw[->, magenta, thick] (0,\y) -- (0,{\y-0.3});
+
+\foreach \y in {0.5, 1, 1.5}
+  \draw[<-, magenta, thick] (0,\y) -- (0,{\y-0.3});
 
 
+\foreach \a in {45,135,225,315}
+  \foreach \r in {0.6,1.2}
+    \draw[->, green!60!black, thick, rotate=\a] (\r,0) -- ({\r+0.3},0);
+
+% --- Right: Standard Basis ---
+\begin{scope}[xshift=5cm]
+\node at (-2,2.5) {V navadnih koordinatah:};
+
+\draw[->, thick] (-2,0) -- (2,0) node[below right] {};
+\draw[->, thick] (0,-2) -- (0,2) node[above left] {};
+
+\foreach \x in {0.5,1,1.5}
+  \draw[->, green!60!black, thick] (\x,0) -- ({\x+0.3},0);
+
+  \foreach \x in {-0.5,-1,-1.5}
+  \draw[<-, green!60!black, thick] (\x,0) -- ({\x+0.3},0);
+
+\foreach \i in {-1.5,-1,-0.5}
+  \draw[<-, magenta, thick] (\i,\i) -- ({\i+0.3},{\i+0.3});
+
+\foreach \i in {0.5, 1, 1.5}
+  \draw[->, magenta, thick] (\i,\i) -- ({\i+0.3},{\i+0.3});
+
+\foreach \i in {0.5,1,1.5}
+  \draw[->, red, thick] (\i,-\i) -- ({\i+0.3},{-\i-0.3});
+
+  \foreach \i in {-0.5,-1,-1.5}
+  \draw[<-, red, thick] (\i,-\i) -- ({\i+0.3},{-\i-0.3});
+
+\end{scope}
+
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\item $$ F(x, y)= \frac{1}{12}\left(\begin{array}{ll}
+    0 & -2 \\
+    2 & 0
+    \end{array}\right)\binom{x}{y}$$
+Tokrat sta lastni vrednosti $\lambda_{1,2} = \pm 2i$ in lastna vektorja 
+$v_{1,2} = (\pm i, 1)$. Iz grafa vidimo, da je točka $(0, 0)$ v tem primeru 
+odbojna
+
+\begin{center}
+    \begin{tikzpicture}[scale=2, >=stealth]
+    % Axes
+    \draw[->, thick] (-1.5,0) -- (1.5,0); % x-axis
+    \draw[->, thick] (0,-1.5) -- (0,1.5); % y-axis
+    
+    % Points on horizontal axis (magenta)
+    \filldraw[green] (-0.5,0.5) circle (0.03);
+    \filldraw[green] (0.6,0.7) circle (0.03);
+    \filldraw[green] (0.5,-0.9) circle (0.03);
+    \filldraw[green] (-1.2,-0.7) circle (0.03);
+    \filldraw[green] (-0.7,1.2) circle (0.03);
+   
+   
+    % Points on vertical axis (green)
+    %\filldraw[green!60!black] (0,-1) circle (0.03);
+    
+    \draw[blue, ->] (-0.5,0.5) to[out=60,in=120,looseness=1.2] (0.6,0.7);
+    \draw[blue, ->] (0.6,0.7) to[out=300,in=60,looseness=1.2] (0.5,-0.9);
+    \draw[blue, ->] (0.5,-0.9) to[out=220,in=280,looseness=1.2] (-1.2,-0.7);
+    \draw[blue, ->] (-1.2,-0.7) to[out=90,in=230,looseness=1.2] (-0.7,1.2);
+    
+    \filldraw[magenta] (-0.2,0.2) circle (0.03);
+    \filldraw[magenta] (0.3,0.25) circle (0.03);
+    \filldraw[magenta] (0.25,-0.3) circle (0.03);
+    \filldraw[magenta] (-0.4,-0.25) circle (0.03);
+    \filldraw[magenta] (-0.3,0.4) circle (0.03);
+
+    % Arrows connecting them in a closed loop
+    \draw[green, ->] (-0.2,0.2) to[out=60,in=120,looseness=1.2] (0.3,0.25);
+    \draw[green, ->] (0.3,0.25) to[out=300,in=60,looseness=1.2] (0.25,-0.3);
+    \draw[green, ->] (0.25,-0.3) to[out=220,in=280,looseness=1.2] (-0.4,-0.25);
+    \draw[green, ->] (-0.4,-0.25) to[out=90,in=230,looseness=1.2] (-0.3,0.4);
+    
+
+    
+    \end{tikzpicture}
+    \end{center}
+    TBA 
+    \item Fibonaccijevo zaporedje: 
+    $$
+    a_{n+1} = a_n + a_{n-1}.
+    $$
+    Podobno kot pri NDE lahkom lahko rekurzivne enačbe prevedemo na sistem.
+
+    \begin{align*}
+    \binom{x_{n+1}}{y_{n+1}} &= \binom{a_n}{a_{n+1}} = \binom{a_n}{a_{n} + a_{n-1}} = 
+    \binom{y_n}{y_{n} + x_n} = \left(\begin{array}{ll}
+        0 & 1 \\
+        1 & 1
+        \end{array}\right) \binom{x_{n}}{y_{n}}
+    \end{align*}
+Dobimo rešitev:
+$$
+\binom{x_{n}}{y_{n}} = P \left(\begin{array}{ll}
+    \Big(\frac{1+\sqrt{5}}{2} \Big) & \,\,\,\,\,\,\,\,0 \\
+    \,\,\,\,\,\,\,\,0 & \Big(\frac{1-\sqrt{5}}{2} \Big)\end{array}\right) P^{-1} \binom{x_0}{y_0}.
+$$
+\end{itemize}
+\end{primer}
+
+\begin{trditev}
+Če so vse lastne vrednosti $A$ po absolutni vrednosti $0 < |\lambda|< 1$,
+je izhodišče asimptotsko stabilna točka preslikave $F: \R^m \rightarrow \R^M$, 
+$f(\vec{x}) = A\vec{x}$. Če so lastne vrednosti $|\lambda| > 1$, je 
+odbojna.
+\end{trditev}
+
+\begin{proof}[Dokaz(skica):]
+
+Naj bo $A = P J P^{-1}$ Jordanov razcep matrike $A$. V spremenjenih 
+koordinatah velja:
+$$\binom{\tilde{x}_n}{\tilde{y}_n} = J^n \binom{x_0}{y_0}.$$
+V primeru $2\times 2$ matrik imamo dve možnosti:
+\begin{itemize}
+    \item $J = \left(\begin{array}{ll}
+    \lambda_1^n & 0 \\ 
+    0 & \lambda_2^n
+    \end{array}\right)$ $\longrightarrow$ 
+    $\left(\begin{array}{ll}
+        0 & 0 \\ 
+        0 & 0
+        \end{array}\right)$, če $|\lambda_1|, \lambda_2| < 1$.
+    \item $J = \left(\begin{array}{ll}
+    \lambda & 1 \\
+    0 & 1
+    \end{array}\right) = \left(\begin{array}{ll}
+        \lambda^n & n\cdot \lambda^{n-1} \\
+        0 & \,\,\,\,\lambda^n
+        \end{array}\right)$  $\longrightarrow$
+    $\left(\begin{array}{ll}
+        0 & 0 \\ 
+        0 & 0
+        \end{array}\right)$, če $|\lambda| < 1$.
+\end{itemize}
+Podobno večja v višjih dimenzijah in za $|\lambda| > 1$.
+\end{proof}
+
+So pa linearni primeri s konstantnimi koeficienti osnova tudi za 
+nelinearno teorijo.
+
+\begin{definicija}
+Naj bo $f: \R^n \rightarrow \R^n$ $C^1$ preslikava. Točka $\vec{x_0} \in U$
+je \textbf{hiperbolična} fiksna točka, če zanjo velja $F(\vec{x}_0) = \vec{x}_0$, 
+za lastne vrednosti Jacobijeve matrike $DF(\vec{x_0})$ velja $0<|\lambda_j| \neq 1$.
+\end{definicija}
+
+\begin{izrek}[Hartman-Grobman]
+Naj bo $F: U\subset \R^n \rightarrow U$ $C^1$ preslikava in $\vec{x_0} \in U$ 
+hiperbolična fiksna točka. Potem obstaja homeomorfizem $\varphi$, ki 
+okolico $\vec{x_0}$ slika vase in zanj velja $\varphi \circ DF(\vec{x}_0) = F \circ \varphi$.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+\begin{itemize}
+    \item Brez škode za splošnost je $\vec{x_0} = 0$, kar dosežemo s translacijo. 
+    \item Ker je $F \in C^1$, velja razvoj 
+    $$ 
+    F(\vec{x}) = \vec{x}_0 + DF(\vec{x}_0)\cdot \vec{x} + r(\vec{x}) 
+    = A\vec{x} + r(\vec{x}),
+    $$
+    kjer sta $r(\vec{x})$ ostanek reda $|\vec{x}|^2$ in $A = DF(\vec{x}_0)$.
+    \item Sumimo, da je $\varphi$ skoraj indentiteta t.j. $\varphi(\vec{x}) = \vec{x} + h(\vec{x})$ 
+    za nek $h$ z majhno absolutno vrednostjo. To vstavimo v zvezo: 
+    $$\varphi \circ A(\vec{x}) = A\vec{x} + \vec{A\vec{x}} = F\circ \varphi(\vec{x}) = F(\vec{x} + h(\vec{x})) = A(\vec{x} + h(\vec{x})) + \vec{r}(\vec{x} + h(\vec{x})).$$
+    Dobimo: $$ h(A\vec{x}) = Ah(\vec{x}) + \vec{r}(\vec{x} + h(\vec{x})) $$ oz. 
+    $$ h(\vec{y}) = Ah(A^{-1} \vec{y}) + \vec{r}(A^{-1} \vec{y} + h(A^{-1} \vec{y})) $$ za $y = A\vec{x}$
+    \item Ključen del je pokazati, da je desna stran 
+    \begin{align*}
+        &D: C^1(U', \R^n) \rightarrow C(U', \R^n) \,\text{ za }\, U' \subset U \subset \R^n\\
+        &D(h) = AhA^{-1} + r(A^{-1} + h(A^{-1}))
+    \end{align*}
+    skrčitev za za metriko $d_\infty$.    
+    \item $r$ je kvadratnega reda in omejena z velikostjo okolice 
+    okoli $\vec{x}_0 = 0$, zato je pomemben le prvi sumand.
+\end{itemize}
+Poglejmo si najbolj preprost primer, t.j. ko je $A$ diagonalna in so 
+$0 < \lambda_j < q < 1$. Velja 
+\begin{align*}
+d_\infty(Ah_1 A^{-1}, A h_2 A^{-1}) = \max\limits_{\vec{y}} |Ah_1 A^{-1} \vec{y} - Ah_2 A^{1} \vec{y}| = 
+\max\limits_{\vec{x}} |A(h_1 - h_2)\vec{x}| \leq 
+\end{align*}
+upoštevamo: $|\text{diag}(\lambda_1, \dots, \lambda_n) \cdot \vec{v}| \leq \max\limits_{j} |\lambda_j| \cdot |\vec{v}|$
+$$
+\leq \max\limits_{j} |\lambda_j| \cdot \max\limits_{\vec{x}} |h_1 - h_2| \leq q\cdot d_\infty(h_1, h_2).
+$$
+V splošnem moramo delati z primernimi matričnimi normami. Če so nekate $|\lambda_j| > 1$, 
+moramo preoblikovati enačbo tako, da na koncu gledamo $h\mapsto A^{-1} h A + $ drugi red.
+V mešanem delu pa reševanje razbijemo na dva dela.
+\end{proof}
+
+\begin{primer}
+Naj bo $F(x, y) = (\frac{1}{2}x^2, y^2)$. Fiksni točki sta $(0, 0)$ in $(0, 1)$.
+$DF(x, y) = \left(\begin{array}{ll}
+    \frac{1}{2} & 0 \\ 
+    0 & 2y
+    \end{array}\right)$ $\Longrightarrow$ 
+    $DF(0, 0) = \left(\begin{array}{ll}
+    \frac{1}{2} & 0 \\ 
+    0 & 0
+    \end{array}\right)$, izrek ne deluje. \\
+Za $DF(0, 1) = \left(\begin{array}{ll}
+    \frac{1}{2} & 0 \\ 
+    0 & 1
+    \end{array}\right)$ imamo sedlo.
+    \begin{center}
+\begin{tikzpicture}[>=Stealth, thick]
+
+    % Axes
+    \draw[very thick, blue!80!black,->] (-4,0) -- (4,0);
+    \draw[very thick, blue!80!black,->] (0,-1.5) -- (0,4.5);
+    
+    % Red horizontal arrows
+    \foreach \x in {-3,-2.3,...,-0.3} {
+      \draw[->, red, thick] (\x,2) --++ (0.7,0);
+    }
+    
+    \foreach \x in {3,2.3,...,-0.3} {
+      \draw[<-, red, thick] (\x,2) --++ (0.7,0);
+    }
+
+    % Pink vertical arrows
+    \foreach \y in {0.3,0.7,...,1.7} {
+      \draw[<-, magenta, thick] (0,\y) --++ (0,-0.3);
+    }
+    \foreach \y in {2.3,2.7,...,3.7} {
+      \draw[<-, magenta, thick] (0,\y) --++ (0,0.3);
+    }
+    
+    % Orange curved arrows pointing outward
+    \draw[->, orange, thick] (3,2.2) to[out=180,in=-90] (0.2, 4.5);
+    \draw[->, orange, thick] (-3,2.2) to[out=0,in=-90] (-0.2, 4.5);
+    
+    \draw[->, orange, thick] (3,1.8) to[out=180,in=90] (0.2, 0.2);
+    \draw[->, orange, thick] (-3,1.8) to[out=0,in=90] (-0.2, 0.2);
+    
+
+    % Green curved arrows near origin
+    \draw[<-, green!60!black, thick] (0.3,0.2) to[out=20,in=180] (1.5,1);
+    \draw[->, green!60!black, thick] (-1.5,1) to[out=-50,in=170] (-0.3,0.2);
+    
+    % Dots (dark blue)
+    \fill[blue!80!black] (0,2) circle (3pt);
+    \fill[blue!80!black] (0,0) circle (3pt);
+    
+    \end{tikzpicture}
+\end{center}
+\end{primer}
+
+Poglejmo si še en pomemben primer, ki se bo pojavil pri 
+zveznih sistemih, pri njem pa se uporabi simbolična dinamika.
+
+\begin{primer}[Snaleova podkev]
+\hfill
+\begin{center}
+\begin{tikzpicture}[>=Stealth, thick]
+    
+    %%%% FIRST BLOCK - ORIGINAL SQUARE %%%%
+    % Square
+    \draw[blue] (0,3) rectangle (2,4);
+    % Vertical lines
+    \draw[blue] (2/3,3) -- (2/3,4);
+    \draw[blue] (4/3,3) -- (4/3,4);
+    % Hatching
+    \fill[pattern=north east lines, pattern color=red] (0,3) rectangle (2/3,4);
+    \fill[pattern=north west lines, pattern color=green!70!black] (4/3,3) rectangle (2,4);
+    % Side labels
+    \node at (-0.3,3.5) {1};
+    \node at (1,2.8) {1};
+    
+    % Arrow to second
+    \draw[->, blue] (2.3,3.5) -- (3.7,3.5);
+    
+    %%%% SECOND BLOCK - STRETCHED STRIP %%%%
+    % Horizontal rectangle
+    \draw[blue] (4,3.2) rectangle (7,3.8);
+    % Vertical lines
+    \draw[blue] (5,3.2) -- (5,3.8);
+    \draw[blue] (6,3.2) -- (6,3.8);
+    % Hatching
+    \fill[pattern=north east lines, pattern color=red] (4,3.2) rectangle (5,3.8);
+    \fill[pattern=north west lines, pattern color=green!70!black] (6,3.2) rectangle (7,3.8);
+    % Labels
+    \node at (3.7,3.95) {$\frac{1}{3}$};
+    % Arrows for stretching
+    \draw[->, red] (4,3.1) --++ (0.7,0);
+    \draw[->, green!60!black] (6,3.1) --++ (0.7,0);
+    
+    % Arrow to final horseshoe
+    \draw[->, blue] (7.3,3.5) -- (8.5,3.5);
+    
+    %%%% THIRD BLOCK - FOLDED (HORSESHOE) %%%%
+    % Two vertical stacked rectangles (folded)
+    \draw[blue, dashed] (9,3.2) rectangle (11,3.8);
+    \draw[blue, dashed] (9,2.4) rectangle (11,3.0);
+    
+    % Hatching
+    \fill[pattern=north east lines, pattern color=red] (9,2.4) rectangle (11,3.0);
+    \fill[pattern=north west lines, pattern color=green!70!black] (9,3.2) rectangle (11,3.8);
+    
+    % Final direction arrows
+    \draw[->, red] (9.5,2.3) --++ (1,0);
+    \draw[->, green!60!black] (10.5,4) --++ (-1,0);
+    
+    \end{tikzpicture}
+\end{center}
+\begin{align*}
+&F: [0, 1]\times [0, 1]  \rightarrow [0, 1]\times [0, 1] \\ 
+&F(x, y)=\left\{\begin{array}{l}
+    \left(3 x, \frac{1}{3} y\right) \quad\quad\quad\,\,; x \in\left[0, \frac{1}{3}\right] \\
+    \left(3-3 x, 1-\frac{1}{3} y\right) ; x \in\left[\frac{2}{3}, 1\right]
+    \end{array}\right. = \left\{\begin{array}{l}
+        \left(T_3(x), \frac{1}{3} y\right) \,\quad\,\,; x \in\left[0, \frac{1}{3}\right] \\
+        \left(T_3(x), 1-\frac{1}{3} y\right) ; x \in\left[\frac{2}{3}, 1\right]
+        \end{array}\right.
+\end{align*}
+Inverz te preslikave:
+\begin{center}
+\begin{tikzpicture}[>=Stealth, thick]
+    %%%% FIRST BLOCK - STACKED STRIPS %%%%
+    \draw[blue] (0,2.5) rectangle (2,3.1); % Top
+    \draw[blue] (0,1.7) rectangle (2,2.3); % Bottom
+    
+    % Hatching
+    \fill[pattern=north west lines, pattern color=green!70!black] (0,2.5) rectangle (2,3.1);
+    \fill[pattern=north east lines, pattern color=red] (0,1.7) rectangle (2,2.3);
+    
+    % Arrow to second
+    \draw[->, blue] (2.3,2.4) -- (3.5,2.4);
+    
+    %%%% SECOND BLOCK - COMPRESSED VERTICAL RECTANGLE %%%%
+    \draw[blue] (4,1.5) rectangle (5,3.5);
+\draw[blue] (4,2.3) -- (5,2.3); % bottom border of green
+\draw[blue] (4,2.7) -- (5,2.7); % top border of red
+
+% Labels
+\node at (5.3,3.4) {$\frac{2}{3}$};
+
+% Hatching
+\fill[pattern=north west lines, pattern color=green!70!black] (4,2.7) rectangle (5,3.5);
+\fill[pattern=north east lines, pattern color=red] (4,1.5) rectangle (5,2.3);
+
+% White middle block is left empty between y=2.3 and y=2.7
+
+% Vertical arrows
+\draw[->, green!60!black] (3.8,2.9) --++ (0,0.6);
+\draw[->, red] (3.8,1.7) --++ (0,0.6);
+
+% Arrow to final
+\draw[->, blue] (5.5,2.4) -- (6.5,2.4);
+    
+    %%%% FINAL BLOCK - FOLDED BACK INTO SQUARE %%%%
+    \draw[blue] (7,1.5) rectangle (9,3.5);
+    \draw[blue] (7.66,1.5) -- (7.66,3.5);
+    \draw[blue] (8.33,1.5) -- (8.33,3.5);
+    
+    % Hatching
+    \fill[pattern=north east lines, pattern color=red] (7,1.5) rectangle (7.66,3.5);
+    \fill[pattern=north west lines, pattern color=green!70!black] (8.33,1.5) rectangle (9,3.5);
+    
+    % Arrows
+    \draw[->, red] (6.8,2.3) --++ (0,0.6);
+    \draw[->, green!60!black] (9.2,3) --++ (0,-0.6);
+    
+    % Curved dashed arrow
+    \draw[blue, dashed, ->] (8.9,3.5) to[out=60,in=120,looseness=1.2] (7.1,3.5);
+    \draw[blue, dashed, ->] (8.6,3.5) to[out=90,in=90] (7.4,3.5);
+\end{tikzpicture}
+\end{center}
+
+\begin{align*}
+F^{-1}(x, y) = \left\{\begin{array}{l}
+    \left(\frac{1}{3} x, T_3(y)\right) \,\,\quad\,\,; x \in\left[0, \frac{1}{3}\right] \\
+    \left(1-\frac{1}{3} x, T_3(y)\right) ; x \in\left[\frac{2}{3}, 1\right]
+    \end{array}\right.
+\end{align*}
+Preslikavo moramo opazovati na 
+\begin{align*}
+&C_n = \frac{1}{3} C_{n-1} \times \left(1 - \frac{1}{3} C_{n-1} \right), \quad C_0 = [0, 1].\\
+&D = \bigcap_{n=1}^\infty C_n \times C_n.
+\end{align*}
+
+\newcommand{\sierpinski}[2][]{\tikz[#1]{
+  \draw[fill=black] rectangle(1,1);
+    \foreach \n[evaluate=\n as \m using \n-1, evaluate=\n as \s using 1/3^\n, evaluate=\m as \p using 3^\m] in {1,...,#2}{
+      \foreach \k[evaluate=\k as \x using (2*\k-1)/2/3^\m] in {1,...,\p}{
+        \foreach \j[evaluate=\j as \y using (2*\j-1)/2/3^\m] in {1,...,\p}{
+          \node[fill=white, minimum size=\s cm, inner sep=0] at (\x,\y){};
+}}}}}
+
+\begin{center}
+    \sierpinski[scale=4, transform shape]{4}    
+\end{center}
+
+Izkaže se, da je $F:D \rightarrow D$ homeomorfna preslikavi:
+\begin{align*}
+&\Sigma = \{(\overline{s}, \overline{t}) \,|\, \overline{s} = (s_1, s_2, \dots), \overline{t} = (t_1, t_2, \dots), s_j, t_j \in \{0, 1\}\} \\
+&d((\overline{s}, \overline{t}), (\overline{s'}, \overline{t'})) = \sum_{j=1}^\infty \frac{|s_j - s'_j| + |t_j - t'_j|}{2^j} \\
+&G(\overline{s}, \overline{t}) = \left\{\begin{array}{l}
+    \left((s_2, s_3, \dots), (0, t_1, t_2, \dots)\right);\,\, s_1 = 0,\,\, \tilde{t}_j + t_j = 1  \\
+    \left((\tilde{s}_2, \tilde{s}_3, \dots), (1, \tilde{t}_1, \tilde{t}_2, \dots)\right);\,\, s_1 = 1,\,\, \tilde{s}_j + s_j = 1
+    \end{array}\right.
+\end{align*}
+Da se pokazati, da je ta preslikava kaotična.
+\end{primer}
 
 % Uncomment the following two lines if you want to have a bibliography. Please do not forget to add an entry to your bibliography and reference it by using the \cite{} command
 %\bibliographystyle{alphadin}

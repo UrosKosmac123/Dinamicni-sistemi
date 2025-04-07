@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.25)  27 MAR 2025 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.25)  7 APR 2025 13:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -638,7 +638,11 @@ File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -821,7 +825,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 206.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 206.
-<Grafi/cobweb1.png, id=58, 803.0pt x 803.0pt>
+<Grafi/cobweb1.png, id=70, 803.0pt x 803.0pt>
 File: Grafi/cobweb1.png Graphic file (type png)
 <use Grafi/cobweb1.png>
 Package pdftex.def Info: Grafi/cobweb1.png  used on input line 231.
@@ -833,12 +837,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
-<Grafi/cobweb2.png, id=70, 803.0pt x 803.0pt>
+<Grafi/cobweb2.png, id=82, 803.0pt x 803.0pt>
 File: Grafi/cobweb2.png Graphic file (type png)
 <use Grafi/cobweb2.png>
 Package pdftex.def Info: Grafi/cobweb2.png  used on input line 251.
 (pdftex.def)             Requested size: 170.71794pt x 156.49248pt.
-<Grafi/cobweb3.png, id=71, 803.0pt x 803.0pt>
+<Grafi/cobweb3.png, id=83, 803.0pt x 803.0pt>
 File: Grafi/cobweb3.png Graphic file (type png)
 <use Grafi/cobweb3.png>
 Package pdftex.def Info: Grafi/cobweb3.png  used on input line 271.
@@ -856,19 +860,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
 
 [6 <./Grafi/cobweb3.png>]
-<Grafi/cobweb41.png, id=92, 803.0pt x 803.0pt>
+<Grafi/cobweb41.png, id=104, 803.0pt x 803.0pt>
 File: Grafi/cobweb41.png Graphic file (type png)
 <use Grafi/cobweb41.png>
 Package pdftex.def Info: Grafi/cobweb41.png  used on input line 322.
 (pdftex.def)             Requested size: 103.50105pt x 103.4992pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 323.
-<Grafi/cobweb42.png, id=93, 803.0pt x 803.0pt>
+<Grafi/cobweb42.png, id=105, 803.0pt x 803.0pt>
 File: Grafi/cobweb42.png Graphic file (type png)
 <use Grafi/cobweb42.png>
 Package pdftex.def Info: Grafi/cobweb42.png  used on input line 329.
 (pdftex.def)             Requested size: 103.50105pt x 103.4992pt.
-<Grafi/cobweb43.png, id=94, 803.0pt x 803.0pt>
+<Grafi/cobweb43.png, id=106, 803.0pt x 803.0pt>
 File: Grafi/cobweb43.png Graphic file (type png)
 <use Grafi/cobweb43.png>
 Package pdftex.def Info: Grafi/cobweb43.png  used on input line 336.
@@ -876,7 +880,7 @@ Package pdftex.def Info: Grafi/cobweb43.png  used on input line 336.
 
 
 [7 <./Grafi/cobweb41.png> <./Grafi/cobweb42.png> <./Grafi/cobweb43.png>]
-<Grafi/cobweb5.png, id=110, 803.0pt x 803.0pt>
+<Grafi/cobweb5.png, id=122, 803.0pt x 803.0pt>
 File: Grafi/cobweb5.png Graphic file (type png)
 <use Grafi/cobweb5.png>
 Package pdftex.def Info: Grafi/cobweb5.png  used on input line 396.
@@ -896,7 +900,7 @@ Overfull \hbox (193.37541pt too wide) in paragraph at lines 451--515
 
 
 [9]
-<Grafi/cobweb6.png, id=128, 803.0pt x 803.0pt>
+<Grafi/cobweb6.png, id=140, 803.0pt x 803.0pt>
 File: Grafi/cobweb6.png Graphic file (type png)
 <use Grafi/cobweb6.png>
 Package pdftex.def Info: Grafi/cobweb6.png  used on input line 530.
@@ -909,7 +913,7 @@ Overfull \hbox (22.96063pt too wide) in paragraph at lines 546--549
 
 
 [10 <./Grafi/cobweb6.png>]
-<Grafi/cobweb7.png, id=139, 803.0pt x 803.0pt>
+<Grafi/cobweb7.png, id=151, 803.0pt x 803.0pt>
 File: Grafi/cobweb7.png Graphic file (type png)
 <use Grafi/cobweb7.png>
 Package pdftex.def Info: Grafi/cobweb7.png  used on input line 586.
@@ -919,12 +923,12 @@ Package pdftex.def Info: Grafi/cobweb7.png  used on input line 586.
 [11 <./Grafi/cobweb7.png>]
 
 [12]
-<Grafi/cobweb8.png, id=153, 803.0pt x 803.0pt>
+<Grafi/cobweb8.png, id=165, 803.0pt x 803.0pt>
 File: Grafi/cobweb8.png Graphic file (type png)
 <use Grafi/cobweb8.png>
 Package pdftex.def Info: Grafi/cobweb8.png  used on input line 647.
 (pdftex.def)             Requested size: 170.71794pt x 156.49248pt.
-<Grafi/cobweb9.png, id=154, 803.0pt x 803.0pt>
+<Grafi/cobweb9.png, id=166, 803.0pt x 803.0pt>
 File: Grafi/cobweb9.png Graphic file (type png)
 <use Grafi/cobweb9.png>
 Package pdftex.def Info: Grafi/cobweb9.png  used on input line 657.
@@ -932,7 +936,7 @@ Package pdftex.def Info: Grafi/cobweb9.png  used on input line 657.
 
 
 [13 <./Grafi/cobweb8.png> <./Grafi/cobweb9.png>]
-<Grafi/cobweb10.png, id=165, 803.0pt x 803.0pt>
+<Grafi/cobweb10.png, id=177, 803.0pt x 803.0pt>
 File: Grafi/cobweb10.png Graphic file (type png)
 <use Grafi/cobweb10.png>
 Package pdftex.def Info: Grafi/cobweb10.png  used on input line 666.
@@ -940,12 +944,12 @@ Package pdftex.def Info: Grafi/cobweb10.png  used on input line 666.
 
 
 [14 <./Grafi/cobweb10.png>]
-<Grafi/cobweb11.png, id=173, 803.0pt x 803.0pt>
+<Grafi/cobweb11.png, id=186, 803.0pt x 803.0pt>
 File: Grafi/cobweb11.png Graphic file (type png)
 <use Grafi/cobweb11.png>
 Package pdftex.def Info: Grafi/cobweb11.png  used on input line 731.
 (pdftex.def)             Requested size: 155.24895pt x 155.24269pt.
-<Grafi/cobweb12.png, id=174, 803.0pt x 803.0pt>
+<Grafi/cobweb12.png, id=187, 803.0pt x 803.0pt>
 File: Grafi/cobweb12.png Graphic file (type png)
 <use Grafi/cobweb12.png>
 Package pdftex.def Info: Grafi/cobweb12.png  used on input line 737.
@@ -953,17 +957,17 @@ Package pdftex.def Info: Grafi/cobweb12.png  used on input line 737.
 
 
 [15 <./Grafi/cobweb11.png> <./Grafi/cobweb12.png>]
-<Grafi/cobweb131.png, id=187, 803.0pt x 803.0pt>
+<Grafi/cobweb131.png, id=199, 803.0pt x 803.0pt>
 File: Grafi/cobweb131.png Graphic file (type png)
 <use Grafi/cobweb131.png>
 Package pdftex.def Info: Grafi/cobweb131.png  used on input line 841.
 (pdftex.def)             Requested size: 110.40253pt x 110.39752pt.
-<Grafi/cobweb132.png, id=188, 803.0pt x 803.0pt>
+<Grafi/cobweb132.png, id=200, 803.0pt x 803.0pt>
 File: Grafi/cobweb132.png Graphic file (type png)
 <use Grafi/cobweb132.png>
 Package pdftex.def Info: Grafi/cobweb132.png  used on input line 848.
 (pdftex.def)             Requested size: 110.40253pt x 110.39752pt.
-<Grafi/cobweb133.png, id=189, 803.0pt x 803.0pt>
+<Grafi/cobweb133.png, id=201, 803.0pt x 803.0pt>
 File: Grafi/cobweb133.png Graphic file (type png)
 <use Grafi/cobweb133.png>
 Package pdftex.def Info: Grafi/cobweb133.png  used on input line 855.
@@ -992,12 +996,12 @@ Overfull \hbox (10.3585pt too wide) in paragraph at lines 942--948
 [18]
 
 [19]
-<Grafi/cobweb141.png, id=221, 803.0pt x 803.0pt>
+<Grafi/cobweb141.png, id=233, 803.0pt x 803.0pt>
 File: Grafi/cobweb141.png Graphic file (type png)
 <use Grafi/cobweb141.png>
 Package pdftex.def Info: Grafi/cobweb141.png  used on input line 1067.
 (pdftex.def)             Requested size: 170.71794pt x 156.49248pt.
-<Grafi/cobweb142.png, id=222, 803.0pt x 803.0pt>
+<Grafi/cobweb142.png, id=234, 803.0pt x 803.0pt>
 File: Grafi/cobweb142.png Graphic file (type png)
 <use Grafi/cobweb142.png>
 Package pdftex.def Info: Grafi/cobweb142.png  used on input line 1076.
@@ -1005,12 +1009,12 @@ Package pdftex.def Info: Grafi/cobweb142.png  used on input line 1076.
 
 
 [20 <./Grafi/cobweb141.png> <./Grafi/cobweb142.png>]
-<Grafi/cobweb143.png, id=231, 803.0pt x 803.0pt>
+<Grafi/cobweb143.png, id=243, 803.0pt x 803.0pt>
 File: Grafi/cobweb143.png Graphic file (type png)
 <use Grafi/cobweb143.png>
 Package pdftex.def Info: Grafi/cobweb143.png  used on input line 1084.
 (pdftex.def)             Requested size: 170.71794pt x 156.49248pt.
-<Grafi/cobweb15.png, id=232, 803.0pt x 803.0pt>
+<Grafi/cobweb15.png, id=244, 803.0pt x 803.0pt>
 File: Grafi/cobweb15.png Graphic file (type png)
 <use Grafi/cobweb15.png>
 Package pdftex.def Info: Grafi/cobweb15.png  used on input line 1110.
@@ -1018,7 +1022,7 @@ Package pdftex.def Info: Grafi/cobweb15.png  used on input line 1110.
 
 
 [21 <./Grafi/cobweb143.png> <./Grafi/cobweb15.png>]
-<Grafi/cobweb16.png, id=241, 803.0pt x 803.0pt>
+<Grafi/cobweb16.png, id=253, 803.0pt x 803.0pt>
 File: Grafi/cobweb16.png Graphic file (type png)
 <use Grafi/cobweb16.png>
 Package pdftex.def Info: Grafi/cobweb16.png  used on input line 1119.
@@ -1026,24 +1030,89 @@ Package pdftex.def Info: Grafi/cobweb16.png  used on input line 1119.
 
 
 [22 <./Grafi/cobweb16.png>]
-<Grafi/cobweb171.png, id=249, 803.0pt x 803.0pt>
+<Grafi/cobweb171.png, id=261, 803.0pt x 803.0pt>
 File: Grafi/cobweb171.png Graphic file (type png)
 <use Grafi/cobweb171.png>
-Package pdftex.def Info: Grafi/cobweb171.png  used on input line 1202.
+Package pdftex.def Info: Grafi/cobweb171.png  used on input line 1207.
 (pdftex.def)             Requested size: 96.59958pt x 96.58864pt.
-<Grafi/cobweb172.png, id=250, 803.0pt x 803.0pt>
+<Grafi/cobweb172.png, id=262, 803.0pt x 803.0pt>
 File: Grafi/cobweb172.png Graphic file (type png)
 <use Grafi/cobweb172.png>
-Package pdftex.def Info: Grafi/cobweb172.png  used on input line 1209.
+Package pdftex.def Info: Grafi/cobweb172.png  used on input line 1214.
 (pdftex.def)             Requested size: 96.59958pt x 96.58864pt.
-<Grafi/cobweb173.png, id=251, 803.0pt x 803.0pt>
+<Grafi/cobweb173.png, id=263, 803.0pt x 803.0pt>
 File: Grafi/cobweb173.png Graphic file (type png)
 <use Grafi/cobweb173.png>
-Package pdftex.def Info: Grafi/cobweb173.png  used on input line 1216.
+Package pdftex.def Info: Grafi/cobweb173.png  used on input line 1221.
 (pdftex.def)             Requested size: 96.59958pt x 96.58864pt.
 
 
-[23 <./Grafi/cobweb171.png> <./Grafi/cobweb172.png> <./Grafi/cobweb173.png>] (./Dinamični sistemi 1.aux)
+[23 <./Grafi/cobweb171.png> <./Grafi/cobweb172.png> <./Grafi/cobweb173.png>]
+<Grafi/cobweb18.png, id=279, 803.0pt x 803.0pt>
+File: Grafi/cobweb18.png Graphic file (type png)
+<use Grafi/cobweb18.png>
+Package pdftex.def Info: Grafi/cobweb18.png  used on input line 1307.
+(pdftex.def)             Requested size: 170.71794pt x 156.49248pt.
+<Grafi/cobweb19.png, id=280, 803.0pt x 803.0pt>
+File: Grafi/cobweb19.png Graphic file (type png)
+<use Grafi/cobweb19.png>
+Package pdftex.def Info: Grafi/cobweb19.png  used on input line 1320.
+(pdftex.def)             Requested size: 227.61984pt x 156.49248pt.
+
+
+[24 <./Grafi/cobweb18.png>]
+
+[25 <./Grafi/cobweb19.png>]
+Overfull \hbox (26.61647pt too wide) detected at line 1371
+[]
+ []
+
+
+Overfull \hbox (9.81197pt too wide) detected at line 1396
+\OML/lmm/m/it/10 S \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 f[] \OT1/lmr/m/n/10 = (\OML/lmm/m/it/10 s[]; s[]; [] \OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 j \OML/lmm/m/it/10 s[] \OMS/lmsy/m/n/10 2 f\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 ; [] ; N \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1\OMS/lmsy/m/n/10 gg \OT1/lmr/m/n/10 = (\OML/lmm/m/it/10 N \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)[] [] \OML/lmm/m/it/10 d\OT1/lmr/m/n/10 ([]\OML/lmm/m/it/10 ; []\OT1/lmr/m/n/10 ) = [] []\OML/lmm/m/it/10 :
+ []
+
+
+
+[26]
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1520--1521
+
+ []
+
+
+Overfull \hbox (59.86082pt too wide) in paragraph at lines 1567--1568
+ [] 
+ []
+
+
+
+[28]
+Overfull \hbox (23.3038pt too wide) detected at line 1580
+[]
+ []
+
+
+
+[29]
+Overfull \hbox (76.917pt too wide) in paragraph at lines 1718--1719
+ [] 
+ []
+
+
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35] (./Dinamični sistemi 1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1053,21 +1122,21 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Dinamični sistemi 1".out' has not changed.
-(rerunfilecheck)             Checksum: 0AC3E6C9A2F6E69A223C0EDADAE3062F;539.
+(rerunfilecheck)             Checksum: 7AD286F2268D8074CF11875A0CDD2EE9;1050.
  ) 
 Here is how much of TeX's memory you used:
- 36796 strings out of 473190
- 853387 string characters out of 5715800
- 1369731 words of memory out of 5000000
- 59334 multiletter control sequences out of 15000+600000
- 643476 words of font info for 99 fonts, out of 8000000 for 9000
+ 37400 strings out of 473190
+ 866408 string characters out of 5715800
+ 1761296 words of memory out of 5000000
+ 59898 multiletter control sequences out of 15000+600000
+ 647738 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,18n,97p,782b,2302s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Dinamični sistemi 1.pdf" (23 pages, 964717 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on "Dinamični sistemi 1.pdf" (35 pages, 1082962 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 267 compressed objects within 3 object streams
- 94 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 497 PDF objects out of 1000 (max. 8388607)
+ 349 compressed objects within 4 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
 

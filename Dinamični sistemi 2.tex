@@ -198,4 +198,182 @@ Posledično pa je tudi $\F_f \subseteq f^{-1}(\F_f)$ oz. $\F_f = f^{-1}(\F_f)$.
 Povezanim komponentam $\F_f$ pravimo Fatoujeve komponente in se slikajo ena v drugo.\\ 
 Nek primerček.
 
+
+\section{Napolnjena Juliajeva množica}
+
+V tem razdelku se omejimo na ne linearne polinome
+$$
+p(z) = a_d z^d + \dots + a_0, \quad d \geq 2.
+$$
+
+Vsi taki polinomi imajo v $z = \infty$ superprivlačno točko. Zato lahko Juliajevo 
+in Fatoujevo množico definiramo na alternativen način:
+\begin{itemize}
+    \item  
+$$
+\mathcal{K}_p \coloneqq \{z\in \C \,|\, |R^n(z)| \text{ omejena} \forall n\in \N\}
+$$
+napolnjena Juliajeva množica.
+\item 
+$$
+\mathcal{J}_p = \partial \mathcal{K}_p \,\text{ in }\, \mathcal{F}_p = \hat{\C}\slash \mathcal{J}_p
+$$
+naši karakteristični množici. 
+\end{itemize}
+Ker je $\infty \in \F$ in $A_p(\infty) \subset \F_p$, se ta definicija 
+ujema s standardnima. To pomenim, da je dinami blizu $z = \infty$ 
+konjugirana dinamiki $z \mapsto z^d$ blizu $z = 0$.\\
+Slikača klopotača\\
+\begin{posledica}
+Za polinome stopnje $d\geq 2$ je $\mathcal{J}_p$ vedno neprazna in omejena.
+\end{posledica}
+
+\begin{proof}[Dokaz:]
+    Neprazna je, ker obstaja vsaj še ena fiksna točka, ki ni $z = \infty$
+    torej je $\partial A_p(\infty) \neq \emptyset$. Ostalo sledi iz dejstva, 
+    da je $A_p \subset \F_p$.
+\end{proof}
+
+Ugotovili smo, da za dovolj velike $z\in \C$ orbita pobegne proti $\infty$.
+Številom, ki opredeljujejo zadostno velikost pravimo \textbf{radij pobega}.
+
+\begin{izrek}[Radij pobega]
+Naj bo $P$ polinom stopnje $d\geq 2$. Naj bo 
+\begin{equation}
+R \coloneqq \max\Big\{\frac{3}{a_d}, \frac{2}{a_d}(|a_0| + |a_1| + \dots + |a_{d-1}|)
+, 1 \Big\}.
+\end{equation}
+Če je $|z| \geq R$, velja 
+\begin{equation}
+\lim_{n\rightarrow \infty} |p^n(z)| = \infty.
+\end{equation}
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+Naj bo $|z| \geq R$. Naredimo oceno: 
+\begin{align*}
+|p(z)| &= |a_d z^d + \dots + a_z + a_0| = \\
+&= |a_d z^d| \cdot \Big|1 + \frac{a_{d-1}}{a_d z} + \dots + \frac{a_1}{a_d z^{d-1} + \frac{a_0}{a_d z^d}}\Big| \\
+&\leq \frac{|a_{d1}|}{|a_d|\cdot |z|} + \dots + \frac{|a_0|}{|a_d|\cdot |z|^d} \leq \\
+&\leq \frac{|a_{d-1}| + \dots + |a_0|}{|a_d| \cdot |z|} \leq \frac{1}{2}
+\end{align*}
+
+\begin{align*}
+|p(z)| &= |a_d| \cdot |z|^d \cdot |1 + s| \geq |a_d|\cdot |z|^d \cdot (1 - |s|)\\
+&\geq |a_d| \cdot |z|^d \frac{1}{2} \geq \frac{3}{|z|} \cdot |z|^d \frac{1}{2} \geq
+&\geq \frac{3}{2} |z| \geq \frac{3}{2} R.
+\end{align*}
+Induktivno ugotovimo:
+$$
+|P^n(z)| \geq \Big(\frac{3}{2} \Big)^n \cdot R \xrightarrow{n\rightarrow \infty} \infty
+$$
+\end{proof}
+
+\begin{opomba}
+Ta radij ni optimalen, lahko bi še prilagajali konstanti $3$ in $2$. 
+Alternativna verzija pravi npr. da je dober tudi 
+$$
+R = \Big\{... \Big\}
+$$
+\end{opomba}
+
+Posledica tega izreka je algoritem za približno risanje $\mathcal{K}_p$, ki 
+ima naslednje korake:
+\begin{itemize}
+    \item Določi $R$ iz izberi $N>> 1$.
+    \item Naključno izbiraj točke $z_0 \in \D(0, R)$, če za vse $n\in \{1, 2, \dots, n\}$
+    velja, da je $|P^n(z_0)| < R$, jih obarvaj.
+\end{itemize}
+
+Dodatno lahko razmišljamo na sledeč način. Točka $z = \infty$ je edina 
+fiksna točka v komponenti $A_p(\infty)$. Torej je poleg $\partial A_p(\infty)$
+edina možna limita zaporedja v $A_p(\infty).$ Izberemo $z_0 \in A_p(\infty) \slash \{\infty\}$
+in tvorimo zaporedje $z_n \in P^{-n}(z_0)$ (jemljemo praslike). To zaporedje 
+ne more konvergirati k $\infty$, saj gre tja zaporedje $P^n(z_0)$. Torej 
+konvergira k $\mathcal{J}_P = \partial A_p(\infty)$. To pa nam da še en 
+možen algoritem za približno risanje $\mathcal{J}_p$, ki mu pravimo \textbf{vzvratna iteracija}: 
+\begin{itemize}
+    \item Določi $R$ in izberi $N >> 1$. 
+    \item Naključno izbiraj $z_0 \in \partial \D(0, R)$. Nariši množico 
+    $P^{-N}(z_0)$ (kar vse praslike). 
+\end{itemize}
+Naš modelni primer $p(z) = z^2$ in $R = \max\Big\{ \frac{1}{|1|}, \frac{2}{|1|}\cdot 0, 1\} = 3$. 
+Primerčiča:\\
+
+\begin{izrek}[Izrek o dihotomiji]
+Juliajeva množica nelinearnega polinoma je povezanan natanko tedaj, ko so vse 
+kritične točke v $\mathcal{K}_p$.
+\end{izrek}
+
+\begin{opomba}
+$c\in \C$ je kritična točka za $p$, če je $p'(c) = 0$. To pomeni, da je 
+razvoj okoli $c$ enak:
+$$
+p(z) = a_0 + a_k(z-c)^k + a_{k+1}z^{k+1} + z^d a_d, \quad k \geq 1.
+$$
+To pomeni, da lokalno oz. za vrednosti blizu $z = c$ funkcija $p$ 
+"deluje kot" $z \mapsto z^k$ v posebnem, na okolici take točke $p$ ni
+injektivna.
+\end{opomba}
+
+\begin{primer}
+Oglejmo si primer $z \mapsto z^2$ in tri tipe krožnic ter njihovih praslik: 
+kul slikice\\
+Morala: če krožnica trči v kritično vrednost, je njena praslika topološko 
+ekvivalentna osmici, krožnice v njej pa imajo dve nepovezani komponenti v 
+prasliki.
+\end{primer}
+
+\begin{proof}[Dokaz(ideja):]
+Ločimo dva primera:
+\begin{enumerate}
+    \item v $A_p(\infty)$ ni kritičnih točk in posledično tudi kritičnih vrednosti ne. 
+    Za poljuben $r \geq R$, kjer je $R$ radij pobega, je množica $P^{-n}(\partial \D(0, r))$, 
+    $n\in \N$, sklenjena krivulja brez samopresečišč (krožnica v topološkem smislu).
+    V limiti pa dobimo $\mathcal{J}_p$, ki je povezana. 
+    \item Če $A_p(\infty)$ vsebuje kritično točko in posledično tudi kritično vrednost 
+    , potem bo praslika križnice $D(0, |p(c)|)$ unija več topoloških krožnic s 
+    skupnim presečiščem. Manjše krožnice pa bodo razpadle na več komponent. \\
+    Neki lepega
+\end{enumerate}
+\end{proof}
+
+\section{Drugi Montelov izrek}
+
+V tem razdelku bomo spoznali enega bolj pomembnih izrekov v kompleksni analizi, 
+ki močno opredeli lastnosti množice $\mathcal{J}_R$. Omejili se bomo 
+na racionalne funkcije stopnje $d \geq 2$. 
+
+\begin{izrek}[Drugi Montelov izrek]
+Če obstajo vrednosti $a, b, c \in \hat{\C}$, ki so različne. ter za družino 
+$\F \{R: D \subseteq \hat{\C} \rightarrow \hat{\C}$ \,|\, R \text{ racionalna}\} 
+velja $\{a, b, c\} \cap R(D) = \emptyset$ za vsak $R \in \F$, potem je 
+$\F$ normalna. 
+\end{izrek}
+
+\begin{opomba}
+\begin{itemize}
+    \item Izrek velja tudi za družine meromorfnih funckij na $D \subset \C$ tj. 
+    za funkcije brez bistvenih singularnosti.
+    \item Izrek je pogosto podan za družine holomorfnih funkcij $\F \subset \O(D)$, 
+    za $D \subset \C$, takrat je dovolj, da izpusti dve točki $a, b \in \C$, saj 
+    za $c$ vzamemo $\infty$ (elementi $\F$ nimajo polov).
+\end{itemize}
+\end{opomba}
+
+\begin{proof}[Dokaz(ideja).]
+Kjučen del dokaza je obstoj surjektivne holomorfne preslikave 
+$$
+h: \D \rightarrow \hat{\C}\backslash \{0, 1, \infty\},
+$$
+ki nima kritičnih točk oz. je krovna projekcija tj. zožitev $h$ na vsako 
+komponentno take praslike je biholomorfna. Od tu dalje brez škode za splošnost 
+predpostavimo, da so $a = 0$, $b=1$ in $c = \infty$. Če to ni res, vse 
+$R \in \F$ konjugiramo z ustrezno Möbiousovo preslikavo. 
+
+Sedaj je preslikave "dvignemo na krov"
+\end{proof}
+
+
+
 \end{document}

@@ -320,10 +320,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflib
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
-INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
-INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
-INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
@@ -574,17 +570,6 @@ INPUT ./Grafi/cobweb173.png
 INPUT ./Grafi/cobweb173.png
 INPUT ./Grafi/cobweb173.png
 INPUT ./Grafi/cobweb173.png
-INPUT ./Grafi/cobweb18.png
-INPUT ./Grafi/cobweb18.png
-INPUT ./Grafi/cobweb18.png
-INPUT ./Grafi/cobweb18.png
-INPUT ./Grafi/cobweb18.png
-INPUT ./Grafi/cobweb19.png
-INPUT ./Grafi/cobweb19.png
-INPUT ./Grafi/cobweb19.png
-INPUT ./Grafi/cobweb19.png
-INPUT ./Grafi/cobweb19.png
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
 INPUT Dinamični sistemi 1.aux
 INPUT ./Dinamični sistemi 1.out
 INPUT ./Dinamični sistemi 1.out
@@ -605,9 +590,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr9.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
