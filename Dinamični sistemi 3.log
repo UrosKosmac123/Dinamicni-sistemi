@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.25)  8 APR 2025 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.25)  8 APR 2025 09:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinami훾ni sistemi 2.tex"
-(/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinami훾ni sistemi 2.tex
+**"/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinami훾ni sistemi 3.tex"
+(/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinami훾ni sistemi 3.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -663,8 +663,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count343
 \l__pdf_internal_box=\box73
-) (./Dinami훾ni sistemi 2.aux)
-\openout1 = `"Dinami훾ni sistemi 2.aux"'.
+) (./Dinami훾ni sistemi 3.aux)
+\openout1 = `"Dinami훾ni sistemi 3.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
@@ -707,9 +707,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 50.
- (./Dinami훾ni sistemi 2.out) (./Dinami훾ni sistemi 2.out)
 \@outlinefile=\write4
-\openout4 = `"Dinami훾ni sistemi 2.out"'.
+\openout4 = `"Dinami훾ni sistemi 3.out"'.
 
 
 
@@ -745,135 +744,19 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 54.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 54.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 54.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 95.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+))
+! Emergency stop.
+<*> ...Dinamicni-sistemi/Dinami훾ni sistemi 3.tex"
+                                                  
+*** (job aborted, no legal \end found)
 
-[1
-
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 132--134
-
- []
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary3d.code.tex
-File: tikzlibrary3d.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryperspective.code.tex
-File: tikzlibraryperspective.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)
-\pgf@layerbox@background=\box75
-\pgf@layerboxsaved@background=\box76
-\pgf@layerbox@foreground=\box77
-\pgf@layerboxsaved@foreground=\box78
-
-Overfull \hbox (87.38889pt too wide) in paragraph at lines 213--219
-[][]
- []
-
-
-Overfull \hbox (105.0112pt too wide) detected at line 226
-[]
- []
-
-
-
-[2]
-Overfull \hbox (101.1709pt too wide) detected at line 230
-\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 1\OT1/lmr/m/n/10 ) = \OMS/lmsy/m/n/10 1 \OT1/lmr/m/n/10 =[]\OMS/lmsy/m/n/10 )   []  [] \OT1/lmr/m/n/10 = [] = [] = \OML/lmm/m/it/10 z[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 z[] \OT1/lmr/m/n/10 + [] =[]\OMS/lmsy/m/n/10 ) []
- []
-
-
-
-[3]
-
-[4]
-
-[5]
-Overfull \hbox (6.28893pt too wide) in paragraph at lines 434--435
-[][]\T1/lmr/bx/n/10 Izrek 4. []\T1/lmr/m/it/10 Mno튷ci $\OMS/lmsy/m/n/10 J[]$ \T1/lmr/m/it/10 in $\OMS/lmsy/m/n/10 F[]$ \T1/lmr/m/it/10 sta naprej in nazaj in-vari-antni tj. $\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 J[]\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 J[]\OT1/lmr/m/n/10 ) =
- []
-
-
-
-[6]
-
-[7]
-Overfull \hbox (43.90512pt too wide) in paragraph at lines 616--617
- [] 
- []
-
-
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 667--671
-
- []
-
-
-
-[9]
-Overfull \hbox (5.58203pt too wide) in paragraph at lines 741--743
-[]\T1/lmr/m/n/10 Naklju즢o izbi-raj $\OML/lmm/m/it/10 z[] \OMS/lmsy/m/n/10 2 \OML/lmm/m/it/10 @\U/msb/m/n/10 D\OT1/lmr/m/n/10 (0\OML/lmm/m/it/10 ; R\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 . Nar-i쾖 mno튷co $\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 z[]\OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10 (kar vse praslike). 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 744--746
-
- []
-
-
-Overfull \hbox (14.88484pt too wide) in paragraph at lines 748--750
-[][]\T1/lmr/bx/n/10 Izrek 7 \T1/lmr/m/n/10 (Izrek o di-ho-tomiji)\T1/lmr/bx/n/10 . []\T1/lmr/m/it/10 Ju-li-a-jeva mno튷ca ne-lin-earnega poli-noma je povezanan
- []
-
-
-
-[10]
-
-LaTeX Warning: Command \O invalid in math mode on input line 802.
-
-
-
-[11]
-
-[12]
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 961--965
-
- []
-
-
-
-[14] (./Dinami훾ni sistemi 2.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-Package rerunfilecheck Info: File `"Dinami훾ni sistemi 2".out' has not changed.
-(rerunfilecheck)             Checksum: AF697B33FB68BBBC5D2B6B6CDB0B6407;915.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 36563 strings out of 473190
- 847105 string characters out of 5715800
- 1321930 words of memory out of 5000000
- 59122 multiletter control sequences out of 15000+600000
- 625401 words of font info for 82 fonts, out of 8000000 for 9000
+ 35602 strings out of 473190
+ 824974 string characters out of 5715800
+ 1303930 words of memory out of 5000000
+ 58276 multiletter control sequences out of 15000+600000
+ 580970 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,97p,782b,1261s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmri7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Dinami훾ni sistemi 2.pdf" (14 pages, 346820 bytes).
-PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 59 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 84i,6n,97p,782b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
