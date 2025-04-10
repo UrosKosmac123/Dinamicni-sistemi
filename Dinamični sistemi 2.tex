@@ -22,6 +22,7 @@
 \usepackage{pgfplots}
 \usepackage{caption}
 \usepackage{tikz-cd}
+\usepackage{mathrsfs}
 \usetikzlibrary{shapes.symbols}
 
 \newtheorem{definicija}{Definicija}
@@ -641,33 +642,376 @@ V okolici privlačne\slash odbojne točke je funkcija konjugirana
 preslikavi $g(z) = \lambda z$.
 \end{trditev}
 
+\begin{proof}
+BŠS vzamemo $z_0 = 0$. Postopamo podobno kot pri Hartman-Grobman izreku in 
+zapišemo:
+\begin{align*}
+f(z) = \lambda z + r(z) \\
+\varphi(z) = z + h(z),
+\end{align*}
+kjer sta $r$ in $h$ ostanka $2$. reda. Dobimo 
+\begin{align*}
+\varphi(g(z)) = \lambda z + h(\lambda z) = f(\varphi(z)) = f(z + h(z)) = \lambda z + \lambda h(z) + r(z + h(z))\\
+\Longrightarrow h(\lambda z) = \lambda h(z) + r(z + h(z)) \,\, \text{ oz. } h(z) = \lambda h(\lambda^{-1} z) + r(\lambda^{-1} z + h(\lambda^{-1} z)).
+\end{align*}
+Izraz za $h$ je skrčitev za $0 < |\lambda| < 1$. Za $|\lambda| > 1$ 
+dokaz priredimo oz. obravnavamo lokalni inverz $f^{-1}(z)$, ki ima 
+v $z = 0$ odbojno točko.
+\end{proof}
 
+\begin{opomba}
+\hfill
+\begin{itemize}
+    \item če je $\lambda = 0$ in je $z_0$ superprivlačna, se podobno pokaže, 
+    da je za $f(z) = z_0 + c_k(z - z_0)^k + \dots$ konjugirana $g(z) = z^k$.
+    \item za $|\lambda| = 1$ konjugacija z $g(z) = \lambda z$ obstaja, če je 
+    $\lambda^m = 1$ in so izpolnjeni neki dodatni pogoji.
+\end{itemize}
+\end{opomba}
+
+\begin{primer}
+Ponovno poglejmo $f(z) = 3z + 2$. Fiksna točka $z = -1$ je odbojna, saj je 
+$f'(-1) = 3$ in je konjugirana preslikavi $g(z) = 3z$, kar smo že dokazali. \\
+Fiksna točka $z = \infty$:
+$$
+\hat{f}(z) = \frac{1}{f(\frac{1}{z})} = \frac{z}{3 + 2z}
+$$
+in $\hat{f}(0) = \frac{1}{3}$ t.j. $z = \infty$ je privlačna. 
+Poskusimo najti konjugacijo med $\hat{f}(z)$ in $g(z) = \frac{1}{3} z$:
+\begin{align*}
+h\circ f(z) = h\left(\frac{z}{3 + 2z}\right) = g\circ h(z) = \frac{1}{3}h(z).
+\end{align*}
+Vemo, da je $h(0) = 0$, oglejmo si prvi odvod:
+$$
+h'\left(\frac{z}{3 + 2z}\right) \cdot \left(\frac{3 + z}{(3 + 2z)^2}\right) = \frac{1}{3} h'(z).
+$$
+Vstavimo $z = 0$:
+$$
+h'(0) \cdot \frac{1}{3} = \frac{1}{3} h'(0),
+$$
+torej je $h'(0)$ lahko poljubna vrednost, BŠS nastavimo $h'(0) = 1$. Odvajamo 
+še enkrat:
+$$
+h''\left(\frac{z}{3 + 2z}\right) \left( \frac{3}{(3 + 2z)^2}\right)^2 + h'\left(\frac{z}{3 + 2z}\right) \cdot \left( \frac{-4z - 12}{(3 + 2z)^3}\right) = \frac{1}{3} h''(z)
+$$
+ter vstavimo $z = 0$:
+\begin{align*}
+&h''(0) \frac{1}{9} - \frac{4}{9} h'(0) = \frac{1}{3} h''(0) \\[1mm]
+&\Longrightarrow h''(0) = -2.
+\end{align*}
+Sklep: $h(z) = z - z^2 + o(z^3)$. En primer funkcije, ki ima 
+tak razvoj v potenčno vrsto je $h(z) = \frac{z}{1 + z}$. Preizkus:
+$$
+h\left( \frac{z}{3 + 2z}\right) = \frac{\frac{z}{3 + 2z}}{1 + \frac{z}{3 + 2z}} = \frac{z}{3 + 3z} = \frac{1}{3} h(z)
+$$
+\end{primer}
+V splošnem lahko iščemo $h$ kot vrsto, izrek pa zagotovi lokalno konvergenco. 
+Če fiksiramo $h'(z_0) = 1$, je $h$ enolična. V tem, linearnem primeru, 
+bi lahko postopali bolj elementarno z Möbiousovo preslikavo, ki 
+ohrani fiksno točko $z = 0$, fiksno točko $z = -1$ pa premakne v 
+$\infty$.
+\noindent
+Posledica lokalne linearizacije:
+\begin{enumerate}
+    \item[i)] (super)privlačne točke so v $\F_f$: \\
+    ugotovili smo, da so privlačne točke tudi šibko privlačne. Naj bo 
+    $U \subset \hat{\C}$ okolica $z_0$, kjer je $f$ konjugirana $z \mapsto \lambda z$, 
+    $|\lambda| < 1$. Potem je njeno območje privlaka podano z: 
+    $$
+    A_f(z_0) = \bigcup_{n=1}^\infty f^{-n}(U). 
+    $$
+    Na njem gre $f^n(z) \rightarrow z_0$ enakomerno po komponentah t.j. 
+    $A_f(z_0) \subset \F_f$. Vemo pa tudi $\partial A_f(z_0) \subset \mathcal{J}_f$, 
+    saj v teh točkah pride do nezveznosti limite.
+    \begin{opomba}
+    Množica $A_f(z_0)$ ni nujno povezana, zato z $A^*_f(z_0) \subset A_f(z_0)$
+    označimo komponento, ki vsebuje $z_0$ (direktno območje privlaka).
+    \end{opomba}
+    \item[ii)] Odbojne točke so v $\mathcal{J}_f$: \\
+    BŠS nastavimo $z_0 = 0$. Denimo, da obstaja konvergentno podzaporedje $f^{n_k}$
+    na okolici neki okolici. Ker je $f^{n_k}(0) = 0$, ne more iti k $\infty$. Torej gre 
+    $f^{n_k} \rightarrow g$ enakomerno po kompaktnih za $g\in \Ho(\D(0, \epsilon))$. 
+    Vendar pa za odvode velja: 
+    $$
+    f(z) = \lambda z + o(z^2) \Longrightarrow f^{n_k}(z) = \lambda^{n_k} z + o(z^2) \Longrightarrow
+    (f^{n_k})'(0) = \lambda^{n_k} \rightarrow \infty.
+    $$
+    To pa je v protislovju s Cauchyjevo formulo: 
+    $$
+    \infty \neq g'(0) = \frac{1}{2\pi i} \int_{\partial \D(0, \epsilon)} \frac{g(w)}{w^2} \dif w 
+    = \lim_{k\rightarrow \infty} \frac{1}{2\pi i} \int_{\partial \D(0, \epsilon)} \frac{f^{n_k}(w)}{w^2} \dif w 
+    = \lim_{k\rightarrow \infty} \lambda^{n_k}.
+    $$
+    \item[iii)] Za nevtralne točke ni enoličnega odgovoro:
+    \begin{primer}
+        $f(z) = e^{2\pi i \theta}z$ za $\theta \in \R$.
+    \begin{center}
+        \begin{tikzpicture}[scale=2, >=stealth]
+        % Axes
+        \draw[->, thick] (-1.5,0) -- (1.5,0); % x-axis
+        \draw[->, thick] (0,-1.5) -- (0,1.5); % y-axis
+        
+        % Points on horizontal axis (magenta)
+        \filldraw[red] (-0.5,0.5) circle (0.03);
+        \filldraw[red] (0.5,-0.5) circle (0.03);
+        
+        
+        \draw[blue, ->] (-0.5,0.5) to[out=60,in=40,looseness=1.5] (0.5,-0.5);
+        \draw[blue, ->] (0.5,-0.5) to[out=230,in=230,looseness=1.2] (-0.5,0.5);
+        \end{tikzpicture}
+        \end{center}
+        Ne glede na to, ali je $\theta$ racionalen ali ne, je $z = 0 \in \F_f$.
+    \end{primer}
+
+    \begin{primer}
+    $f(z) = z + z^2 = r e^{i\phi} + r^2 e^{2i\phi}$
+
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[width=6cm, height=4.5cm]{Grafi/cobweb20.png}
+        \end{center}
+    \end{figure}
+    $x < 0$ je privlači, med tem ko $x > 0$ odbija.
+
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+
+        % Axes
+        \draw[->, thick, blue!60!black] (0,-2.2) -- (0,2.2); % vertical axis
+        \draw[->, thick, red!80!black] (-3,0) -- (3.2,0); % horizontal axis
+        
+        % Red arrows on horizontal axis
+        \foreach \x in {-2.5,-1.5,-0.5,0.5,1.5,2.5}
+            \draw[->, thick, red] (\x,0) -- (\x+0.6,0);
+        
+        % Blue arrows on vertical axis
+        \draw[->, thick, blue] (0,-1.8) -- (0,-1.2);
+        \draw[->, thick, blue] (0,1.2) -- (0,1.8);
+        
+        % Green circular arrow above x-axis
+        \draw[->, thick, dashed , green!60!black] (1,1) arc[start angle=0, end angle=360, radius=1];
+        
+        % Green circular arrow below x-axis
+        \draw[->, thick, dashed, green!60!black] (-1,-1) arc[start angle=180, end angle=-180, radius=1];
+        
+        % Dot at origin
+        \filldraw[red] (0,0) circle (2pt);
+        \end{tikzpicture}
+        \\
+        $z = 0$ je v $\mathcal{J}_f$.
+    \end{primer}
+\end{enumerate}
+
+Na enak način kot v realni dinamiki, definiramo $m$-periodične 
+točke kot točke, pri katerih je $f^m(z_0) = z_0$ in je $m\in \N$
+najmanjši tak. Nadalje so te točke privlačne\slash odbojne \slash 
+nevtralne, če so take kot fiksne točke $f^m$. Velja tudi, da so 
+vse točke cikla istega tipa. Da zanje velja, analogna razvrstitev 
+v $\F_f$ in $\mathcal{J}_f$ potrdi naslednji izrek 
+\begin{izrek}
+Za vsak $m\in \N$ je $\F_f = \F_{f^m}$ in $\mathcal{J}_f = \mathcal{J}_{f^m}$.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+Dovolj je dokazati: $\{f^n \,|\, n\in\N\}$ normalna na $U$ $\iff$ 
+$\{f^{n\cdot m} \,|\, n\in\N\}$ normalna na $U$.
+\begin{enumerate}
+    \item[$(\Longrightarrow)$] Po definiciji normalnosti ima podzaporedje $(f^{n\cdot m})_{n\in\N} \subset \{f^n \,|\, n\in\N\}$
+    konvergentno podzaporedje.
+    \item[$(\Longleftarrow)$] Naj bo $(f^{n_j})_j \subset \{f^n \,|\, n\in\N\}$ podzaporedje. 
+    Potem za nek $r\in \{0, 1, \dots, m-1\}$ obstaja podzaporedje 
+    oblike $(f^{k_j \cdot m + r})_{j\in\N}$, saj se eden izmed ostankov 
+    pri deljenju $n_j$ z $m$ ponovi neskočno mnogokrat. Po predpostavki 
+    ima $(f^{k_j \cdot m})_{j\in\N}$ konvergentno podzaporedje, torej ga ima 
+    tudi $(f^{k_j \cdot m + r})_{j\in\N}$.
+\end{enumerate}
+\end{proof}
+
+\begin{definicija}
+Naj bo $f\in \Ho(D)$ za območje $D \subseteq \C$. Označimo množice 
+privlačnih\slash odbojnih \slash nevtralnih periodičnih točk z 
+Att$(f)$, Rep$(f)$ in Neu$(f)$.
+\end{definicija}
+
+\begin{posledica}
+Velja Att$(f) \subseteq \F_f$ in Rep$(f) \subseteq \mathcal{J}_f$.
+\end{posledica}
+
+\begin{definicija}
+Naj bo $f\in \Ho(D)$ za območje $D \subseteq \C$. Za privlačen 
+$m$-cikel $\{z_0, z_1, \dots, z_{m-1}\}$ definiramo unijo privlakov
+$$
+A_f(z_0) = \bigcup_{k=0}^{m-1} A_{f^m}(z_k),
+$$
+ter $A^*(z_0)$ kot unijo komponent $A_f(z_0)$, ki vsebujejo $z_j$.
+\end{definicija}
+
+\begin{posledica}
+Velja $A_f(z_0) \subseteq \F_f$ in $\partial A_f(z_0) \subseteq \mathcal{J}_f$.
+\end{posledica}
+
+\begin{primer}
+Naj bo $f(z) = \frac{1}{z^2}$. Fiksne točke so koreni enote
+$z^3 = 1$ $\Longrightarrow$ $z = 1, e^{\frac{2\pi}{3}i}, e^{\frac{4\pi}{3}i}$. 
+Vse so odbojne, ker je $|f'(z)| = \left|- \frac{2}{z^2}\right| = 2$. \\
+$f^2(z) = z^4 = z$ $\Longrightarrow$ $2$-cikel $0, \infty$ je superprivlačen,
+ker je $|(f^2)'(0)| = 0$. \\
+Vsi ostali $m$-cikli bodo na enotski krožnici, sa rešujemo $z^{2^m + 1} = 1$
+ali $z^{2^m} = z$. Še več, vse te točke so odbojne, unija pa gosta 
+v $\partial \D$. \\[1mm] 
+Sklep: Att$(f) = \{0, \infty\}$, 
+$$
+A_f(0) = A_f(\infty) = A_{f^2}(\infty) \cup A_{f^2}(0) = \D \cup \C \backslash \D = \C = \F_f,
+$$
+$\partial A_f(0) = \partial \D = \mathcal{J}_f = \overline{\text{Rep}(f)}$.
+\end{primer}
+
+\begin{opomba}
+Zveza $\overline{\text{Rep}(f)} = \mathcal{J}_f$ velja v splošnem in 
+se pogosto uporabi kot alternativna  definicija Juliajeve množice.
+\end{opomba}
+
+Za razliko od odbojnih ciklov, ki jih je veliko (razen, kadar je $f$ linearna), 
+je število privlačnih ciklov omejeno s številom kritičnih točk.
+
+\begin{izrek}
+Naj bo $z_0$ privlačna ali superprivlačna $m$-periodična točka. 
+Potem $A^*_f(z_0)$ vsebuje kritično točko.
+\end{izrek}
+
+\begin{proof}[Dokaz:]
+    \hfill
+\begin{itemize}
+    \item $m=1$: če je $z_0$ superprivlačna, je tudi kritična, zato 
+    predpostavimo, da je zgolj kritična. BŠS predpostavimo $\infty \not\in A_f^*(z_0)$ 
+    (sicer jo premaknemo v končno točko z Möbiousovo preslikavo). 
+    Obstaja okolica $z_0 \in U_0 \subset A_f^*(z_0)$, na kateri 
+    je konjugirana $g(z) = \lambda z$, $0 < |\lambda| < 1$, $f$ pa ima 
+    na $U_0$ tudi lokalni holomorfni inverz $h$.
+    Ker se $U_0$ krči proti $z_0$, je
+    $$
+    U_1 \coloneqq h^{-1}(U_0) \subsetneqq U_0.
+    $$
+    Če na $U_1$ ni kritične točke, lahko postopek ponovimo 
+    $$
+    U_2 \coloneqq h^{-1}(U_1) \subsetneqq U_1
+    $$
+    in $U_2 \subseteq A^*(z_0)$. V nekem trenutku se mora pojaviti 
+    kritična točka, sicer bi bila družina $\{h^n \,|\, n\in \N\}$
+     enakomerno omejena in normalna na na $U_0$. To pa je protislovje 
+     , saj je $z_0$ odbojna točka za $h$ in $z_0 \in \mathcal{J}_R$.
+     \item $m\geq 2$: po prejšnji točki, obstaja $c \in A_{f^m}^*(z_0)$
+     za katero je 
+     $$
+     (f^m)'(c) = f'(f^{m-1}(c)) \cdot f'(f^{m-2}(c)) \cdot \dots \cdot f'(c) = 0. 
+     $$
+     Drugače povedano, vsaj en faktor je ničeln.
+\end{itemize}
+\end{proof}
+
+\begin{posledica}
+Polinom stopnje $d \geq 2$ ima največ $d - 1$ privlačnih ciklov in 
+superprivlačno fiksno točko v $z = \infty$. Racionalna funkcija stopnje
+$d \geq 2$ pa ima največ $2d - 2$ privlačnih ciklov.
+\end{posledica}
+
+\begin{proof}[Dokaz:]
+Maj bo $p$ polinom stopnje $d$. Enačba $p'(z) = 0$ je stopnje $d-1$
+in $p(\infty) = \infty$ ter $\left( \frac{1}{p(\frac{1}{z})}\right)'_{\big|_{z=0}} = 0$. 
+Pri racionalni funkciji BŠS predpostaimo, da kritične točke in kritične vrednosti 
+ne zavzamejo vrednosti $\infty$. Nato imamo za polinoma $p$ in $q$ stpnje $d$:
+$$
+\left( \frac{p(z)}{q(z)}\right) = \frac{p'(z)q(z) - p(z)q'(z)}{q^2(z)} = 0.
+$$
+Vodilni člen $z^{2d-1}$ se pokrajša, zato je $2d-2$ ničel.
+\end{proof}
+
+\begin{opomba}
+Z bolj podrobno analizo se lahko omeji tudi število nevtralnih ciklov, 
+tako da jih je skupaj s privlačnimi največ $6d - 6$.
+\end{opomba}
 
 \section{Napolnjena Juliajeva množica}
 
-V tem razdelku se omejimo na ne linearne polinome
+V tem razdelku se omejimo na nelinearne polinome
 $$
 p(z) = a_d z^d + \dots + a_0, \quad d \geq 2.
 $$
 
-Vsi taki polinomi imajo v $z = \infty$ superprivlačno točko. Zato lahko Juliajevo 
-in Fatoujevo množico definiramo na alternativen način:
+Vsi taki polinomi imajo v $z = \infty$ superprivlačno točko, njena dinamika pa je 
+konjugirana dinamiki preslikave $z \mapsto z^d$ okoli točke $z = 0$.
+
+\begin{tikzpicture}[>=stealth, scale=1]
+
+    % LEFT PART
+    
+    % Axes
+    \draw[->, thick, blue] (-2,0) -- (2,0);
+    \draw[->, thick, blue] (0,-2) -- (0,2);
+    
+    % Red circle (boundary of D(0, ε))
+    \draw[thick, red] (0,0) circle (1.5);
+    \node[red] at (1.65,0.2) {$\varepsilon$};
+    
+    % Green smaller circle
+    \draw[thick, green!70!black] (0,0) circle (0.6);
+    \node[green!60!black] at (0.75,0.3) {$\varepsilon^d$};
+    
+    % Labels on axes
+    \node at (2.2,0) {}; % x
+    \node at (0,2.2) {}; % y
+    
+    % Arrow indicating mapping
+    \draw[->, thick] (2.5,0) -- (4.2,0);
+    
+    % LEFT TEXT
+    \node[align=left, red] at (0.2,-2.8) 
+    {Krožnica $\partial D(0,\varepsilon)$\\
+    se $d$-krat navije\\
+    na $\partial D(0,\varepsilon^d)$.};
+    
+    % RIGHT PART
+    
+    % Large outer circle
+    \draw[thick, black] (6.5,0) circle (1.8);
+    
+    % Red winding path (spiral-like)
+    \draw[thick, red, decorate, decoration={coil, aspect=0.3, segment length=4pt, amplitude=0.2pt}]
+        (8.2,0.5) .. controls (5.5,-0.2) and (6,0.5) .. (5.3,1.3);
+    
+    % Green winding path
+    \draw[thick, green, decorate, decoration={coil, aspect=0.3, segment length=4pt, amplitude=0.2pt}]
+        (7.7,1.35) .. controls (7.5,1) and (6,0.5) .. (6,1.7);
+    
+    % Labels
+    \node[green!60!black] at (8,1.5) {$\frac{1}{\epsilon^d}$};
+    \node[red] at (8.5,0.5) {$\frac{1}{\epsilon}$};
+    \node at (7,2) {$\infty$};
+    
+    \end{tikzpicture}
+
+
+\begin{posledica}
+Okolica $z = \infty$ je v $\F_f$, Juliajeva množica $\mathcal{J}_p$ pa je 
+neprazna in omejena.
+\end{posledica}
+Nepraznost sledi, ker imamo za $d \geq 2$ še vsaj eno fiksno točko 
+in je $\partial A_p(\infty) \neq \emptyset$.
+Zaradi zgornje lastnosti lahko Juliajevo in Fatoujevo množico definiramo na alternativen način:
 \begin{itemize}
-    \item  
+    \item \textbf{Napolnjena Juliajeva množica} je  
 $$
-\mathcal{K}_p \coloneqq \{z\in \C \,|\, |R^n(z)| \text{ omejena} \forall n\in \N\}
+\mathcal{K}_p \coloneqq \{z\in \C \,|\, (p^n(z))_{n\in\N}\text{ je omejena}\}
 $$
-napolnjena Juliajeva množica.
-\item 
+\item Juliajeva množica je 
 $$
-\mathcal{J}_p = \partial \mathcal{K}_p \,\text{ in }\, \mathcal{F}_p = \hat{\C}\slash \mathcal{J}_p
+\mathcal{J}_p = \partial \mathcal{K}_p
 $$
-naši karakteristični množici. 
+\item Fatoujeva množica je 
+ $$\mathcal{F}_p = \hat{C}\slash \mathcal{J}_p.$$
 \end{itemize}
-Ker je $\infty \in \F$ in $A_p(\infty) \subset \F_p$, se ta definicija 
-ujema s standardnima. To pomenim, da je dinami blizu $z = \infty$ 
-konjugirana dinamiki $z \mapsto z^d$ blizu $z = 0$.\\
-Slikača klopotača\\
+Ker je $\infty \in \F_p$ in $A_p(\infty) \subset \F_p$, se ta definiciji 
+ujemata s standardnima. 
+
 \begin{posledica}
 Za polinome stopnje $d\geq 2$ je $\mathcal{J}_p$ vedno neprazna in omejena.
 \end{posledica}
@@ -682,7 +1026,7 @@ Ugotovili smo, da za dovolj velike $z\in \C$ orbita pobegne proti $\infty$.
 Številom, ki opredeljujejo zadostno velikost pravimo \textbf{radij pobega}.
 
 \begin{izrek}[Radij pobega]
-Naj bo $P$ polinom stopnje $d\geq 2$. Naj bo 
+Naj bo $P$ polinom stopnje $d\geq 2$ naj bo 
 \begin{equation}
 R \coloneqq \max\Big\{\frac{3}{a_d}, \frac{2}{a_d}(|a_0| + |a_1| + \dots + |a_{d-1}|)
 , 1 \Big\}.
@@ -696,37 +1040,39 @@ R \coloneqq \max\Big\{\frac{3}{a_d}, \frac{2}{a_d}(|a_0| + |a_1| + \dots + |a_{d
 \begin{proof}[Dokaz:]
 Naj bo $|z| \geq R$. Naredimo oceno: 
 \begin{align*}
-|p(z)| &= |a_d z^d + \dots + a_z + a_0| \\
-&= |a_d z^d| \cdot \Bigg|1 + \frac{a_{d-1}}{a_d z} + \dots + \frac{a_1}{a_d z^{d-1}} + \frac{a_0}{a_d z^d}\Bigg| \\
-&\leq \frac{|a_{d-1}|}{|a_d|\cdot |z|} + \dots + \frac{|a_0|}{|a_d|\cdot |z|^d} \\
-&\leq \frac{|a_{d-1}| + \dots + |a_0|}{|a_d| \cdot |z|} \leq \frac{1}{2}.
+|p(z)| &= |a_d z^d + \dots + a_1 z + a_0| \\
+&= |a_d z^d| \cdot \Big|1 + \underbrace{\frac{a_{d-1}}{a_d z} + \dots + \frac{a_1}{a_d z^{d-1}} + \frac{a_0}{a_d z^d}}_{\eqqcolon S}\Big| \\[1mm]
+|S| &\leq \frac{|a_{d-1}|}{|a_d|\cdot |z|} + \dots + \frac{|a_0|}{|a_d|\cdot |z|^d} \stackrel{|z| \geq 1}{\leq} \frac{|a_{d-1}| + \dots + |a_0|}{|a_d| \cdot |z|} \leq \frac{1}{2}.
 \end{align*}
-
+Na zadnji neenakosti smo uporabili neenakost $|z| \geq \frac{2}{|a_d|}(|a_{d-1}| + \dots + |a_0|)$
+Torej velja:
 \begin{align*}
-|p(z)| &= |a_d| \cdot |z|^d \cdot |1 + s| \geq |a_d|\cdot |z|^d \cdot (1 - |s|)\\
-&\geq |a_d| \cdot |z|^d \frac{1}{2} \geq \frac{3}{|z|} \cdot |z|^d \frac{1}{2} \geq
-&\geq \frac{3}{2} |z| \geq \frac{3}{2} R.
+|p(z)| &= |a_d| \cdot |z|^d \cdot |1 + s| \geq |a_d|\cdot |z|^d \cdot (1 - |s|) \geq\\
+&\stackrel{|z| \geq \frac{3}{a_d}}{\geq} |z|^{d-1} \cdot\frac{3}{2} 
+\geq \frac{3}{2} |z| \geq \frac{3}{2} R.
 \end{align*}
 Induktivno ugotovimo:
 $$
-|P^n(z)| \geq \Big(\frac{3}{2} \Big)^n \cdot R \xrightarrow{n\rightarrow \infty} \infty
+|P^n(z)| \geq \Big(\frac{3}{2} \Big)^n \cdot R \xrightarrow{n\rightarrow \infty} \infty.
 $$
 \end{proof}
 
 \begin{opomba}
-Ta radij ni optimalen, lahko bi še prilagajali konstanti $3$ in $2$. 
+Ta radij ni optimalen, lahko bi še prilagajali konstanti $2$ in $3$. 
 Alternativna verzija pravi npr. da je dober tudi 
 $$
-R = \Big\{... \Big\}
+R = \max\Big\{1, \frac{2}{a_d}(|a_0| + |a_{d-1}|), \left(\frac{2\lambda}{|a_d|}\right)^{\frac{1}{d-1}} \Big\}
 $$
+za vsak $\lambda > 1$.
 \end{opomba}
 
 Posledica tega izreka je algoritem za približno risanje $\mathcal{K}_p$, ki 
 ima naslednje korake:
 \begin{itemize}
-    \item Določi $R$ iz izberi $N>> 1$.
-    \item Naključno izbiraj točke $z_0 \in \D(0, R)$, če za vse $n\in \{1, 2, \dots, n\}$
+    \item Določi $R$ pri danem $p$ in izberi $N>> 1$.
+    \item Naključno izbiraj točke $z_0 \in \D(0, R)$, če za vse $n\in \{1, 2, \dots, N\}$
     velja, da je $|P^n(z_0)| < R$, jih obarvaj.
+    \item Kar ostane obarvano, je približek za $\mathcal{K}_p$
 \end{itemize}
 
 Dodatno lahko razmišljamo na sledeč način. Točka $z = \infty$ je edina 
@@ -734,15 +1080,25 @@ fiksna točka v komponenti $A_p(\infty)$. Torej je poleg $\partial A_p(\infty)$
 edina možna limita zaporedja v $A_p(\infty).$ Izberemo $z_0 \in A_p(\infty) \slash \{\infty\}$
 in tvorimo zaporedje $z_n \in P^{-n}(z_0)$ (jemljemo praslike). To zaporedje 
 ne more konvergirati k $\infty$, saj gre tja zaporedje $P^n(z_0)$. Torej 
-konvergira k $\mathcal{J}_P = \partial A_p(\infty)$. To pa nam da še en 
+konvergira k $\mathcal{J}_p = \partial A_p(\infty)$. To pa nam da še en 
 možen algoritem za približno risanje $\mathcal{J}_p$, ki mu pravimo \textbf{vzvratna iteracija}: 
 \begin{itemize}
-    \item Določi $R$ in izberi $N >> 1$. 
+    \item Določi $R$ šri danem $p$ in izberi $N >> 1$. 
     \item Naključno izbiraj $z_0 \in \partial \D(0, R)$. Nariši množico 
-    $P^{-N}(z_0)$ (kar vse praslike). 
+    $P^{-N}(z_0)$. 
 \end{itemize}
-Naš modelni primer $p(z) = z^2$ in $R = \max\Big\{ \frac{1}{|1|}, \frac{2}{|1|}\cdot 0, 1\} = 3$. 
-Primerčiča:\\
+
+\begin{primer}
+Naš modelni primer $p(z) = z^2$ in $R = \max\Big\{ \frac{1}{|1|}, \frac{2}{|1|}\cdot 0, 1\Big\} = 3$. 
+\begin{itemize}
+    \item Algoritem $1$: če $|z_0| < 3$ bo za vse $|z_0| \leq 1$ tudi 
+    $|p^N(z_0)| \leq 3$. Zato bodo te točke obarvane. Za $|z_0| > 1$ pa bodo "pobegnile"
+    (razen mord tiste, ki so "zelo blizu" kroga in je zanje $N$ premajhen)
+    \item Algoritem $2$: obratna situacija. Če začnemo z $|z_0| = 4$, 
+    dobimo $2^N$ praslik, ki gredo k $\partial \D$.
+\end{itemize}
+(dodaj računalniški primer).
+\end{primer}
 
 \begin{izrek}[Izrek o dihotomiji]
 Juliajeva množica nelinearnega polinoma je povezanan natanko tedaj, ko so vse 
@@ -762,7 +1118,69 @@ injektivna.
 
 \begin{primer}
 Oglejmo si primer $z \mapsto z^2$ in tri tipe krožnic ter njihovih praslik: 
-kul slikice\\
+    
+    \begin{tikzpicture}[scale=1.7,>=stealth]
+
+        %%% LEFT FIGURE
+        
+        % Axes
+        \draw[->, thick, blue!60!black] (-2.2,0) -- (0.5,0);
+        \draw[->, thick, blue!60!black] (-1.2,-1.3) -- (-1.2,1.3);
+        
+        % Circles (Left)
+        \draw[thick, orange!80!black] (-0.7,0) circle (0.25);
+        \draw[thick, green!60!black] (-0.7,0) circle (0.5);
+        \draw[thick, red] (-0.7,0) circle (1);
+        
+        % Point at origin
+        \filldraw[green!50!black] (-1.2,0) circle (1pt);
+        %\node[blue!60!black] at (-1.5,-0.15) {$p(c)$};
+        
+        %%% CENTER MAP ARROWS
+        
+        \node at (1,0.5) {$p^{-1}$};
+        \draw[->, thick] (0.6,0.2) -- (1.2,0.2);
+        \node at (1,-0.5) {$p(z) = z^2$};
+        \draw[->, thick] (1.2,-0.2) -- (0.6,-0.2);
+        
+        %%% RIGHT FIGURE
+        
+        % Axes
+        \draw[->, thick, blue!60!black] (1.3,0) -- (3.7,0);
+        \draw[->, thick, blue!60!black] (2.5,-1.3) -- (2.5,1.3);
+        
+        % Red loop (surrounds both)
+        \draw[thick, red] (2.5,0) circle (1);
+        
+        % Green loops (each contains origin in preimage)
+        \draw[thick, green!60!black] (2.2,0) circle (0.3);
+        \draw[thick, green!60!black] (2.8,0) circle (0.3);
+        
+        % Orange loops (do not surround 0)
+        \draw[thick, orange!80!black] (2.2,0) circle (0.15);
+        \draw[thick, orange!80!black] (2.8,0) circle (0.15);
+        
+        % Origin dot
+        \filldraw[green!50!black] (2.5,0) circle (1pt);
+        \node at (2.63,0.1) {$0$};
+        
+        %%% LEGEND (far right)
+        
+        % Red
+        \filldraw[red] (3.9,1.1) circle (1pt);
+        \node[red] at (4.7,1.1) {obkroži $z=0$};
+        
+        % Green
+        \filldraw[green!60!black] (3.9,0.8) circle (1pt);
+        \node[green!60!black] at (4.7,0.8) {vsebuje $z=0$};
+        
+        % Orange
+        \filldraw[orange!80!black] (3.9,0.5) circle (1pt);
+        \node[orange!80!black] at (4.85,0.5) {ne obkroži $z=0$.};
+        
+        \end{tikzpicture}
+
+
 Morala: če krožnica trči v kritično vrednost, je njena praslika topološko 
 ekvivalentna osmici, krožnice v njej pa imajo dve nepovezani komponenti v 
 prasliki.
@@ -775,12 +1193,80 @@ Ločimo dva primera:
     Za poljuben $r \geq R$, kjer je $R$ radij pobega, je množica $P^{-n}(\partial \D(0, r))$, 
     $n\in \N$, sklenjena krivulja brez samopresečišč (krožnica v topološkem smislu).
     V limiti pa dobimo $\mathcal{J}_p$, ki je povezana. 
-    \item Če $A_p(\infty)$ vsebuje kritično točko in posledično tudi kritično vrednost 
-    , potem bo praslika križnice $D(0, |p(c)|)$ unija več topoloških krožnic s 
+    \item Če $A_p(\infty)$ vsebuje kritično točko $z_0$ in posledično tudi kritično vrednost, 
+    potem bo praslika križnice $\partial\D(0, |z_0|)$ unija več topoloških krožnic s 
     skupnim presečiščem. Manjše krožnice pa bodo razpadle na več komponent. \\
-    Neki lepega
+    \begin{tikzpicture}
+        
+        \draw[thick, orange!80!black] (5,-1.1) circle (0.25);
+        \draw[thick, orange!60!black] (5,1.1) circle (0.25);
+        \draw[thick, orange!60!black] (6,0) circle (0.25);
+        \draw[thick, orange!60!black] (4,0) circle (0.25);
+
+        \draw[thick, orange!80!black] (-0.7,0) circle (0.5);
+        \draw[thick, green!60!black] (-0.7,0) circle (1);
+
+        \node at (2,0.5) {$p^{-1}$};
+        \draw[->, thick] (1.3,0.2) -- (2.5,0.2);
+    
+        % Ellipse centered above the origin
+        \draw [rotate=90, green!60!black](0,-4) ellipse [x radius=0.35cm, y radius=1cm];
+        % Ellipse centered below the origin
+        \draw [rotate=90, green!60!black](0,-6) ellipse [x radius=0.35cm, y radius=1cm];
+        % Ellipse centered to the right of the origin, rotated
+        \draw (5,-1)[green!60!black] ellipse [x radius=0.35cm, y radius=1cm];% Ellipse centered to the left of the origin, rotated
+        %\draw[rotate=90] (0,-1) ellipse [x radius=2cm, y radius=1cm];
+        \draw (5,1)[green!60!black] ellipse [x radius=0.35cm, y radius=1cm];
+      \end{tikzpicture}
 \end{enumerate}
+
+
+
+\begin{tikzpicture}[scale=1.7,>=stealth]
+
+    %%% LEFT FIGURE
+    
+    \node at (-2.05,1.5) {\text{zgled za} 1.};
+    \node at (-1.9,1.2) {$p(z) = z^2 - 2$};
+
+    % Axes
+    \draw[->, thick, blue!60!black] (-2.5,0) -- (0.5,0);
+    \draw[->, thick, blue!60!black] (-1.2,-1.3) -- (-1.2,1.3);
+    
+    % Circles (Left)
+    \draw [rotate=90, green!60!black](0,1.1) ellipse [x radius=0.35cm, y radius=1cm];
+    \draw [rotate=90, green!60!black](0,1.1) ellipse [x radius=0.45cm, y radius=1.1cm];
+    \draw [rotate=90, green!60!black](0,1.1) ellipse [x radius=0.25cm, y radius=0.9cm];
+    \draw [rotate=90, green!60!black](0,1.1) ellipse [x radius=0.15cm, y radius=0.8cm];
+
+    \draw[<->, thick, red!60!black] (-1.7,0) -- (-0.5,0);
+    \filldraw[green!50!black] (-1.2,0) circle (1pt);
+
+    % Point at origin
+    \node[red!60!black] at (-1.7,-0.15) {$-2$};
+    \node[red!60!black] at (-0.5,-0.15) {$2$};
+
+    
+    %%% RIGHT FIGURE
+    
+    \node at (1.35,1.5) {\text{zgled za} 2.};
+    \node at (1.5,1.2) {$p(z) = z^2 - 3$};
+    \node at (1.5,-1) [red] {$\mathcal{J}_p$ je Cantorjeva};
+    \node at (1.5,-1.3) [red] { množica v $\R$.};
+
+
+    % Axes
+    \draw[->, thick, blue!60!black] (1.3,0) -- (3.7,0);
+    \draw[->, thick, blue!60!black] (2.5,-1.3) -- (2.5,1.3);
+    
+    % Origin dot
+    \filldraw[red!50!black] (2.5,0) circle (1pt);
+    \foreach \x/\y in {2/0, 2.1/0, 2.2/0, 2.3/0, 2.4/0, 2.5/0, 2.6/0, 2.7/0, 2.8/0, 2.9/0, 3/0}  {
+        \filldraw[red] (\x,\y) circle (1pt);
+        }
+    \end{tikzpicture}
 \end{proof}
+
 
 \section{Drugi Montelov izrek}
 
@@ -789,23 +1275,24 @@ ki močno opredeli lastnosti množice $\mathcal{J}_R$. Omejili se bomo
 na racionalne funkcije stopnje $d \geq 2$. 
 
 \begin{izrek}[Drugi Montelov izrek]
-Če obstajo vrednosti $a, b, c \in \hat{\C}$, ki so različne. ter za družino 
-$\F \{R: D \subseteq \hat{\C} \rightarrow \hat{\C}$ \,|\, R \text{ racionalna}\} 
+Naj bodo $a, b, c \in \hat{\C}$ različne in $D\subseteq \hat{\C}$.
+Če za družino racionalnih funkcij $\F = \{R: D \subseteq \hat{\C} \rightarrow \hat{\C} \,|\, R \text{ racionalna}\}$
 velja $\{a, b, c\} \cap R(D) = \emptyset$ za vsak $R \in \F$, potem je 
-$\F$ normalna. 
+$\F$ normalna na $D$.
 \end{izrek}
 
 \begin{opomba}
+    \hfill
 \begin{itemize}
     \item Izrek velja tudi za družine meromorfnih funckij na $D \subset \C$ tj. 
     za funkcije brez bistvenih singularnosti.
-    \item Izrek je pogosto podan za družine holomorfnih funkcij $\F \subset \O(D)$, 
+    \item Izrek je pogosto podan za družine holomorfnih funkcij $\F \subset \Ho(D)$, 
     za $D \subset \C$, takrat je dovolj, da izpusti dve točki $a, b \in \C$, saj 
     za $c$ vzamemo $\infty$ (elementi $\F$ nimajo polov).
 \end{itemize}
 \end{opomba}
 
-\begin{proof}[Dokaz(ideja).]
+\begin{proof}[Dokaz(ideja):]
 Kjučen del dokaza je obstoj surjektivne holomorfne preslikave 
 $$
 h: \D \rightarrow \hat{\C}\backslash \{0, 1, \infty\},
@@ -814,8 +1301,46 @@ ki nima kritičnih točk oz. je krovna projekcija tj. zožitev $h$ na vsako
 komponentno take praslike je biholomorfna. Od tu dalje brez škode za splošnost 
 predpostavimo, da so $a = 0$, $b=1$ in $c = \infty$. Če to ni res, vse 
 $R \in \F$ konjugiramo z ustrezno Möbiousovo preslikavo. 
+Sedaj je preslikave "dvignemo na krov" $\tilde{R}$.
+Družina $\tilde{\F} = \{\tilde{R} \,|\, R\in \F\}$ je omejena in normalna. 
+Od tod sledi normalnost $\F$
 
-Sedaj je preslikave "dvignemo na krov"
+\begin{tikzpicture}[scale=1, every node/.style={scale=0.9}]
+
+    % Domain D (left side blobby shape)
+    \draw[thick, blue!60!black] 
+      plot[smooth cycle, tension=0.8] coordinates 
+      {(-4,-1) (-4.3,-1.5) (-4.1,0) (-3.6,-0.1) (-3.2,0.1) (-3,-0.4) (-3.2,-0.8) (-3.5,-1.3) (-4,-1.2)};
+    \node at (-3.7,0.3) {\large$D$};
+    
+    % Arrows from R and R-tilde
+    \draw[->, thick, green!50!black] (-2.7,-0.7) -- (0.8, -0.7) node[below right] {};
+    \draw[->, thick, green!50!black] (-2.7,0) -- (0.8,1.7) node[above right] {};
+    \node [black] at (-0.5,-0.2) {\Large$R$};    
+    \node [black] at (-1,1.4) {\Large$\widetilde{R}$};
+
+    % Right side: base space rectangle
+    \draw[thick] (2,-1.6) -- (4.5,-1.5) -- (4.2,0.5) -- (1.8,0.4) -- cycle;
+    
+    % Points on base space
+    \fill (2.5,-0.7) circle (2pt) node[below] {\small$0$};
+    \fill (3.5,-0.7) circle (2pt) node[below] {\small$1$};
+    \node at (5.4,-1.1) {\large$\mathbb{C} \setminus \{0,1\}$};
+    
+    % Dashed green neighborhoods around points
+    \draw[green!70!black, dashed] (2.5,-0.7) circle (0.3);
+    \draw[green!70!black, dashed] (3.5,-0.7) circle (0.3);
+    \node at (3,-0.4) {$U$};
+    
+    % Covering space: upper green oval
+    \draw[thick, green!50!black] (2.8,2.2) ellipse (1.2 and 0.6);
+    \draw[green!70!black, dashed] (2.4,2.2) circle (0.25);
+    \draw[green!70!black, dashed] (3.2,2.2) circle (0.25);
+    
+    % Down arrow (n)
+    \draw[->, thick] (3,1.6) -- (3,-0.1) node[midway, right] {$h$};
+    
+    \end{tikzpicture}
 \end{proof}
 
 Obravnavajmo dinamiko $f:D\subseteq \hat{\C} \rightarrow \hat{\C}$. 
@@ -824,16 +1349,14 @@ za Juliajevo množico, kjer nimamo normalnosti.
 
 \begin{posledica}[Množica izjemnih točk]
 Naj bo $R$ racionalna funkcija, stopnje $d\geq 2$, ter $x\in \mathcal{J}_R$
-in $U_z \in \hat{\C}$ njena okolica. Množica 
+in $U_z \subseteq \hat{\C}$ njena okolica. Množica izjemnih točk
 $$
 E_R(U_z) \coloneqq \hat{\C} \backslash \bigcup_{n=0}^\infty R^n(U_z)
 $$
 vsebuje največ $2$ točki.
 \end{posledica}
 
-To je direktna posledica izreka.\\
-slika frika\\
-$E_R$ lahko izpusti največ $2$ točki, scer bi bila normalna.
+To je direktna posledica izreka. $E_R$ torej lahko izpusti največ $2$ točki, scer bi bila normalna.
 
 \begin{primer}
     \hfill
@@ -845,8 +1368,8 @@ $E_R$ lahko izpusti največ $2$ točki, scer bi bila normalna.
     $U_z$ in $z\in \mathcal{J}_p$.\\
     slikica mikica
 \end{itemize}
-Z nekaj dodatne analize se izkaže, da sta to do konjunkcije natančno 
-primera z neprazno množico izjemnih točk. Natančneje, za $z\in \mathcal{J}_R$ 
+Z nekaj dodatne analize se izkaže, da sta to, do konjunkcije natančno, 
+edina primera z neprazno množico izjemnih točk. Natančneje, za $z\in \mathcal{J}_R$ 
 definiramo 
 $$
 E_R(z) \coloneqq \bigcup_{U_z \text{ okolica}} E_R(U_z). 
@@ -882,16 +1405,19 @@ $$
 $$
 Torej za zaprtje velja:
 $$
-\overline{\hat{\C} \backslash E_R} = \hat{\C} \subseteq \overline{\mathcal{J}}_R = \mathcal{J}_R.
+\overline{\hat{\C} \backslash E_R} = \hat{\C} \subseteq \overline{\mathcal{J}_R} = \mathcal{J}_R,
 $$
+kjer prva enakost sledi iz dejstva, da je zaprtje $\hat{\C}$ brez diskretne mnočice, 
+ponovno $\hat{\C}$ in druga enakost iz zaprtosti $\mathcal{J}_R$.
 \end{proof}
 
 \begin{opomba}
-V uvodu smo povedali, da teka funkcije dejansko obstajajo (Lattesova preslikava).
+V uvodu smo povedali, da take funkcije dejansko obstajajo (Lattesova preslikava).
 \end{opomba}
 
 
 \begin{posledica}[Goste praslike]
+\label{pos:3}
 Naj bo $R$ racionalna stopnje $d \geq 2$. Za vsako $z\in \mathcal{J}_R$
 je množica 
 $$\bigcup_{n=1}^\infty R^{-n}(\{z\})$$
@@ -902,10 +1428,8 @@ gosta v $\mathcal{J}_R$.
 Za vsako $z \in \mathcal{J}_R$ vemo, da $z\not\in E_R \subset \mathcal{F}_R$.
 Če izberemo okolico $U_z \subset \hat{\C}$ trdimo, da za poljubno 
 drugo točko $z' \not\in E_R$ obstaja $n\in \N$, da je $z' \in \R^n(U_z)$.\\
-neki malega\\
 Če je dodatno $z' \in \mathcal{J}_R$, ima tudi $R^n(U_z)$ neprazen presek z 
 $\mathcal{J_R}$.\\
-še nekaj malo večjega\\
 Torej je: $\mathcal{J}_R \subseteq \overline{\bigcup_{n=1}^\infty} R^{-n}(z')$.
 Če pa izberemo $z' \in \mathcal{J}_R$, pa zaradi invariantnosti velja 
 tudi obratna inkluzija
@@ -922,6 +1446,7 @@ Devaneya.
 \end{posledica}
 
 \begin{proof}[Dokaz:]
+\hfill
 \begin{enumerate}
     \item[c1)] Gostost periodičnih točk: sledi iz $\overline{Rep}(R) = \mathcal{J}_R$
     t.j. že zgolj odbojne točke so goste.
@@ -932,6 +1457,22 @@ Devaneya.
     posledici. Vzamemo katerikoli $w\in V$. Zaradi gostosti praslik, obstaja 
     $R^{-n}(\{w\}) \cap U \neq \emptyset$. Torej obstaja tudi $z\in U$, da je 
     $R^n(z) = w \in V$.
+    \begin{center}
+    \begin{tikzpicture}
+        % Create a smooth curve
+         \draw[thick, blue] plot[domain=-1:2,samples=100] (\x,{0.5*sin(\x r)});
+        
+        % Mark two orange points on the curve
+        \fill[orange] (-1, {0.5*sin(-1 r)}) circle (3pt) node[above right] {U};
+        \fill[orange] (1, {0.5*sin(1 r)}) circle (3pt) node[above right] {V};
+        \node [above ] {$\mathcal{J}_R$};
+
+        % Draw dashed circles centered at the points
+        \draw[dashed, red] (-1, {0.5*sin(-1 r)}) circle (0.5);
+        \draw[dashed, red] (1, {0.5*sin(1 r)}) circle (0.5);
+        
+        \end{tikzpicture}
+    \end{center}
     \item[c2)] sledi iz $c1)$ in $c2)$, ker je $R$ zvezna.
 \end{enumerate}
 \end{proof}
@@ -945,16 +1486,43 @@ in vsako okolico $U_z$ obstaja $z'\in \mathcal{J}_R \backslash \{z\} \cap U_z$.
 Naj bo $z\in \mathcal{J}_R$ in $U_z$ poljubna okolica. Ločimo dva primera 
 \begin{enumerate}
     \item[i)] $z$ ni periodična: izberemo poljuben $w \in R^{-1}(\{z\})$\\
-    spet slika\\
+    \begin{center}
+        \begin{tikzpicture}
+            % Create a smooth curve
+             \draw[thick, blue] plot[domain=-1:2,samples=100] (\x,{0.5*sin(\x r)});
+            
+            % Mark two orange points on the curve
+            \fill[orange] (1, {0.5*sin(1 r)}) circle (2pt) node[above right] {$z$};
+            \fill[orange] (1, {0.5*sin(1 r)}) circle (1pt) node[below] {U};
+            \draw[dashed, red] (1, {0.5*sin(1 r)}) circle (0.5);
+            \fill[orange] (0, {0.5*sin(0 r)}) circle (1pt) node[above left] {V};
+            \draw[blue, ->] (0, {0.5*sin(0 r)}) to[out=70,in=150,looseness=2] (1, {0.5*sin(1 r)});
+
+            \end{tikzpicture}
+        \end{center}
     Zaradi neperiodičnosti imamo: 
     $$
     R(w) = z \,\, \text{ in } \,\, R^n(z) \neq w \,\,\, \forall n\in \N.
     $$
     Vendar pa po posledici $3$ obstaja tudi $z' \in U_z$ in $m\in \N$, 
-    da je $R^m(z') = w$. Po konstrukciji $z' \neq z$.
-    \item[ii)] zapiski.
+    da je $R^m(z') = w$. Po konstrukciji smo našli $U\cap \mathcal{J}_R \ni z' \neq z$.
+    \item[ii)] Denimo, da je $z$ periodična in je $R^n(z) = z$ za minimalno periodo, 
+    $n\in \N$. Trdimo, da obstaja $w \neq z$, da je $R^n(w) = z$. Če to ne bi bilo 
+    res, bi imeli eno samo rešitev enačbe, ki je stopnje $d^n$ t.j. $z$ bi 
+    bila superprivlačna in v $\F_R$. Nadalje vemo, da je $R^j(z) \neq w$
+     za vse $j\in \N$. Res, če bi obstajal tak $0 \leq j < n$, da bi bil $w$
+     del $n$-cikla, bi imeli 
+     $$
+     R^j(z) = R^j(R^n(z)) = R^n(R^j(z)) = R^n(w) = z.
+     $$
+     To pa je v protislovju z minimalnostjo $n$.
 \end{enumerate}
 \end{proof}
+
+\begin{opomba}
+Posledica ne kontrira zgledom, kjer je $\mathcal{J}_R$ Cantorjeva množica, 
+saj je ta brez izoliranih točk.
+\end{opomba}
 
 \section{Fatou-Sullivanov izrek}
 
@@ -963,17 +1531,40 @@ To pomeni, da se njene komponentne za povezanost slikajo ena
 v drugo. V principu se nam lahko zgodijo $4$ stvari:\\
 4 horsemen of the apocalypse\\
 
-
+Tavajoče Fatoujeve komponente je leta $1976$ odkril Irvine Noel Baker, leta 
+$1985$ pa je Denis Sullivan pokazal, da jih racionale funkcije nimajo. 
+To ne bomo dokazali, bomo pa dokazali sledeči izrek
 \begin{izrek}
 Racionalna funkcija stopnje $d \geq 2$ ima $0, 1, 2$ ali $\infty$
 Fatoujevih komponent.
 \end{izrek}
 
+\begin{lema}
+Za racionalno $R$ stopnje $d \geq 2$ obstajata največ dve naprej in nazaj 
+invariantni Fatoujevi komponenti.
+\end{lema}
+
+\begin{proof}[Dokaz:]
+Rob naprej in nazaj invariantne komponente je znova invariantna za tak način. 
+Še več, vemo tudi, da je $\partial U \subset \mathcal{J}_{R^N} = \mathcal{J}_R$, 
+ker tam pride do nenormalnosti iteratov. Po posledici \ref{pos:3} pa velja:
+$$
+\mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty} R^{-kN}(z) \,\,\text{ za }\,\, z\in \partial U.
+$$
+Torej je
+$$
+\mathcal{J}_R = \mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty} R^{-kN}(\partial U) = \partial U \,\,\text{ (zaradi invariantnosti).}
+$$
+Naj bo $U$ taka komponenta. Potem ne sme imeti lukenj, saj za komponento $\tilde{U}$
+"v luknji" ne velja $\partial \tilde{U} = \mathcal{J}_{R^N}$. Od tod sledi, 
+da imamo lahko največ dve taki komponenti.
+\end{proof}
+
 \begin{proof}[Dokaz:]
     Predpostavimo, da je komponent končno. Trdimo, da so takrat 
     vse periodične ali fiksne t.j. ne more se zgoditi predperiodičen primer.\\
     sdaCC\\
-    t.j. obstaja $\tilde{U} \subset \F_R$ komponenta in $k < n\in \N$, da je 
+    oz. obstaja $\tilde{U} \subset \F_R$ komponenta in $k < n\in \N$, da je 
     $$
     U = R^n(\tilde{U}) = R^k(\tilde{U}).
     $$
@@ -983,12 +1574,20 @@ Fatoujevih komponent.
     $\Longrightarrow n-k$ je kandidat za periodo (morda je manjša).
     Sklep je, da obstaja $N\in \N$, da je 
     $$
-    R^N(U) = U \,\,\text{ za vse komponente $\F_R$}.
+    R^N(U) = U \,\,\text{ za vse komponente $U \subset \F_R$}.
     $$
-    To je res, ker jih je po predpostavki končno in lahko izberemo 
-    najmanjši skupni večkratnik period.
-
+    Ker je $\F_R = \F_{R^N}$, po prejšnji lemi trditev sledi.
 \end{proof}
+
+\begin{opomba}
+\hfill
+\begin{itemize}
+\item Vsi našteti primeri se res zgodijo. Za $p(z) = z^2$ imamo dve komponenti, 
+$p(z) = z^2 - z$ eno, Lattesova preslikava pa nobene, ker je $\mathcal{J}_p = \hat{\C}$.
+\item Sullivan je tudi klasificiral vse možne komponente racionalnih preslikav.\\
+TBA
+\end{itemize}
+\end{opomba}
 
 
 \end{document}
