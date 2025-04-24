@@ -24,6 +24,7 @@
 \usepackage{tikz-cd}
 \usepackage{mathrsfs}
 \usetikzlibrary{shapes.symbols}
+\usetikzlibrary{arrows.meta}
 
 \newtheorem{definicija}{Definicija}
 \newtheorem{trditev}{Trditev}
@@ -1263,7 +1264,7 @@ Ločimo dva primera:
     \filldraw[red!50!black] (2.5,0) circle (1pt);
     \foreach \x/\y in {2/0, 2.1/0, 2.2/0, 2.3/0, 2.4/0, 2.5/0, 2.6/0, 2.7/0, 2.8/0, 2.9/0, 3/0}  {
         \filldraw[red] (\x,\y) circle (1pt);
-        }
+        };
     \end{tikzpicture}
 \end{proof}
 
@@ -1528,8 +1529,51 @@ saj je ta brez izoliranih točk.
 
 Ugotovili smo, da je $\F_R$ odprta ter naprej in nazaj invariantna.
 To pomeni, da se njene komponentne za povezanost slikajo ena 
-v drugo. V principu se nam lahko zgodijo $4$ stvari:\\
-4 horsemen of the apocalypse\\
+v drugo. V principu se nam lahko zgodijo $4$ stvari:
+
+\begin{tikzpicture}[>=Stealth, thick, scale=1.1]
+
+    % Fixed component
+    \draw[rounded corners=10, fill=none] (-3,1) .. controls (-2.7,1.7) .. (-2.3,1.2)
+        .. controls (-2,1.6) .. (-1.5,1) .. controls (-1.7,0.3) .. (-2,0.6)
+        .. controls (-2.5,0.2) .. (-3,1);
+    \fill (-2,1) circle (1pt);
+    \node at (-2,-0.4) {Fiksna komponenta};
+    
+    % Periodic or preperiodic components
+    \foreach \i/\x/\y in {1/0/1, 2/1.5/1.2, 3/3/1, 4/2/0.4, 5/0.8/0.4} {
+        \draw[rounded corners=8, fill=none] (\x,\y)
+            .. controls +(-0.2,0.4) and +(0.2,0.4) .. (\x+0.3,\y-0.1)
+            .. controls +(-0.2,-0.2) and +(0.2,-0.2) .. (\x,\y);
+    }; % Ensure the path is properly terminated with a semicolon
+
+    \draw[->] (0.5,1.3) to[out=50, in=150] (1.4,1.5);
+    \draw[->] (1.9,1.2) to[out=10, in=90] (2.3,0.8);
+    \draw[-<] (1.9,0.2) to[out=180, in=170] (1.4,0.2);
+    \draw[->] (0.8,0.3) to[out=150, in=300] (0.3,0.7);
+    \draw[->] (3,1) to[out=150, in=40] (2.4,0.7);
+    %\foreach \i/\j in {1/2, 2/3, 3/1, 5/4, 4/2} {
+    %    \draw[->] ({(mod(\i-1,5))*1.5+0.6},1.2) -- ({(mod(\j-1,5))*1.5+0.1},1.2);
+    %}
+    \node at (2,-0.6) {$\stackrel{\text{\normalsize Periodična ali predperiodična}}{\text{komponenta}}$};
+    
+    % Wandering domain
+    \foreach \i/\x/\y in {1/6/1, 2/7.3/1.2, 3/8.5/1, 2/7.5/0.3} {
+        \draw[rounded corners=8, fill=none] (\x,\y)
+            .. controls +(-0.3,0.4) and +(0.3,0.4) .. (\x+0.3,\y-0.1)
+            .. controls +(-0.3,-0.2) and +(0.3,-0.2) .. (\x,\y);
+    }
+    %\foreach \i/\j in {1/2, 2/3, 3/4, 4/5, 5/6} {
+    %    \draw[->] ({6+\i*1.2},1) -- ({6+\j*1.2-0.3},1);
+    %}
+    \draw[->] (6.55,1.3) to[out=80, in=160] (7.1,1.4);
+    \draw[->] (7.8,1.4) to[out=80, in=120] (8.4,1.2);
+    \draw[->] (8.7,0.8) to[out=300, in=320] (7.9,0.1);
+    \draw[->] (7.5,0.2) to[out=200, in=320] (6.8,0.2);
+    \node at (6.4,0.4) {\dots};
+    \node at (7.6,-0.6) {$\stackrel{\text{\normalsize Tavajoča komponenta}}{\text{(wandering domain)}}$};
+    
+    \end{tikzpicture}
 
 Tavajoče Fatoujeve komponente je leta $1976$ odkril Irvine Noel Baker, leta 
 $1985$ pa je Denis Sullivan pokazal, da jih racionale funkcije nimajo. 
@@ -1545,15 +1589,16 @@ invariantni Fatoujevi komponenti.
 \end{lema}
 
 \begin{proof}[Dokaz:]
-Rob naprej in nazaj invariantne komponente je znova invariantna za tak način. 
+Naj bo $U$ Fatoujeva komponenta. 
+Rob naprej in nazaj invariantne komponente je znova invariantna na tak način. 
 Še več, vemo tudi, da je $\partial U \subset \mathcal{J}_{R^N} = \mathcal{J}_R$, 
 ker tam pride do nenormalnosti iteratov. Po posledici \ref{pos:3} pa velja:
 $$
-\mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty} R^{-kN}(z) \,\,\text{ za }\,\, z\in \partial U.
+\mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty R^{-kN}(z)} \,\,\text{ za }\,\, z\in \partial U.
 $$
 Torej je
 $$
-\mathcal{J}_R = \mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty} R^{-kN}(\partial U) = \partial U \,\,\text{ (zaradi invariantnosti).}
+\mathcal{J}_R = \mathcal{J}_{R^N} = \overline{\bigcup_{k=1}^\infty R^{-kN}(\partial U)} = \partial U \,\,\text{ (zaradi invariantnosti).}
 $$
 Naj bo $U$ taka komponenta. Potem ne sme imeti lukenj, saj za komponento $\tilde{U}$
 "v luknji" ne velja $\partial \tilde{U} = \mathcal{J}_{R^N}$. Od tod sledi, 
@@ -1563,7 +1608,49 @@ da imamo lahko največ dve taki komponenti.
 \begin{proof}[Dokaz:]
     Predpostavimo, da je komponent končno. Trdimo, da so takrat 
     vse periodične ali fiksne t.j. ne more se zgoditi predperiodičen primer.\\
-    sdaCC\\
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, thick, scale=1]
+        % First blob (U)
+        \draw[rounded corners=8] (-1,2.5) .. controls (-0.7,3) and (-0.3,2.8) .. (0,2.5)
+            .. controls (-0.3,2.2) and (-0.7,2) .. (-1,2.5);
+        \node at (-0.4,3.1) {\small $U$};
+        
+        % Arrow to 2-stack
+        \draw[->] (0.5,2.5) -- (1.5,2.5);
+        \node at (1,2.8) {\small $R^{-1}$};
+        
+        % Two stacked blobs + red dashed version of lower one
+        \foreach \y in {2.8, 2.1} {
+            \draw[rounded corners=8] (2,\y) .. controls (2.3,\y+0.3) and (2.7,\y+0.3) .. (3,\y)
+                .. controls (2.7,\y-0.3) and (2.3,\y-0.3) .. (2,\y);
+        }
+        % Red dashed blob
+        \draw[rounded corners=8, red, dashed] (2,2.1) .. controls (2.3,2.4) and (2.7,2.4) .. (3,2.1)
+            .. controls (2.7,1.8) and (2.3,1.8) .. (2,2.1);
+        \node[red] at (3.1,2.5) {\scriptsize $\tilde{U}$};
+        
+        % Arrow to 4-stack
+        \draw[->] (3.5,2.5) -- (4.5,2.5);
+        \node at (4,2.8) {\small $R^{-1}$};
+        
+        % Four stacked blobs + red dashed version of one
+        \foreach \y in {3.1, 2.5, 1.9, 1.3} {
+            \draw[rounded corners=8] (5,\y) .. controls (5.3,\y+0.3) and (5.7,\y+0.3) .. (6,\y)
+                .. controls (5.7,\y-0.3) and (5.3,\y-0.3) .. (5,\y);
+        }
+        % Red dashed blob
+        \draw[rounded corners=8, red, dashed] (5,2.5) .. controls (5.3,2.8) and (5.7,2.8) .. (6,2.5)
+            .. controls (5.7,2.2) and (5.3,2.2) .. (5,2.5);
+        \node[red] at (6.1,2.9) {\scriptsize $\tilde{U}$};
+        
+        % Arrow to ellipsis
+        \draw[->] (6.5,2.2) -- (7.2,2.2);
+        
+        % Dotted ellipsis
+        \node at (8,2.2) {\large $\cdots$};
+        
+        \end{tikzpicture}
+    \end{center}
     oz. obstaja $\tilde{U} \subset \F_R$ komponenta in $k < n\in \N$, da je 
     $$
     U = R^n(\tilde{U}) = R^k(\tilde{U}).
@@ -1585,7 +1672,47 @@ da imamo lahko največ dve taki komponenti.
 \item Vsi našteti primeri se res zgodijo. Za $p(z) = z^2$ imamo dve komponenti, 
 $p(z) = z^2 - z$ eno, Lattesova preslikava pa nobene, ker je $\mathcal{J}_p = \hat{\C}$.
 \item Sullivan je tudi klasificiral vse možne komponente racionalnih preslikav.\\
-TBA
+\begin{tikzpicture}[>=Stealth, thick, scale=1]
+
+    % First blob (superattracting periodic point)
+    \draw[rounded corners=8] (-1,0) 
+    .. controls (-0.5,1.4) and (1.6,1.4) .. (0.55,0)
+    .. controls (1.6,-1.4) and (-0.5,-1.4) .. (-1.0,0);
+    \foreach \angle in {90, 210, 330} {
+        \draw[->, red] ({0.7*cos(\angle)}, {0.7*sin(\angle)}) -- ({0.2*cos(\angle)}, {0.2*sin(\angle)});
+    }
+    \node[red, align=left] at (0,-1.7) {\scriptsize $A^*_R(z_0)$ privlak\\\scriptsize za (super)privlačno\\\scriptsize periodično točko};
+    \node at (0,0) {\Large$\cdot$};
+
+    % Second: petals around neutral fixed point
+    \draw[rounded corners=10] (3,0.6) circle (0.6);
+    \draw[rounded corners=10] (3,-0.6) circle (0.6);
+    \foreach \angle in {30, 150, 210, 330} {
+        \draw[->, red] ({3+0.5*cos(\angle)}, {0.6*sin(\angle)}) -- ({3+0.2*cos(\angle)}, {0.2*sin(\angle)});
+    }
+    \fill (3,0) circle (1pt);
+    \draw[->] (2,0) -- (2.8,0);
+    \draw[->] (3.2,0) -- (4,0);
+    
+    \node[red, align=left] at (3,-1.7) {\scriptsize Privlak za nevtralno\\\scriptsize točko $R^n$, kjer $\lambda^m = 1$.};
+    
+    % Third: Siegel disk
+    \draw[rounded corners=8] (6,0) circle (1);
+    \foreach \angle in {45, 135, 225, 315} {
+    \draw[->, red] ({6+0.7*cos(\angle+30)}, {0.7*sin(\angle+30)}) arc[start angle=\angle+30, end angle=\angle+60, radius=0.7];
+    }
+    \fill (6,0) circle (1pt);
+    \node[red, align=left] at (6.2,-1.9) {\scriptsize Sieglov disk tj. $R^n$\\\scriptsize konjugirana iracionalni\\\scriptsize rotaciji okoli nevtralne\\\scriptsize točke z $\lambda^m \neq 1$.};
+    
+    % Fourth: Herman ring
+    \draw[rounded corners=10] (9,0) circle (1);
+    \draw[rounded corners=10] (9,0) circle (0.4);
+    \foreach \angle in {45, 135, 225, 315} {
+    \draw[->, red] ({9+0.7*cos(\angle)}, {0.7*sin(\angle)}) arc[start angle=\angle, end angle=\angle+30, radius=0.7];
+    }
+    \node[red, align=left] at (9.5,-1.7) {\scriptsize Hermanov kolobar\\\scriptsize podobno kot Sieglov\\\scriptsize disk, le da ima luknjo.};
+    
+    \end{tikzpicture}
 \end{itemize}
 \end{opomba}
 

@@ -218,18 +218,18 @@ Množici vseh orbit za $x_0 \in I$ pa rečemo \textbf{dinamika funkcije $f$}.
 \end{definicija}
 
 \begin{primer}
-$x_{n+1} = x_n^2 + 1 \text{ oz. } f(x) = x^2 + 1$
+$x_{n+1} = x_n^2 + 1 \text{ oz. } f(x) = x^2 + 1$.
 \begin{align*}
 O_f(1) &= \{1, 2, 5, 26, \dots\} \\ 
 O_f(0) &= \{0, 1, 2, 5, 26, \dots\}\\
 O_f(-2) &= \{-2, 5, 26, \dots \}
 \end{align*}
-orbite lahko pri funkcijah ene spremenljivke vizualiziramo z \textbf{pajčevinastim diagramom}.
+Orbite lahko pri funkcijah ene spremenljivke vizualiziramo z \textbf{pajčevinastim diagramom}.
 
 \begin{figure}[h]
-\begin{centering}
-    \includegraphics[width=6cm, height=4.5cm]{Grafi/cobweb1.png}
-\end{centering}
+\begin{center}
+    \includegraphics[width=5.7cm, height=4.3cm]{Grafi/cobweb1.png}
+\end{center}
 \end{figure}
 
 \newpage
@@ -247,12 +247,13 @@ Postopek:
 Sherlock: $x_{n+1} = \frac{1}{2} x_n + \frac{5}{2}$ oz. $f(x) = \frac{1}{2} x + \frac{5}{2}$.\\ 
 
 \begin{figure}[h]
-    \begin{centering}
+    \begin{center}
    \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb2.png}
-    \end{centering}
+    \end{center}
 \end{figure}
-    
-$O_f(5) = \{5, 5, \dots \}$. Za ostale orbite velja: $x_n \rightarrow 5$.
+ \noindent   
+$O_f(5) = \{5, 5, \dots \}$.\\
+Za ostale orbite velja: $x_n \rightarrow 5$.
 \end{primer}
 
 \begin{definicija}
@@ -265,7 +266,6 @@ Fiksne točke:
 $$f(x) = x \iff -x^3 = x \iff x = 0.$$ 
 Točke periode $2$: $$f^2(x) = x \text{ in } f(x) \neq x \iff x^9 = x \text{ in } -x^3 \neq x\iff x = \pm 1.$$
 
-
 \begin{figure}[h!]
     \begin{centering}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb3.png}
@@ -275,7 +275,7 @@ Točke periode $2$: $$f^2(x) = x \text{ in } f(x) \neq x \iff x^9 = x \text{ in 
 \end{primer}
 
 \begin{definicija}
-Orbiti $n$- periodične točke rečemo $n$-cikel.
+Orbiti $n$ - periodične točke rečemo $n$-cikel.
 \end{definicija}
 
 \newpage
@@ -449,7 +449,7 @@ za vsak $x_j$ dobimo isti rezultat.
 
 \begin{opomba}
 Brez zveznosti $f$ izrek ne drži nujno, npr.
-\begin{centering}
+\begin{center}
 \begin{tikzpicture}[scale=1]
 
     % First line (maps to 1, then to 0)
@@ -511,7 +511,7 @@ Brez zveznosti $f$ izrek ne drži nujno, npr.
     \node[right] at (1.6,0.5) {$\Rightarrow f^2$ šibko odbojna za $x=n$.};
     
 \end{tikzpicture}
-\end{centering}
+\end{center}
 \end{opomba}
 
 \newpage
@@ -558,18 +558,18 @@ Do sedaj smo spoznali le dinamične sisteme z razmeroma predvidljivim dogajanjem
 
 \begin{definicija}[Devaney]
 Dinamični sistem podan z $f:I \rightarrow I$ je \textbf{kaotičen}, če zanj veljajo
-\item[(c1)] Množica periodičnih točk je gosta v $I$.
-\item[(c2)] Tranzitivnost: za poljubna odprta intervala $U_1, U_2 \subset I$, obstajata $x_0\in U_1$ in $n\in \N$, da je $f^n(x_0) \in U_2$.
-\item[(c3)] Občutljivostna konstanta: obstaja $\beta > 0$, da v poljubni okolici $U$ poljubne točke $x_0$ najdemo tudi točko $y_0 \in U$ za katero je $|f^n(x_0) - f^n(y_0)| > \beta$ za nek $n\in \N$.
+\item[(C1)] Množica periodičnih točk je gosta v $I$.
+\item[(C2)] Tranzitivnost: za poljubna odprta intervala $U_1, U_2 \subset I$, obstajata $x_0\in U_1$ in $n\in \N$, da je $f^n(x_0) \in U_2$.
+\item[(C3)] Občutljivostna konstanta: obstaja $\beta > 0$, da v poljubni okolici $U$ poljubne točke $x_0$ najdemo tudi točko $y_0 \in U$ za katero je $|f^n(x_0) - f^n(y_0)| > \beta$ za nek $n\in \N$.
 \end{definicija}
 
 \begin{opomba}
 \hfill 
 \begin{itemize}
-\item Točka $(c3)$ je zanimiva pri izbiri majhnih okolic $U$, saj pomeni, da lahko poljubno blizu najdeš točko s čisto drugačno dinamiko. Temu se reče učinek metulja (butterly effect) tj. zaporedje oz. orbita je občutljiva na začetne podatke.
-\item Izkaže se, da je $(c2)$ ekvivalentna obstoju goste orbite, če je $f$ zvezna. Če ni zvezna je pogoj zadosten.
-\item Za kompakt $I \subset I$ se izkaže, da $(c1)$ in $(c2)$ implicirata $(c3)$.
-\item Če je $f$ zvezna iz $(c1)$ in $(c2)$ vedno sledi $(c3)$.
+\item Točka $(C3)$ je zanimiva pri izbiri majhnih okolic $U$, saj pomeni, da lahko poljubno blizu najdeš točko s čisto drugačno dinamiko. Temu se reče učinek metulja (butterly effect) tj. zaporedje oz. orbita je občutljiva na začetne podatke.
+\item Izkaže se, da je $(C2)$ ekvivalentna obstoju goste orbite, če je $f$ zvezna. Če ni zvezna je pogoj zadosten.
+\item Za kompakt $J \subset I$ se izkaže, da $(c1)$ in $(C2)$ implicirata $(C3)$.
+\item Če je $f$ zvezna iz $(C1)$ in $(C2)$ vedno sledi $(C3)$.
 \end{itemize}
 \end{opomba}
 \noindent
@@ -582,10 +582,10 @@ D:[0, 1) \rightarrow [0, 1) \\
 D(x) = 2x - \lfloor{2x}\rfloor
 \end{align*}
 \begin{figure}[h!]
-    \begin{centering}
+    \begin{center}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb7.png}
         %\caption{pajčevinast diagram iz Primera 3.}
-    \end{centering}
+    \end{center}
 \end{figure}   
 \noindent
 Velja: \\ 
@@ -602,14 +602,14 @@ D(x) = 2x - \lfloor 2x \rfloor = x_1.x_2 x_3 \dots_{(2)} - {x_1}_{(2)} = 0.x_2 x
 \end{align*}
 Temu rečemo tudi operator zamika (shift map), ki "pozabi" prvo decimalko. 
 \begin{enumerate}
-\item[(c1)] Pokažimo, da imamo poljubno blizu točke $x\in [0, 1)$ tudi periodično točko $\tilde{x}$.
+\item[(C1)] Pokažimo, da imamo poljubno blizu točke $x\in [0, 1)$ tudi periodično točko $\tilde{x}$.
 \begin{align*}
 x &= 0.x_1 x_2 \dots x_N x_{N+1} \dots_{(2)} \quad N >> 1 \\ 
 \tilde{x} &= 0.\overline{x_1 x_2 \dots x_N}_{(2)}\\
 \Longrightarrow& |x - \tilde{x}| = 0.0\dots 0x_{N+1}\dots_{(2)} < \frac{1}{2^N}
 \end{align*}
 Očitno je $\tilde{x}$ periodičen, saj je $f^N(\tilde{x}) = \tilde{x}$. Po drugo strani pa je $|x - \tilde{x}| < \frac{1}{2^N}$ tj. poljubno majhna.
-\item[c2)] Pokažimo, da obstaja gosta orbita. Naj bo $x\in [0, 1]$ število z razvojem
+\item[C2)] Pokažimo, da obstaja gosta orbita. Naj bo $x\in [0, 1]$ število z razvojem
 $$
 x = 0.01\, 00\, 01\, 10\, 11\, 000\, 001\, 010\, \dots
 $$
@@ -619,7 +619,7 @@ $$
 x = 0.x_1 x_2\dots x_N x_{N+1}\dots, \quad \text{ za } N>>1.
 $$
 Obstaja tak $m\in \N: f^m(x) = 0.x_1 x_2 \dots x_N y_{N+1}$ tj. $|f^m(\tilde{x}) - x| < \frac{1}{2^N}$.
-\item[c3)] Želimo videti, da poljubno blizu $x\in [0, 1]$ obstaja $\tilde{x} \in [0, 1]$, da je za nek $m\in \N$: $|f^m(x) - f^m(\tilde{x}) \geq \frac{1}{2}$. 
+\item[C3)] Želimo videti, da poljubno blizu $x\in [0, 1]$ obstaja $\tilde{x} \in [0, 1]$, da je za nek $m\in \N$: $|f^m(x) - f^m(\tilde{x}) \geq \frac{1}{2}$. 
 Vzamemo
 $$
 x = 0.x_1 x_2 \dots x_N x_{N+1} \dots_{(2)}
@@ -643,43 +643,43 @@ $$
 T(x)= \begin{cases}2 x ; & x \in\left[0, \frac{1}{2}\right] \\ 2-2 x ; & x \in\left(\frac{1}{2}, 1\right]\end{cases} =2\min\{x, 1 - x\} 
 $$
 \begin{figure}[h!]
-    \begin{centering}
+    \begin{center}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb8.png}
     %\caption{paj čevinast diagram iz Primera 3.}
-    \end{centering}
+    \end{center}
 \end{figure}   
 
 Drugi iterat: 
 $$T^2(x) = \min\{T(x), 1 - T(x)\}$$
 
 \begin{figure}[h!]
-    \begin{centering}
+    \begin{center}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb9.png}
         %\caption{pajčevinast diagram iz Primera 3.}
-    \end{centering}
+    \end{center}
 \end{figure} 
 \newpage
 Podobno dobimo $T^3$ in višje iterate 
 
 \begin{figure}[h!]
-    \begin{centering}
+    \begin{center}
         \includegraphics[width=6cm, height=5.5cm]{Grafi/cobweb10.png}
         %\caption{pajčevinast diagram iz Primera 3.}
-    \end{centering}
+    \end{center}
 \end{figure} 
 
 
 Definiramo intervale 
 $$
-I_{j, n} \coloneqq \Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big], \quad j = \{1, 2, \dots, 2^n\}.
+I_{k, j} \coloneqq \Big[\frac{j-1}{2^k}, \frac{j}{2^k}\Big], \quad j = \{1, 2, \dots, 2^k\}.
 $$
 
 \begin{enumerate}
-\item[c1)] Je izpolnjen, saj ima periodično točko na vsakem intervalu oblike $I_{k, j}$.
+\item[C1)] Je izpolnjen, saj ima periodično točko na vsakem intervalu oblike $I_{k, j}$.
 Perioda teh točk je $n$ ali manjša.
-\item[ii)] Sledi, ker je $f^n(I_{j,n}) = [0, 1]$, tj.
+\item[C2)] Sledi, ker je $f^n(I_{j,n}) = [0, 1]$, tj.
 za $U_1$ obstaja $I_{j, n} \subset U_1$, bo $T(I_{j, n}) \cap U_2 \neq \emptyset$ za poljubni odprti $U_1, U_2 \subset [0, 1]$.
-\item[c3)] Samo ideja: za vsak $x\in [0, 1]$, poiščemo $j, k$ in $\tilde{x} \in I_{j, n}$, 
+\item[C3)] Samo ideja: za vsak $x\in [0, 1]$, poiščemo $j, k$ in $\tilde{x} \in I_{j, n}$, 
 da bo $T^k(x) - T^k(\tilde{x})| \geq \frac{1}{2}$.
 \end{enumerate}
 \end{primer}
@@ -689,8 +689,8 @@ da bo $T^k(x) - T^k(\tilde{x})| \geq \frac{1}{2}$.
 \begin{definicija}
 Pravimo, da sta $f: I \rightarrow I$ in $g: J \rightarrow J$ \textbf{konjugirani}, če obstaja homeomorfizem $h:I \rightarrow J$, da $\forall x\in I$: $h \circ f(x) = g\circ h(x) $
 \end{definicija}
-Imamo komutirajoči diagram za dano definicijo
-\begin{centering}
+Predstavimo z komutirajočim diagramom 
+\begin{center}
 \begin{tikzcd}
 	I && I \\
 	\\
@@ -700,10 +700,10 @@ Imamo komutirajoči diagram za dano definicijo
 	\arrow["h"', from=1-3, to=3-3]
 	\arrow["g", from=3-1, to=3-3]
 \end{tikzcd}
-\end{centering}
+\end{center}
 
 Iz definicije sledi, da je $h(O_f(x)) = O_g(h(x))$ za vsak $x\in I$. Z drugimi 
-besedami orbite $f$ se slikajo v orbite $h$ za $g$. To vodimo iz naslednjega razmisleka: 
+besedami orbite $f$ se slikajo v orbite $h$ za $g$. To vidimo iz naslednjega razmisleka: 
 ker je $h$ obrljiva in $h^{-1}$ zvezna, se zvezno traslira celotna dinamika tj.
 \begin{align*}
 f &= h^{-1} \circ g \circ h \Longrightarrow\\ 
@@ -959,20 +959,20 @@ Očitno je, da je $f$ izpolnjuje $(c3)$, saj sta za velik $n$ števili $2^n x$ i
 $$
 |g^n(x) - g^n(y)| = |x + n\ln(2) - (y + n\ln(2))| = |x-y|
 $$
-konstantna za vse $n\in \N$. Sta pa vseno $f$ in $g$ konjugirani preko $h(x) = \ln(x)$.
+konstantna za vse $n\in \N$. Sta pa kljub temu $f$ in $g$ konjugirani preko $h(x) = \ln(x)$.
 $$
 g(x) = h\circ f\circ h^{-1}(x) = \ln(2e^x) = \ln(e^x) + \ln(2) = x + \ln(2).
 $$.
 \end{opomba}
 
 \begin{primer}
-Poglejmo si sedaj primere semi-konjugacije na Podvojitveni in šotorasti preslikavi. 
+Poglejmo si sedaj primere semi-konjugacije na podvojitveni in šotorasti preslikavi. 
 \begin{align*}
 &D(x) = 2x - \lfloor 2x \rfloor \\ 
 &T(x) = 2\min\{x, 1-x\}
 \end{align*}
 Imamo 
-$$T(D(x)) = 2\min\{D(x), 1 - D(x)\} = T(T(x))$$.
+$$T(D(x)) = 2\min\{D(x), 1 - D(x)\} = T(T(x)).$$
 To pomeni, da je $T$ semi-konjugirana $D$ za $h = T$. Posledično kaotičnost 
 $T$ sledi.
 \end{primer}
@@ -1027,8 +1027,7 @@ Zanima nas, kaj se zgodi z doubling map, če uporabimo to konjugacijo oz. trdimo
 \end{center}
 
 Sklep: $D$ je konjugirana $f: S^1 \rightarrow S^1$, $f(\cos{t}, \sin{t}) = (\cos{2t}, \sin{2t})$
-za $t\in [0, 2\pi]$ tj. preslikavi ki podvoji argument. V kompleksni notacijo bi j
-o zapisali z $e^{it} \mapsto e^{2it}$ ali $z \mapsto z^2$. Posledično je tudi $f$
+za $t\in [0, 2\pi]$ tj. preslikavi ki podvoji argument. V kompleksni notacijo bi jo zapisali z $e^{it} \mapsto e^{2it}$ ali $z \mapsto z^2$. Posledično je tudi $f$
 kaotična.
 \end{primer}
 
@@ -1056,10 +1055,10 @@ Ker je $q_{-2}$ zvezna, po prejšnjem izreku je tudi kaotična.
 
 Za motivacijo si oglejmo enoparametrično družino šotorskih preslikav za $c\in [0, 2]$:
 $$
-T_c(x) = \frac{c}{2}\cdot \min\{x, 1-x\} = \frac{c}{2} T(x).
+T_c(x) = c\min\{x, 1-x\} = \frac{c}{2} T(x).
 $$
 Vse te preslikave interval $[0, 1]$ slikajo vase, dinamike pa se za različne vrednosti malce razlikujejo
-\newpage
+
 \begin{itemize}
 \item če je $c < 1$: 
 \begin{figure}[h!]
@@ -1069,7 +1068,7 @@ Vse te preslikave interval $[0, 1]$ slikajo vase, dinamike pa se za različne vr
     \end{center}
 \end{figure} 
 
-$x_0$ je edina periodična točka, gre pa za privlačno fiksno točko, saj je $T_c'(0) = c < 1$.
+$x_0 = 0$ je edina periodična točka, gre pa za privlačno fiksno točko, saj je $T_c'(0) = c < 1$.
 \item če je $c = 1$: 
 \begin{figure}[h!]
     \begin{center}
@@ -1077,7 +1076,7 @@ $x_0$ je edina periodična točka, gre pa za privlačno fiksno točko, saj je $T
         %\caption{pajčevinast diagram iz Primera 3.}
     \end{center}
 \end{figure}
-\newpage
+vse točke na $[0, \frac{1}{2}]$ so fiksne in nevtralne, točke $(\frac{1}{2}, 1]$ pa se slikajo vanje.
 \item če je $c\in (1, 2]$: 
 \begin{figure}[h!]
     \begin{center}
@@ -1129,7 +1128,7 @@ Točkam, pri katerih se zgodi "kvalitativna sprememba" dinamike, pravimo bifurka
 Formalno:
 
 Obravnavamo družino zveznih funkcij $f_c: I \rightarrow I \subset \R$, 
-za parametr $c\in J \subset \R$. Ta družina je $C^k$-odvisna od $c$, če 
+za parameter $c\in J \subset \R$. Ta družina je $C^k$-odvisna od $c$, če 
 $k$-ti parcialni odvodi $F(x, c) \coloneqq f_c(x)$ obstajajo
 $\frac{\partial^k}{\partial c^k} F(x, c)$ in so zvezni, za $k\in \N_0$. 
 Na primer $T_c(x) = \frac{c}{2} T(x)$ je taka, čeprav ni odvedljiva po $x$ v 
@@ -1148,7 +1147,7 @@ Pri motivaciji smo opazili različne tipe bifurkacij:
 \begin{itemize}
 \item Fiksna točka se je pojavila in izginila (npr. $x = \frac{1}{4}$ pri $c=1$).
 \item Fiksna točka se je pojavila in nato podvojila (za $c = \frac{1 + \sqrt{5}}{2}$ in poljubni fiksni točki)
-\item Iz fiksne točke $x = \frac{1}{2}$, ki se pojavi pri $c = 1$, smo dobili fiksno točko drugega tipa in $2$-cikel.
+\item Iz fiksno točko $x = \frac{1}{2}$, ki se pojavi pri $c = 1$, smo dobili fiksno točko drugega tipa in $2$-cikel.
 \end{itemize}
 Ključna opazka je, da so se spremembe zgodile, ko je odvod v fiksni točki $1$ ali pa ne obstaja.
 
@@ -1451,7 +1450,7 @@ kot zgoraj in naredimo naslednje korake
     da je $f^n(x) = x$.     
 \end{itemize}
 Minimalnost števila $n$: ker je $f^k(x) \in [b, c]$ za $k\in \{1, 2, \dots, n-2\}$, $x\in J_n$
-in $f^{n-1}(x) \in [a, b)$. Res $f^{n-1}(x) \neq b$, saj bi v nasprotnem 
+in $f^{n+1}(x) \in [a, b)$. Res $f^{n-1}(x) \neq b$, saj bi v nasprotnem 
 primeru veljalo $f^{n-1}(x) = a = f(x) \not\in [b, c]$. 
 
 Sklep: perioda ni $n-1$, ker je $x\in [b, c]$ in $f^{n-1}(x)\in [a, b)$. 
@@ -1461,12 +1460,12 @@ Ni pa tudi manjša, ker za $k < n-1$ perioda nebi smela zapustiti $[b, c]$.
 \begin{primer}
 Za šotorsko preslikavo $T_c(x)$ smo povedali, da se $3$-cikel pojavi 
 pri $c \geq \frac{1 + \sqrt{5}}{2}$. Torej imamo od tam dalje, tudi periode 
-vseh ostalih dolžin. To je konsistentno tudi za $c > 2$. kjer $n$ - cikle 
+vseh ostalih dolžin. To je konsistentno tudi za $c > 2$, kjer $n$ - cikle 
 tvorimo s simbolično dinamiko. 
 \end{primer}
 
 \begin{primer}
-Nujnost zvezvnosti: 
+Nujnost zveznosti: 
 \begin{align*}
 f(x) = 1 - \frac{1}{x} \,\Longrightarrow\, &f^2(x) = 1 - \frac{1}{1 - \frac{1}{x}} = \frac{1}{1-x} \\
 &f^3(x) = 1 - \frac{1}{\frac{1}{1-x}} = 1 - (1-x) = x.
@@ -1475,7 +1474,7 @@ Vidimo, da so vse točke $3$-cikli. Izjema sta točki $x = 0$ in $x = 1$,
 saj $f(0)$ in $f^2(1)$ nista definirani.
 \end{primer}
 
-Šikorski je leta $1965$, da velja še več: 
+Šikorski je leta $1965$ pokazal, da velja še več: 
 \begin{itemize}
     \item $\forall p\in \N$. $\exists m, n\in \N_0$: $p = 2^m(2n+1)$.
     \item $p_1 \triangleright p_2$ $\iff$ $m_1 < m_2$ ali $m_1 = m_2$ in $0 < n_1 < n_2$
@@ -1483,7 +1482,7 @@ saj $f(0)$ in $f^2(1)$ nista definirani.
     2^0 \cdot 3 \triangleright 2^0 \cdot 5 \triangleright 2^0 \cdot 7 \triangleright \dots 2\cdot 3 \triangleright 2\cdot 5 \triangleright \dots \triangleright 2^m \cdot (2n+1).
     $$
     \item Nato na konec te vrste dodamo števila z $n=0$ v padajočem 
-    vrstesnem redu:
+    vrstnem redu:
     $$
     2^m (2n+1) \triangleright 2^k \triangleright 2^{k-1} \triangleright \dots \triangleright 2 \triangleright 1.
     $$
@@ -1591,7 +1590,7 @@ V desetiškem zapisu je to
 Preverimo: $F^3\Big(\frac{1}{7}, \frac{4}{7}\Big) = F^2\Big(\frac{2}{7}, \frac{2}{7}\Big) = F^3\Big(\frac{4}{7}, \frac{1}{7}\Big) = \Big(\frac{1}{7}, \frac{4}{7}\Big)$.
 
 \begin{opomba}
-    V splošnem taka tčka ne implicira obstoja vseh periodičnih točk, saj 
+    V splošnem taka točka ne implicira obstoja vseh periodičnih točk, saj 
     izrek Šikorskega drži le za $n=1$, vendar v tem primeru obstajajo cikli 
     poljubne dolžine.
 \end{opomba}
@@ -1622,7 +1621,7 @@ Oglejmo si še tri linearne primere s konstantnimi koeficienti:
     \end{array}\right)\binom{x}{y}$$
 Zanima nas zaporedje 
 $$
-\binom{x_{n+1}}{y_{n+1}} = \text{\Large A} \binom{x_n}{y_n} = \dots = \text{\Large A}^{n+1} \binom{x_0}{y_0} .
+\binom{x_{n+1}}{y_{n+1}} = \text{ A} \binom{x_n}{y_n} = \dots = \text{A}^{n+1} \binom{x_0}{y_0} .
 $$
 Potenco izračunamo z diagonalizacijo matrike $A$ oz. Jordanovim razcepom
 $$
@@ -1656,7 +1655,6 @@ A = \left(\begin{array}{ll}
         1 & \!\!\!-1
     \end{array}\right)
 $$
-rap both parts in a node and shift them to center:
 
 \begin{center}
 \begin{tikzpicture}[scale=1.3,>=stealth]
@@ -1766,7 +1764,7 @@ odbojna
     $$
     a_{n+1} = a_n + a_{n-1}.
     $$
-    Podobno kot pri NDE lahkom lahko rekurzivne enačbe prevedemo na sistem.
+    Podobno kot pri NDE, lahko rekurzivne enačbe prevedemo na sistem.
 
     \begin{align*}
     \binom{x_{n+1}}{y_{n+1}} &= \binom{a_n}{a_{n+1}} = \binom{a_n}{a_{n} + a_{n-1}} = 
@@ -1808,7 +1806,7 @@ V primeru $2\times 2$ matrik imamo dve možnosti:
         \end{array}\right)$, če $|\lambda_1|, \lambda_2| < 1$.
     \item $J = \left(\begin{array}{ll}
     \lambda & 1 \\
-    0 & 1
+    0 & \lambda
     \end{array}\right) = \left(\begin{array}{ll}
         \lambda^n & n\cdot \lambda^{n-1} \\
         0 & \,\,\,\,\lambda^n
@@ -1837,6 +1835,7 @@ okolico $\vec{x_0}$ slika vase in zanj velja $\varphi \circ DF(\vec{x}_0) = F \c
 \end{izrek}
 
 \begin{proof}[Dokaz:]
+    \hfill
 \begin{itemize}
     \item Brez škode za splošnost je $\vec{x_0} = 0$, kar dosežemo s translacijo. 
     \item Ker je $F \in C^1$, velja razvoj 
@@ -1847,7 +1846,7 @@ okolico $\vec{x_0}$ slika vase in zanj velja $\varphi \circ DF(\vec{x}_0) = F \c
     kjer sta $r(\vec{x})$ ostanek reda $|\vec{x}|^2$ in $A = DF(\vec{x}_0)$.
     \item Sumimo, da je $\varphi$ skoraj indentiteta t.j. $\varphi(\vec{x}) = \vec{x} + h(\vec{x})$ 
     za nek $h$ z majhno absolutno vrednostjo. To vstavimo v zvezo: 
-    $$\varphi \circ A(\vec{x}) = A\vec{x} + \vec{A\vec{x}} = F\circ \varphi(\vec{x}) = F(\vec{x} + h(\vec{x})) = A(\vec{x} + h(\vec{x})) + \vec{r}(\vec{x} + h(\vec{x})).$$
+    $$\varphi \circ A(\vec{x}) = A\vec{x} + h(A\vec{x}) = F\circ \varphi(\vec{x}) = F(\vec{x} + h(\vec{x})) = A(\vec{x} + h(\vec{x})) + \vec{r}(\vec{x} + h(\vec{x})).$$
     Dobimo: $$ h(A\vec{x}) = Ah(\vec{x}) + \vec{r}(\vec{x} + h(\vec{x})) $$ oz. 
     $$ h(\vec{y}) = Ah(A^{-1} \vec{y}) + \vec{r}(A^{-1} \vec{y} + h(A^{-1} \vec{y})) $$ za $y = A\vec{x}$
     \item Ključen del je pokazati, da je desna stran 
