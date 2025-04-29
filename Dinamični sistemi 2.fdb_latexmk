@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1745436259.5906 "/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinamični sistemi 2.tex" "Dinamični sistemi 2.pdf" "Dinamični sistemi 2" 1745436260.76133 0
-  "/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinamični sistemi 2.tex" 1745436259.42827 69264 a81f9b9205ada8c4e7e34527f05301b7 ""
+["pdflatex"] 1745564207.84738 "/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinamični sistemi 2.tex" "Dinamični sistemi 2.pdf" "Dinamični sistemi 2" 1745564209.08738 0
+  "/Users/uroskosmac/Desktop/Dinamicni-sistemi/Dinamični sistemi 2.tex" 1745564207.64978 69283 cba425a24214cf4b3192a6e64879ef5e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -284,9 +284,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1742917895 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1742917876 3345739 ffe335e16861018dcb8662250095c13f ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Dinamični sistemi 2.aux" 1745436260.67423 880 251d924934225edfdfb3c2d9fcc91308 "pdflatex"
-  "Dinamični sistemi 2.out" 1745436260.67482 915 af697b33fb68bbbc5d2b6b6cdb0b6407 "pdflatex"
-  "Dinamični sistemi 2.tex" 1745436259.42827 69264 a81f9b9205ada8c4e7e34527f05301b7 ""
+  "Dinamični sistemi 2.aux" 1745564208.99738 880 251d924934225edfdfb3c2d9fcc91308 "pdflatex"
+  "Dinamični sistemi 2.out" 1745564208.99779 915 af697b33fb68bbbc5d2b6b6cdb0b6407 "pdflatex"
+  "Dinamični sistemi 2.tex" 1745564207.64978 69283 cba425a24214cf4b3192a6e64879ef5e ""
   "Grafi/cobweb20.png" 1744200367.03911 38148 9fb4b74df67653051549079e61b29c83 ""
   (generated)
   "Dinamični sistemi 2.aux"

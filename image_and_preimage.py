@@ -6,7 +6,7 @@ s = 0.5
 x=np.linspace(-s,s,10000)
 y = x 
 
-n = 3
+n = 1
 a = 4
 b = 1
 
@@ -25,7 +25,7 @@ for i in range(1, n+1):
     Hinv_y = Hinv_x - 1 + (a/(b*b))*(Hinv_y*Hinv_y)
 
 #plt.figure()
-plt.plot(H_x, H_y)
+#plt.plot(H_x, H_y)
 
 #plt.figure()
 plt.plot(Hinv_x, Hinv_y)
@@ -65,3 +65,19 @@ def horseshoe_map(X, Y, stretch=2.0, compress=0.5):
 #     plt.axis('equal')
 #     plt.axis('off')
 #     plt.show()
+
+a = 1.4
+b = 0.3
+n = 1000
+
+x, y = 1, 0
+xs, ys = [], []
+
+for _ in range(n):
+    x, y = 1 - a*x**2 + y, b*x
+    xs.append(x)
+    ys.append(y)
+
+plt.plot(xs, ys, '.', markersize=2)
+#plt.title("Orbit of (1,0) under H_{1.4,0.3}(1,0)")
+plt.show()

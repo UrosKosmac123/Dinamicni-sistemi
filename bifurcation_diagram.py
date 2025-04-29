@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-P=np.linspace(1,2,10000)
+P=np.linspace(-5,5,1000000)
 m=0.7
 # Initialize your data containers identically
 X = []

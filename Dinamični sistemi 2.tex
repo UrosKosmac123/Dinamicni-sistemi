@@ -80,7 +80,7 @@ f'(z) = \lim_{h\rightarrow 0} \frac{f(z + h) - f(z)}{h}.
 Množico holomorfnih funkcij na $D$ označimo z $\Ho(D)$.
 \end{definicija}
 
-Če kompleskno funkcijo zapišemo kot 
+Če kompleksno funkcijo zapišemo kot 
 $$
 f(z) = u(z) + iv(z) = u(x, y) + iv(x, y) \,\, \text{ za } \,\, u, v\in C^1(D)
 $$
@@ -89,7 +89,7 @@ enačb:
 \begin{equation}
 u_x = v_y \,\,\text{ in }\,\, u_y = -v_x.
 \end{equation}
-Praksi so to običajno tiste, ki ne vsebujejo $\bar{z}$.
+V praksi so to običajno tiste, ki ne vsebujejo $\bar{z}$.
 \noindent
 Družina holomorfnih funkcij je precej "toga" oz. 
 zanje veljajo razmeroma stroge omejitve in lastnosti 
@@ -128,7 +128,7 @@ Osrednja primera
     f = \frac{p(z)}{q(z)} = \frac{C_d z^d + C_{d-1} z^{d-1} + \dots + C_0}{B_d z^d + B_{d-1} z^{d-1} + \dots + B_0},
     $$
     kjer sta $p, q$ polinoma. Imajo deg$(p)$ ničel in deg$(q)$ polov., stopnjo 
-    pa definiramo kot deg$(f) = \max\{\text{def}(p), \text{def}(q)\}$.
+    pa definiramo kot deg$(f) = \max\{\text{deg}(p), \text{deg}(q)\}$.
 \end{enumerate}
 \end{primer}
 \noindent
@@ -245,8 +245,8 @@ Funkcija $f: \hat{\C} \rightarrow \hat{\C}$ je holomorfna natanko tedaj, ko je r
 
 \begin{proof}[Dokaz:]
 ~\\
-$(\Longleftarrow)$: sledi iz primerov.\\ 
-$(\Longrightarrow)$: 
+$(\Longrightarrow)$: sledi iz primerov.\\ 
+$(\Longleftarrow)$: 
 Za funkcijo, ki jo lahko holomorfno razširimo na $\hat{\C}$, velja:
 \begin{enumerate}
 \item[i)] če $f\in \Ho(\C)$ nima polov in $f(\infty) \neq \infty$ je po Liouvillovem izreku konstantna, saj je omejena.
@@ -255,7 +255,7 @@ Posledično bo tudi $f(\infty) = \infty$ in zaradi zveznosti in $f \equiv \infty
 \item[iii)] Če ima $f$ le končno mnogo polov, ima po podobnem argumentu, kot pri $ii)$ tudi končno mnogo ničel. Potem definiramo $R$, racionalno funkcijo z istimi ničlami in poli. 
 Po $i)$ je $\frac{f}{R}$ konstantna.
 \end{enumerate}
-Povzetek: takoj ko ima $f$ neskočno ničel ali polov oz. kako bistveno singularnost, je nemoremo obravnavati na $\hat{C}$ oz. ni holomorfna na $\hat{\C}$.
+Povzetek: takoj ko ima $f$ neskočno ničel ali polov oz. kako bistveno singularnost, je nemoremo obravnavati na $\hat{\C}$ oz. ni holomorfna na $\hat{\C}$.
 \end{proof}
 
 \section{Fatoujeva in Juliajeva množica}
@@ -330,7 +330,11 @@ Sklep: kompleksna ravnina oz. Riemannova sfera razpade na dve disjunktni množic
 Za formalno definicijo teh dve množic rabimo koncept normalnih družin.
 
 \begin{definicija}
-Zaporedje $(f_n)_{n\in\N} \subset \Ho(D)$ za $D \subseteq \C$, konvergira k $f \in \Ho(D)$ \textbf{enakomerno po kompaktih} na $D$, če $\forall \epsilon > 0$ in $\forall K^{komp.} \subset D$ $\exists n_0\in \N$: $\forall n \geq n_0$ in $z\in K$, velja $|f_n(z) - f(z)| < \epsilon$.
+Zaporedje $(f_n)_{n\in\N} \subset \Ho(D)$ za $D \subseteq \C$, 
+konvergira k $f \in \Ho(D)$ \textbf{enakomerno po kompaktih} na 
+$D$, če $\forall \epsilon > 0$ in $\forall K^{komp.} \subset D$ 
+$\exists n_0\in \N$: $\forall n \geq n_0$ in $z\in K$, velja 
+$|f_n(z) - f(z)| < \epsilon$.
 \end{definicija}
 
 \begin{primer}
@@ -368,7 +372,7 @@ na $\D(a, r)$. Torej je taka tudi $f$.
 \end{proof}
 
 \begin{definicija}
-Družina $\F \subset \Ho(D)$, $D \subseteq \hat{C}$ je 
+Družina $\F \subset \Ho(D)$, $D \subseteq \hat{\C}$ je 
 \textbf{normalna na $D$}, če za vsako zaporedje $(f_n)_{n\in \N} 
 \subset \F$ obstaja podzaporedje $(f_{n_k})_{k\in\N}$, ki konvergira enakomerno po 
 kompaktih k neki $f\in \Ho(D)$ ali k $f\equiv \infty$.
@@ -399,7 +403,7 @@ Naj bo $f \in \Ho(D)$, $D\subseteq \hat{\C}$. Njena
  $z\in D$, za katere obstaja okolica $U\subset D$, da je družica 
  $\{f^n \,|\, n\in \N\}$ normalna na $U$. Njena 
  \textbf{Juliajeva množica} pa je definirana kot komplement 
- $\mathcal{J}_f = D\backslash \F_f$.
+ $\mathcal{J}_f = D\slash \F_f$.
 \end{definicija}
 
 \begin{primer}
@@ -407,9 +411,9 @@ $f(z) = z^2 \Longrightarrow f^n(z) = z^{2^n}$
 \begin{itemize}
     \item  $|z| < 1$: konvergira enakomerno po kompaktih na 
     \item $|z| = 1$: normalnost nimamo v nobeni okolici, saj so blizu točkam, ki gredo v $\infty$ in takim, ki gredo k $0$, zato tudi, če bi obstajala limita podzaporedja, ne bi bila zvezna. 
-    \item $|z| > 1$: konvergira enakomerno po kompaktih na $\hat{C}\slash\D$ $\Longrightarrow$ $\D \subset \F_f$ k $\infty$.
+    \item $|z| > 1$: konvergira enakomerno po kompaktih na $\hat{\C}\slash\D$ $\Longrightarrow$ $\D \subset \F_f$ k $\infty$.
     \begin{proof}[Dokaz:]
-    Za $K \subset \hat{C} \slash \overline{\D}$ obstaja $r > 1$, da je $\D(0, r) \cap K = \emptyset$, oz. $|z| \geq r$ za $z\in K$. \\ 
+    Za $K \subset \hat{\C} \slash \overline{\D}$ obstaja $r > 1$, da je $\D(0, r) \cap K = \emptyset$, oz. $|z| \geq r$ za $z\in K$. \\ 
     Posledično:
     $$
     |f^n(z)| = |z^{2^n}| \geq r^{2^n} \rightarrow \infty.
@@ -575,11 +579,11 @@ transliraš v $z \mapsto a z$ za $a\in \C$.
 \end{primer}
     
 \begin{primer}
-Poglejmo si dinamo preslikave $q_{-2} = z^2 - 2$. Vzamemo konjugacijo
+Poglejmo si dinamiko preslikave $q_{-2} = z^2 - 2$. Vzamemo konjugacijo
 $h(z) = z + \frac{1}{z}$.
 \begin{itemize}
     \item $h(z) = w$ $\iff$ $z^2 - wz + 1 = 0$ ima največ $2$ rešitvi.
-    \item Očitno velja $h(z) = h(\frac{1}{z})$ t.j. $\D$ in $\C \backslash$ 
+    \item Očitno velja $h(z) = h(\frac{1}{z})$ t.j. $\D$ in $\C \backslash \D$ 
     se zlepita skupaj.
     \item $|z| = 1$ $\Longrightarrow$ $z + \frac{1}{z} = z + \bar{z} = 2\Re(z)$. Preslikava 
     $h: \partial \D \rightarrow [-2, 2]$ je surjektivna, kjer je moč 
@@ -643,7 +647,7 @@ V okolici privlačne\slash odbojne točke je funkcija konjugirana
 preslikavi $g(z) = \lambda z$.
 \end{trditev}
 
-\begin{proof}
+\begin{proof}[Dokaz:]
 BŠS vzamemo $z_0 = 0$. Postopamo podobno kot pri Hartman-Grobman izreku in 
 zapišemo:
 \begin{align*}
@@ -1607,7 +1611,7 @@ da imamo lahko največ dve taki komponenti.
 
 \begin{proof}[Dokaz:]
     Predpostavimo, da je komponent končno. Trdimo, da so takrat 
-    vse periodične ali fiksne t.j. ne more se zgoditi predperiodičen primer.\\
+    vse periodične ali fiksne t.j. ne more se zgoditi predperiodičen primer\\
     \begin{center}
     \begin{tikzpicture}[>=Stealth, thick, scale=1]
         % First blob (U)
